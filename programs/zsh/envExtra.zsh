@@ -8,9 +8,6 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_EMOJI=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# ccache
-export PATH="$(brew --prefix ccache)/libexec:$PATH"
-
 # fnm shell env
 eval "$(fnm env --use-on-cd)"
 

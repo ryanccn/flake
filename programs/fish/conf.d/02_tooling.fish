@@ -8,9 +8,6 @@ set -x HOMEBREW_NO_INSECURE_REDIRECT 1
 set -x HOMEBREW_NO_EMOJI 1
 /opt/homebrew/bin/brew shellenv | source
 
-# ccache
-fish_add_path "$(brew --prefix ccache)/libexec"
-
 # fnm shell env
 fnm env --use-on-cd | source
 
