@@ -3,19 +3,35 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    attic.url = "github:zhaofengli/attic";
-    attic.inputs.nixpkgs.follows = "nixpkgs";
+    attic = {
+      url = "github:zhaofengli/attic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    catppuccin.url = "github:Stonks3141/ctp-nix";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin = {
+      url = "github:Stonks3141/ctp-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -23,6 +39,7 @@
     nix-darwin,
     home-manager,
     agenix,
+    fenix,
     attic,
     catppuccin,
     ...
@@ -32,18 +49,24 @@
         nil
         alejandra
         attic-client
-        exa
+        cachix
+        direnv
+
+        fenix.packages.${system}.stable.defaultToolchain
+        ccache
+        ccacheWrapper
+        deno
+        fnm
+        go
+        bun
+
         pkgs."_1password"
         age
         pkgs.agenix
         asciinema
         bat
         btop
-        ccache
-        ccacheWrapper
         cloudflared
-        deno
-        direnv
         doggo
         doppler
         du-dust
@@ -53,9 +76,7 @@
         ffmpeg
         fish
         flyctl
-        fnm
         fzf
-        go
         gh
         git
         git-lfs
@@ -68,7 +89,6 @@
         mkcert
         nerdfix
         opencv
-        bun
         pipx
         pscale
         pyenv
@@ -78,7 +98,6 @@
         starship
         tealdeer
         tokei
-        # ttfautohint
         vhs
         vivid
         xh
@@ -94,13 +113,22 @@
         trusted-users = ["ryanccn"];
         auto-optimise-store = true;
         extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
+
         extra-sandbox-paths = ["/nix/var/cache/ccache"];
+
+        extra-substituters = [
+          "https://nix-community.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
       };
 
       nixpkgs = {
         overlays = [
           attic.overlays.default
           agenix.overlays.default
+          fenix.overlays.default
           (import ./overlays/ccache-wrapper.nix)
         ];
 
@@ -132,7 +160,6 @@
             agenixModule = agenix.homeManagerModules.age;
             ctpModule = catppuccin.homeManagerModules.catppuccin;
           };
-          nixpkgs.overlays = [attic.overlays.default];
 
           users.users.ryanccn.home = "/Users/ryanccn";
           home-manager.users.ryanccn = import ./home.nix;
