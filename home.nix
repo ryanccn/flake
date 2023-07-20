@@ -24,6 +24,6 @@
 
   age.secrets."attic.toml" = {
     file = ./secrets/attic.toml.age;
-    path = "${config.xdg.configHome}/attic/config.toml";
+    path = "${config.home.homeDirectory}/.config/attic/config.toml";
   };
 }
