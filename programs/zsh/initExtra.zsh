@@ -26,23 +26,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 zstyle ':completion:*' group-name \'\'
 
-# aliases
-alias vim="hx"
-alias ls="exa --all --icons"
-alias dig="doggo"
-
-alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
-alias ghrvw="gh repo view --web"
-
-alias opr="op run --env-file=.env.1password --"
-alias dr="doppler run --"
-
-alias dequarantine="xattr -d com.apple.quarantine"
-
-alias bcpa="brew cleanup --prune=all"
-alias puil="pnpm update --interactive --latest"
-alias pip-upgrade-all="pip --disable-pip-version-check list --outdated --format=json | python -c \"import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))\" | xargs -n1 pip install -U"
-
 function take() {
   mkdir "$1"
   cd "$1" || return 1

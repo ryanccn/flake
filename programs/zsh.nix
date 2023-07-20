@@ -11,6 +11,8 @@
     initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
     initExtra = builtins.readFile ./zsh/initExtra.zsh;
 
+    shellAliases = import ./aliases.nix;
+
     localVariables = {
       vivid_theme = "catppuccin-macchiato";
     };
