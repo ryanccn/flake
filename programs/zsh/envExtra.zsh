@@ -17,15 +17,11 @@ command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PIPX_DEFAULT_PYTHON="$HOME/.pyenv/shims/python"
 
-# cargo
-source "$HOME/.cargo/env"
-
 # deno
 export PATH="$HOME/.deno/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="''${HOME}/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="${HOME}/Library/pnpm"
 
 # disable telemetry
 export NEXT_TELEMETRY_DISABLED=1    # Next.js
