@@ -32,10 +32,6 @@ export NEXT_TELEMETRY_DISABLED=1    # Next.js
 export CHECKPOINT_DISABLE=1         # Prisma
 export DISABLE_TELEMETRY=YES        # diffusers
 
-# go
-export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$PATH"
-
 # direnv
 export DIRENV_LOG_FORMAT=""
 

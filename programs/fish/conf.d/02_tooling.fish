@@ -30,10 +30,6 @@ set -x NEXT_TELEMETRY_DISABLED 1    # Next.js
 set -x CHECKPOINT_DISABLE 1         # Prisma
 set -x DISABLE_TELEMETRY YES        # diffusers
 
-# go
-set -x GOPATH "$HOME/.go"
-fish_add_path "$GOPATH/bin"
-
 # direnv
 set -x DIRENV_LOG_FORMAT ""
 

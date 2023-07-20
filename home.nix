@@ -14,6 +14,7 @@
     ./programs/git.nix
     ./programs/bat.nix
     ./programs/helix.nix
+    ./programs/go.nix
   ];
 
   programs.home-manager.enable = true;
