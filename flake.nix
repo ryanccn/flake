@@ -102,6 +102,10 @@
         vivid
         xh
         zoxide
+
+        (import ./pkgs/gen-license.nix {
+          inherit (pkgs) lib stdenv rustPlatform fetchCrate darwin libiconv pkg-config;
+        })
       ];
 
       services.nix-daemon.enable = true;
