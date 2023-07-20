@@ -1,4 +1,5 @@
 {
+  config,
   agenixModule,
   ctpModule,
   ...
@@ -22,6 +23,6 @@
 
   age.secrets."attic.toml" = {
     file = ./secrets/attic.toml.age;
-    path = "/Users/ryanccn/.config/attic/config.toml";
+    path = "${config.xdg.configHome}/attic/config.toml";
   };
 }

@@ -128,13 +128,14 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          nixpkgs.overlays = [attic.overlays.default];
-
-          users.users.ryanccn.home = "/Users/ryanccn";
-          home-manager.users.ryanccn = import ./home.nix {
+          home-manager.extraSpecialArgs = {
             agenixModule = agenix.homeManagerModules.age;
             ctpModule = catppuccin.homeManagerModules.catppuccin;
           };
+          nixpkgs.overlays = [attic.overlays.default];
+
+          users.users.ryanccn.home = "/Users/ryanccn";
+          home-manager.users.ryanccn = import ./home.nix;
         }
       ];
     };
