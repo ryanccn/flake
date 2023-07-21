@@ -16,11 +16,15 @@
     attic = {
       url = "github:zhaofengli/attic";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "nix-darwin";
     };
 
     fenix = {
@@ -31,6 +35,12 @@
     catppuccin = {
       url = "github:Stonks3141/ctp-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
     };
   };
 
