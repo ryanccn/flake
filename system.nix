@@ -16,7 +16,6 @@
 
     fenix.packages.${system}.stable.defaultToolchain
     ccache
-    ccacheWrapper
     deno
     fnm
     go
@@ -77,7 +76,7 @@
     auto-optimise-store = true;
     extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
 
-    extra-sandbox-paths = ["/nix/var/cache/ccache"];
+    # extra-sandbox-paths = ["/nix/var/cache/ccache"];
 
     extra-substituters = [
       "https://nix-community.cachix.org"
@@ -92,7 +91,6 @@
       attic.overlays.default
       agenix.overlays.default
       fenix.overlays.default
-      (import ./overlays/ccache-wrapper.nix)
       (import ./overlays/gen-license.nix)
     ];
 
