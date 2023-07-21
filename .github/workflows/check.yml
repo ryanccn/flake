@@ -18,5 +18,5 @@ jobs:
 
       - name: Check Nix flake Nixpkgs inputs
         uses: DeterminateSystems/flake-checker-action@main
-        env:
-          FLAKE_CHECKER_NO_TELEMETRY: true
+        with:
+          send-statistics: false
