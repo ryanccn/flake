@@ -21,6 +21,10 @@
     go
     bun
 
+    helix
+    rust-analyzer
+    nodePackages.typescript-language-server
+
     pkgs."_1password"
     age
     pkgs.agenix
@@ -43,7 +47,6 @@
     git-lfs
     gen-license
     gum
-    helix
     hyperfine
     jq
     just
