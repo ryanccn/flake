@@ -48,6 +48,7 @@
       environment.systemPackages = with pkgs; [
         nil
         alejandra
+        nixpkgs-fmt
         attic-client
         cachix
         direnv
@@ -80,6 +81,7 @@
         gh
         git
         git-lfs
+        gen-license
         gum
         helix
         hyperfine
@@ -102,10 +104,6 @@
         vivid
         xh
         zoxide
-
-        (import ./pkgs/gen-license.nix {
-          inherit (pkgs) lib stdenv rustPlatform fetchCrate darwin libiconv pkg-config;
-        })
       ];
 
       services.nix-daemon.enable = true;
@@ -134,6 +132,7 @@
           agenix.overlays.default
           fenix.overlays.default
           (import ./overlays/ccache-wrapper.nix)
+          (import ./overlays/gen-license.nix)
         ];
 
         config.allowUnfree = true;
