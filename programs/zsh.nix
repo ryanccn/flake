@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ./aliases.nix);
+in {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -11,7 +13,7 @@
     initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
     initExtra = builtins.readFile ./zsh/initExtra.zsh;
 
-    shellAliases = import ./aliases.nix;
+    inherit shellAliases;
 
     localVariables = {
       vivid_theme = "catppuccin-macchiato";
