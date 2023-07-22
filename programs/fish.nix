@@ -6,6 +6,17 @@ in {
   programs.fish = {
     enable = true;
     inherit shellAbbrs shellAliases;
+    functions = {
+      take = ''
+        set dir $argv[1]
+        if [ -z "$dir" ]
+            echo "QHAR?!?!?!"
+            return 1
+        end
+        mkdir "$dir"
+        cd "$dir"
+      '';
+    };
   };
 
   home.file.".config/fish/conf.d" = {
