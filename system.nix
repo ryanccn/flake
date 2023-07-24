@@ -111,6 +111,27 @@
     end
   '';
 
+  homebrew = {
+    enable = true;
+    caskArgs.require_sha = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+
+    casks = let
+      noQuarantine = name: {
+        inherit name;
+        args = {no_quarantine = true;};
+      };
+    in [
+      "blackhole-16ch"
+      (noQuarantine "eloston-chromium")
+      "sf-symbols"
+    ];
+  };
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
