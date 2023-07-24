@@ -1,9 +1,5 @@
 {
   "vim".command = "hx";
-  "ls" = {
-    command = "exa --all --icons";
-    fishAlias = true;
-  };
   "dig".command = "doggo";
 
   "glol" = {
