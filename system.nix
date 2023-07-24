@@ -18,10 +18,8 @@
     ccache
     deno
     fnm
-    go
     bun
 
-    helix
     rust-analyzer
     nodePackages.typescript-language-server
 
@@ -35,16 +33,12 @@
     doggo
     doppler
     du-dust
-    exa
     exiftool
     fd
     ffmpeg
-    fish
     flyctl
     fzf
     gh
-    git
-    git-lfs
     gen-license
     gum
     hyperfine
@@ -60,7 +54,6 @@
     railway
     redis
     silicon
-    starship
     tealdeer
     tokei
     vhs
