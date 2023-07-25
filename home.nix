@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   agenixModule,
   ctpModule,
@@ -19,7 +20,10 @@
   ];
 
   programs.home-manager.enable = true;
-  home.packages = [];
+  home.packages = with pkgs; [
+    ryan-mono-bin
+    ryan-term-bin
+  ];
 
   catppuccin.flavour = "frappe";
 

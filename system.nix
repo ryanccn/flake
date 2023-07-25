@@ -88,6 +88,7 @@
       agenix.overlays.default
       fenix.overlays.default
       (import ./overlays/gen-license.nix)
+      (import ./overlays/ryan-mono-bin.nix)
     ];
 
     config.allowUnfree = true;
