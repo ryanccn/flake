@@ -20,6 +20,15 @@
     fnm
     bun
 
+    (python311.withPackages (ps:
+      with ps; [
+        yt-dlp
+        xkcdpass
+        # catppuccin-catwalk
+      ]))
+    libffi
+    openssl
+
     rust-analyzer
     nodePackages.typescript-language-server
 
@@ -48,7 +57,6 @@
     mkcert
     nerdfix
     opencv
-    pipx
     pscale
     pyenv
     railway
