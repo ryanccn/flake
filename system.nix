@@ -96,7 +96,7 @@
       attic.overlays.default
       agenix.overlays.default
       fenix.overlays.default
-      (import ./overlays/gen-license.nix)
+      (import ./overlays/discord-applemusic-rich-presence.nix)
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
