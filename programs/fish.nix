@@ -6,6 +6,7 @@ in {
   programs.fish = {
     enable = true;
     inherit shellAbbrs shellAliases;
+
     functions = {
       take = ''
         set dir $argv[1]
@@ -15,6 +16,14 @@ in {
         end
         mkdir "$dir"
         cd "$dir"
+      '';
+      where = ''
+        set name $argv[1]
+        for p in $PATH
+            if test -e "$p/$name"
+                echo "$p/$name"
+            end
+        end
       '';
     };
   };
