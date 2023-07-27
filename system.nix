@@ -4,6 +4,7 @@
   agenix,
   fenix,
   catppuccin,
+  caarlos0,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -56,7 +57,6 @@
     spicetify-cli
     mkcert
     nerdfix
-    opencv
     pscale
     pyenv
     railway
@@ -68,6 +68,7 @@
     vivid
     xh
     zoxide
+    caarlos0.packages.${system}.fork-cleaner
   ];
 
   services.nix-daemon.enable = true;
@@ -139,6 +140,7 @@
   home-manager.extraSpecialArgs = {
     agenixModule = agenix.homeManagerModules.age;
     ctpModule = catppuccin.homeManagerModules.catppuccin;
+    caarlosModule = caarlos0.homeManagerModules.default;
   };
 
   users.users.ryanccn.home = "/Users/ryanccn";

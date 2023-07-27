@@ -38,6 +38,11 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
+    caarlos0 = {
+      url = "github:caarlos0/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -46,19 +51,18 @@
 
   outputs = inputs @ {
     self,
+    nixpkgs,
     nix-darwin,
     home-manager,
     agenix,
     fenix,
     attic,
     catppuccin,
+    caarlos0,
     ...
   }: let
     configuration = {pkgs, ...}:
-      import ./system.nix {
-        inherit (inputs) agenix fenix attic catppuccin;
-        inherit pkgs;
-      };
+      import ./system.nix (nixpkgs.lib.recursiveUpdate inputs {inherit pkgs;});
   in {
     darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
       modules = [

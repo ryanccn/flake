@@ -54,6 +54,26 @@
         "type": "github"
       }
     },
+    "caarlos0": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1687665384,
+        "narHash": "sha256-XARNmyXnmcWeBwfN5YXhiOWHsE3pPojasE1C2OieO7o=",
+        "owner": "caarlos0",
+        "repo": "nur",
+        "rev": "854c0826e775f5f44cc317c724ac6343c7c5d616",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caarlos0",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "flake-compat": [
@@ -219,6 +239,7 @@
       "inputs": {
         "agenix": "agenix",
         "attic": "attic",
+        "caarlos0": "caarlos0",
         "catppuccin": "catppuccin",
         "fenix": "fenix",
         "flake-compat": "flake-compat",
