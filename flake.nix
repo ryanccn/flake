@@ -38,8 +38,8 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    caarlos0 = {
-      url = "github:caarlos0/nur";
+    discord-applemusic-rich-presence = {
+      url = "github:ryanccn/discord-applemusic-rich-presence";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -58,7 +58,7 @@
     fenix,
     attic,
     catppuccin,
-    caarlos0,
+    discord-applemusic-rich-presence,
     ...
   }: let
     configuration = {pkgs, ...}:

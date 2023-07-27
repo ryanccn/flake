@@ -3,14 +3,14 @@
   config,
   agenixModule,
   ctpModule,
-  caarlosModule,
+  discord-applemusic-rich-presence,
   ...
 }: {
   home.stateVersion = "23.05";
   imports = [
     agenixModule
     ctpModule
-    caarlosModule
+    discord-applemusic-rich-presence
     ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/starship.nix
@@ -27,11 +27,8 @@
     ryan-term-bin
   ];
 
-  services = {
-    discord-applemusic-rich-presence = {
-      enable = true;
-      package = pkgs.discord-applemusic-rich-presence;
-    };
+  services.discord-applemusic-rich-presence = {
+    enable = true;
   };
 
   catppuccin.flavour = "frappe";

@@ -4,7 +4,7 @@
   agenix,
   fenix,
   catppuccin,
-  caarlos0,
+  discord-applemusic-rich-presence,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -68,7 +68,6 @@
     vivid
     xh
     zoxide
-    caarlos0.packages.${system}.fork-cleaner
   ];
 
   services.nix-daemon.enable = true;
@@ -96,7 +95,6 @@
       attic.overlays.default
       agenix.overlays.default
       fenix.overlays.default
-      (import ./overlays/discord-applemusic-rich-presence.nix)
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
@@ -140,7 +138,7 @@
   home-manager.extraSpecialArgs = {
     agenixModule = agenix.homeManagerModules.age;
     ctpModule = catppuccin.homeManagerModules.catppuccin;
-    caarlosModule = caarlos0.homeManagerModules.default;
+    discord-applemusic-rich-presence = discord-applemusic-rich-presence.homeManagerModules.default;
   };
 
   users.users.ryanccn.home = "/Users/ryanccn";
