@@ -58,7 +58,6 @@
     mkcert
     nerdfix
     pscale
-    pyenv
     railway
     redis
     silicon

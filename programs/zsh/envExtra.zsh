@@ -11,12 +11,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # fnm shell env
 eval "$(fnm env --use-on-cd)"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PIPX_DEFAULT_PYTHON="$HOME/.pyenv/shims/python"
-
 # deno
 export PATH="$HOME/.deno/bin:$PATH"
 

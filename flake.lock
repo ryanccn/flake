@@ -114,14 +114,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1690471502,
+        "lastModified": 1690507298,
         "narHash": "sha256-iP3MWm0eRhFiHC+dN1O60IT2gp5OHMf6m3/E06UvevI=",
-        "type": "git",
-        "url": "file:../discord-applemusic-rich-presence"
+        "owner": "ryanccn",
+        "repo": "discord-applemusic-rich-presence",
+        "rev": "804bbd6a9488b07384669f2d7edfa248ad499449",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:../discord-applemusic-rich-presence"
+        "owner": "ryanccn",
+        "repo": "discord-applemusic-rich-presence",
+        "type": "github"
       }
     },
     "fenix": {
