@@ -79,8 +79,6 @@
     auto-optimise-store = true;
     extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
 
-    # extra-sandbox-paths = ["/nix/var/cache/ccache"];
-
     extra-substituters = [
       "https://nix-community.cachix.org"
     ];
@@ -94,6 +92,7 @@
       attic.overlays.default
       agenix.overlays.default
       fenix.overlays.default
+      discord-applemusic-rich-presence.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
@@ -101,15 +100,15 @@
     hostPlatform = "aarch64-darwin";
   };
 
+  system.activationScripts.extraActivation = {
+    text = ''
+      set -eo pipefail
+      HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+    '';
+  };
+
   programs.zsh.enable = true;
   programs.fish.enable = true;
-  programs.fish.shellInit = ''
-    for p in /run/current-system/sw/bin
-      if not contains $p $fish_user_paths
-        set -g fish_user_paths $p $fish_user_paths
-      end
-    end
-  '';
 
   homebrew = {
     enable = true;
