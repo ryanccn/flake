@@ -17,14 +17,6 @@ in {
         mkdir "$dir"
         cd "$dir"
       '';
-      where = ''
-        set name $argv[1]
-        for p in $PATH
-            if test -e "$p/$name"
-                echo "$p/$name"
-            end
-        end
-      '';
     };
   };
 

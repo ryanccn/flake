@@ -1,6 +1,7 @@
 {
   "vim".command = "hx";
   "dig".command = "doggo";
+  "where".command = "which -a";
 
   "glol" = {
     command = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
