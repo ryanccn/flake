@@ -20,11 +20,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin = {
       url = "github:Stonks3141/ctp-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,7 +42,6 @@
     nixpkgs,
     nix-darwin,
     home-manager,
-    fenix,
     attic,
     catppuccin,
     discord-applemusic-rich-presence,

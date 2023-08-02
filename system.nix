@@ -1,7 +1,6 @@
 {
   pkgs,
   attic,
-  fenix,
   catppuccin,
   discord-applemusic-rich-presence,
   ...
@@ -14,7 +13,12 @@
     cachix
     direnv
 
-    fenix.packages.${system}.stable.defaultToolchain
+    rustc
+    cargo
+    rustfmt
+    rust-analyzer
+    clippy
+
     ccache
     deno
     fnm
@@ -87,7 +91,6 @@
   nixpkgs = {
     overlays = [
       attic.overlays.default
-      fenix.overlays.default
       discord-applemusic-rich-presence.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
     ];

@@ -101,27 +101,6 @@
         "type": "github"
       }
     },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1690784506,
-        "narHash": "sha256-yGjqJnWo51CKgWPNQ4Z8CHLxsRejSZDWYdPnluR0/PU=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "792ee9139705831a27f1d4b1e0b4bc4e909c5ac0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -214,28 +193,10 @@
         "attic": "attic",
         "catppuccin": "catppuccin",
         "discord-applemusic-rich-presence": "discord-applemusic-rich-presence",
-        "fenix": "fenix",
         "flake-compat": "flake-compat",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690745810,
-        "narHash": "sha256-PWEdqI+iiHbx4dkIwWHZCGJuTpRfJI3MLSHf3gQEJt4=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "429a3816adb99f33ef557767c874d2cd3a1ffa01",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "rust-overlay": {
