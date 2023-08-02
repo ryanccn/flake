@@ -1,7 +1,6 @@
 {
   pkgs,
   attic,
-  agenix,
   fenix,
   catppuccin,
   discord-applemusic-rich-presence,
@@ -33,9 +32,7 @@
     rust-analyzer
     nodePackages.typescript-language-server
 
-    pkgs."_1password"
     age
-    pkgs.agenix
     asciinema
     bat
     btop
@@ -90,7 +87,6 @@
   nixpkgs = {
     overlays = [
       attic.overlays.default
-      agenix.overlays.default
       fenix.overlays.default
       discord-applemusic-rich-presence.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
@@ -128,13 +124,15 @@
       "blackhole-16ch"
       (noQuarantine "eloston-chromium")
       "sf-symbols"
+      "1password/tap/1password-cli"
     ];
+
+    taps = ["1password/tap"];
   };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
-    agenixModule = agenix.homeManagerModules.age;
     ctpModule = catppuccin.homeManagerModules.catppuccin;
     discord-applemusic-rich-presence = discord-applemusic-rich-presence.homeManagerModules.default;
   };

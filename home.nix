@@ -1,14 +1,12 @@
 {
   pkgs,
   config,
-  agenixModule,
   ctpModule,
   discord-applemusic-rich-presence,
   ...
 }: {
   home.stateVersion = "23.05";
   imports = [
-    agenixModule
     ctpModule
     discord-applemusic-rich-presence
     ./programs/zsh.nix
@@ -29,12 +27,8 @@
 
   services.discord-applemusic-rich-presence = {
     enable = true;
+    logFile = "${config.home.homeDirectory}/Library/Logs/discord-applemusic-rich-presence.log";
   };
 
   catppuccin.flavour = "frappe";
-
-  age.secrets."attic.toml" = {
-    file = ./secrets/attic.toml.age;
-    path = "${config.home.homeDirectory}/.config/attic/config.toml";
-  };
 }

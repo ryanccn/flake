@@ -20,13 +20,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.darwin.follows = "nix-darwin";
-    };
-
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +47,6 @@
     nixpkgs,
     nix-darwin,
     home-manager,
-    agenix,
     fenix,
     attic,
     catppuccin,
