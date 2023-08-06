@@ -68,6 +68,8 @@
     vivid
     xh
     zoxide
+
+    typst
   ];
 
   services.nix-daemon.enable = true;
