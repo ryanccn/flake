@@ -15,9 +15,6 @@
 
     rustc
     cargo
-    rustfmt
-    rust-analyzer
-    clippy
 
     ccache
     deno
@@ -26,15 +23,17 @@
 
     (python311.withPackages (ps:
       with ps; [
+        pip
         yt-dlp
         xkcdpass
-        # catppuccin-catwalk
       ]))
     libffi
     openssl
 
     rust-analyzer
     nodePackages.typescript-language-server
+    rustfmt
+    clippy
 
     age
     asciinema
@@ -60,7 +59,6 @@
     nerdfix
     pscale
     railway
-    redis
     silicon
     tealdeer
     tokei
@@ -70,6 +68,10 @@
     zoxide
 
     typst
+    packwiz
+
+    catppuccin-catwalk
+    packwiz
   ];
 
   services.nix-daemon.enable = true;
@@ -107,6 +109,8 @@
       HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
     '';
   };
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
