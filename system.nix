@@ -3,6 +3,7 @@
   attic,
   catppuccin,
   discord-applemusic-rich-presence,
+  nyoom,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -34,6 +35,8 @@
     nodePackages.typescript-language-server
     rustfmt
     clippy
+
+    pkgs.nyoom
 
     age
     asciinema
@@ -96,6 +99,7 @@
     overlays = [
       attic.overlays.default
       discord-applemusic-rich-presence.overlays.default
+      nyoom.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
