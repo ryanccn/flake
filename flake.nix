@@ -76,16 +76,23 @@
     discord-applemusic-rich-presence,
     ...
   }: let
-    configuration = {pkgs, ...}:
+    darwinConfiguration = {pkgs, ...}:
       import ./system.nix (nixpkgs.lib.recursiveUpdate inputs {inherit pkgs;});
+    linuxConfiguration = {pkgs, ...}:
+      import ./nixos.nix (nixpkgs.lib.recursiveUpdate inputs {inherit pkgs;});
   in {
     darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
       modules = [
-        configuration
+        darwinConfiguration
         home-manager.darwinModules.home-manager
       ];
     };
 
-    darwinPackages = self.darwinConfigurations.Ryans-MacBook-Pro.pkgs;
+    nixosConfigurations.Ryans-MacBook-Pro = nixpkgs.lib.nixosSystem {
+      modules = [
+        linuxConfiguration
+        home-manager.darwinModules.home-manager
+      ];
+    };
   };
 }

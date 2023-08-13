@@ -85,7 +85,7 @@
     build-users-group = "nixbld";
     trusted-users = ["ryanccn"];
     auto-optimise-store = true;
-    extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
+    extra-platforms = ["x86_64-linux" "aarch64-linux"];
 
     extra-substituters = [
       "https://nix-community.cachix.org"
@@ -98,50 +98,23 @@
   nixpkgs = {
     overlays = [
       attic.overlays.default
-      discord-applemusic-rich-presence.overlays.default
       nyoom.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
     config.allowUnfree = true;
-    hostPlatform = "aarch64-darwin";
+    hostPlatform = "x86_64-linux";
   };
 
   system.activationScripts.extraActivation = {
     text = ''
       set -eo pipefail
-      HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
     '';
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
-
   programs.fish.enable = true;
   programs.zsh.enable = true;
-
-  homebrew = {
-    enable = true;
-    caskArgs.require_sha = true;
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "uninstall";
-      upgrade = true;
-    };
-
-    casks = let
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
-      "blackhole-16ch"
-      (noQuarantine "eloston-chromium")
-      "sf-symbols"
-      "1password/tap/1password-cli"
-    ];
-
-    taps = ["1password/tap"];
-  };
 
   home-manager = {
     useGlobalPkgs = true;
@@ -153,7 +126,7 @@
   };
 
   users.users.ryanccn = {
-    home = "/Users/ryanccn";
+    home = "/home/ryanccn";
   };
 
   home-manager.users.ryanccn = import ./home.nix;
