@@ -65,7 +65,7 @@
     };
   };
 
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     nix-darwin,
@@ -75,24 +75,13 @@
     nyoom,
     discord-applemusic-rich-presence,
     ...
-  }: let
-    darwinConfiguration = {pkgs, ...}:
-      import ./system.nix (nixpkgs.lib.recursiveUpdate inputs {inherit pkgs;});
-    linuxConfiguration = {pkgs, ...}:
-      import ./nixos.nix (nixpkgs.lib.recursiveUpdate inputs {inherit pkgs;});
-  in {
+  } @ inputs: {
     darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
       modules = [
-        darwinConfiguration
+        ./system.nix
         home-manager.darwinModules.home-manager
       ];
-    };
-
-    nixosConfigurations.Ryans-MacBook-Pro = nixpkgs.lib.nixosSystem {
-      modules = [
-        linuxConfiguration
-        home-manager.darwinModules.home-manager
-      ];
+      specialArgs = inputs;
     };
   };
 }
