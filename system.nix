@@ -1,7 +1,6 @@
 {
   pkgs,
   attic,
-  catppuccin,
   discord-applemusic-rich-presence,
   nyoom,
   ...
@@ -142,21 +141,6 @@
 
     taps = ["1password/tap"];
   };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      ctpModule = catppuccin.homeManagerModules.catppuccin;
-      discord-applemusic-rich-presence = discord-applemusic-rich-presence.homeManagerModules.default;
-    };
-  };
-
-  users.users.ryanccn = {
-    home = "/Users/ryanccn";
-  };
-
-  home-manager.users.ryanccn = import ./home.nix;
 
   system.stateVersion = 4;
 }

@@ -2,7 +2,10 @@
   description = "Ryan's MacBook Pro flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,17 +73,15 @@
     nixpkgs,
     nix-darwin,
     home-manager,
-    attic,
-    catppuccin,
-    nyoom,
-    discord-applemusic-rich-presence,
     ...
   } @ inputs: {
     darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
       modules = [
         ./system.nix
+        ./users.nix
         home-manager.darwinModules.home-manager
       ];
+
       specialArgs = inputs;
     };
   };
