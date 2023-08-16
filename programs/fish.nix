@@ -10,12 +10,20 @@ in {
     functions = {
       take = ''
         set dir $argv[1]
-        if [ -z "$dir" ]
-            echo "QHAR?!?!?!"
+        if test -z "$dir"
             return 1
         end
-        mkdir "$dir"
+
+        mkdir -p "$dir"
         cd "$dir"
+      '';
+
+      code = ''
+        if test -d "$argv[1]" or test -f "$argv[1]"
+            open -a "Visual Studio Code" "$argv[1]"
+        else
+            "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" $argv
+        end
       '';
     };
   };
