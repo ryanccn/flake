@@ -61,6 +61,7 @@
     nerdfix
     pscale
     railway
+    ripgrep
     silicon
     tealdeer
     tokei

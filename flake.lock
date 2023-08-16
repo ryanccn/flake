@@ -91,11 +91,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1691809246,
-        "narHash": "sha256-TjTwT5SnM/o1wEBUZh+ZEObrNiYPzUtg/mWyJENvgs8=",
+        "lastModified": 1692089279,
+        "narHash": "sha256-4OcROiMbf+YF41n+KPx3cqiHs2KoY7pdDGyCvJow1p8=",
         "owner": "ryanccn",
         "repo": "discord-applemusic-rich-presence",
-        "rev": "10a759594a8fdc7c7cfe1c7e7fe19ada58639dda",
+        "rev": "f257c32c794ef6b09cddcaaa7be27a1f74d9683d",
         "type": "github"
       },
       "original": {
@@ -145,11 +145,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1691998815,
-        "narHash": "sha256-HuFgb+W1Dvd0mjjudpTf0hVg/YKKiMRpX14t7dJeTm8=",
+        "lastModified": 1692081771,
+        "narHash": "sha256-LWhyDz3gi1RzTcW6e6iwfs4VuDWFajOexBKygNIqvQM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "da6874e8bb82204323b94154585a1471c739f73e",
+        "rev": "18791781ea86cbec6bce8bcb847444b9c73b8b3b",
         "type": "github"
       },
       "original": {
@@ -180,11 +180,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1692007866,
-        "narHash": "sha256-X8w0vPZjZxMm68VCwh/BHDoKRGp+BgzQ6w7Nkif6IVM=",
+        "lastModified": 1692039634,
+        "narHash": "sha256-L5ISasJZ5lZFOJ9NdxNj7cdrfO4GYv3tKGrv3eNMVJc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "de2b8ddf94d6cc6161b7659649594c79bd66c13b",
+        "rev": "b392b28a47d2103ac422197fde95449651aee458",
         "type": "github"
       },
       "original": {
