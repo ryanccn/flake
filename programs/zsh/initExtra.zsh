@@ -18,8 +18,6 @@ setopt auto_menu
 setopt complete_in_word
 setopt always_to_end
 
-[ -f "$HOME/.config/tabtab/zsh/__tabtab.zsh" ] && . "$HOME/.config/tabtab/zsh/__tabtab.zsh" || true
-
 # configure completion styles
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
