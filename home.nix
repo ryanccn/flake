@@ -17,6 +17,7 @@
     ./programs/helix.nix
     ./programs/go.nix
     ./programs/exa.nix
+    ./programs/rust.nix
   ];
 
   programs.home-manager.enable = true;

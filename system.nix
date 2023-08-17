@@ -16,7 +16,7 @@
     rustc
     cargo
 
-    ccache
+    sccache
     deno
     fnm
     bun
