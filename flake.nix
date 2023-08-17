@@ -82,7 +82,9 @@
         home-manager.darwinModules.home-manager
       ];
 
-      specialArgs = inputs;
+      specialArgs = {
+        inherit inputs;
+      };
     };
   };
 }

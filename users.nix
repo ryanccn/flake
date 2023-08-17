@@ -1,16 +1,13 @@
-{
-  catppuccin,
-  discord-applemusic-rich-presence,
-  ...
-}: {
+{inputs, ...}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
 
     extraSpecialArgs = {
-      ctpModule = catppuccin.homeManagerModules.catppuccin;
-      discord-applemusic-rich-presence = discord-applemusic-rich-presence.homeManagerModules.default;
+      ctpModule = inputs.catppuccin.homeManagerModules.catppuccin;
+      discord-applemusic-rich-presence = inputs.discord-applemusic-rich-presence.homeManagerModules.default;
     };
+
     users.ryanccn = import ./home.nix;
   };
 

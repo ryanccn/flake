@@ -1,8 +1,6 @@
 {
   pkgs,
-  attic,
-  discord-applemusic-rich-presence,
-  nyoom,
+  inputs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -35,8 +33,6 @@
     rustfmt
     clippy
 
-    pkgs.nyoom
-
     age
     asciinema
     bat
@@ -45,7 +41,6 @@
     doggo
     doppler
     du-dust
-    exiftool
     fd
     ffmpeg
     flyctl
@@ -56,7 +51,6 @@
     hyperfine
     jq
     just
-    spicetify-cli
     mkcert
     nerdfix
     pscale
@@ -72,9 +66,11 @@
 
     typst
     packwiz
-
     catppuccin-catwalk
-    packwiz
+
+    nyoom
+    spicetify-cli
+    exiftool
   ];
 
   services.nix-daemon.enable = true;
@@ -97,9 +93,9 @@
 
   nixpkgs = {
     overlays = [
-      attic.overlays.default
-      discord-applemusic-rich-presence.overlays.default
-      nyoom.overlays.default
+      inputs.attic.overlays.default
+      inputs.discord-applemusic-rich-presence.overlays.default
+      inputs.nyoom.overlays.default
       (import ./overlays/ryan-mono-bin.nix)
     ];
 
@@ -110,7 +106,7 @@
   system.activationScripts.extraActivation = {
     text = ''
       set -eo pipefail
-      HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      HOME="/var/root" ${pkgs.lib.getExe' pkgs.nvd "nvd"} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
     '';
   };
 
