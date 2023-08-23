@@ -37,7 +37,7 @@
     };
 
     nyoom = {
-      url = "github:ryanccn/nyoom";
+      url = "https://flakehub.com/f/ryanccn/nyoom/0.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.crane.follows = "crane";
       inputs.rust-overlay.follows = "rust-overlay";
