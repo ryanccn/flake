@@ -9,6 +9,8 @@ set -x HOMEBREW_NO_EMOJI 1
 /opt/homebrew/bin/brew shellenv | source
 
 # fnm shell env
+set -gx FNM_RESOLVE_ENGINES true
+set -gx FNM_COREPACK_ENABLED true
 fnm env --use-on-cd | source
 
 # cargo
