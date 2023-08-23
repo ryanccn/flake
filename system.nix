@@ -32,6 +32,7 @@
     nodePackages.typescript-language-server
     rustfmt
     clippy
+    dprint
 
     age
     asciinema
