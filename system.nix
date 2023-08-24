@@ -35,7 +35,6 @@
     dprint
 
     age
-    asciinema
     bat
     btop
     cloudflared
@@ -62,10 +61,12 @@
     tokei
     vhs
     vivid
+    watchexec
     xh
     zoxide
 
     typst
+
     packwiz
     catppuccin-catwalk
 
