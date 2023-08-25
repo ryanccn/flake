@@ -8,6 +8,7 @@
     alejandra
     nixpkgs-fmt
     attic-client
+    statix
     cachix
     direnv
 

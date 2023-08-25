@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  lib = pkgs.lib;
+  inherit (pkgs) lib;
 in {
   home.file.".cargo/config.toml".text = ''
     [build]
