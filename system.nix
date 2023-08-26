@@ -115,6 +115,16 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
+  environment.customIcons = {
+    enable = true;
+    icons = [
+      {
+        path = "/Applications/Notion.app";
+        icon = ./icons/notion.icns;
+      }
+    ];
+  };
+
   programs.fish.enable = true;
   programs.zsh.enable = true;
 

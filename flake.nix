@@ -58,6 +58,8 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
+    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
+
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -73,13 +75,15 @@
     nixpkgs,
     nix-darwin,
     home-manager,
+    darwin-custom-icons,
     ...
   } @ inputs: {
     darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
       modules = [
+        home-manager.darwinModules.home-manager
+        darwin-custom-icons.darwinModules.default
         ./system.nix
         ./users.nix
-        home-manager.darwinModules.home-manager
       ];
 
       specialArgs = {
