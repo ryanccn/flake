@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     nil
     statix
+    deadnix
     alejandra
     nixpkgs-fmt
 

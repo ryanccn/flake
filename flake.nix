@@ -73,8 +73,6 @@
   };
 
   outputs = {
-    self,
-    nixpkgs,
     nix-darwin,
     home-manager,
     darwin-custom-icons,
