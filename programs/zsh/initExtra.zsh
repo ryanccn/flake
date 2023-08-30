@@ -1,10 +1,4 @@
 # environment variables
-export LANG=en_US.UTF-8
-
-export EDITOR="hx"
-export PAGER="less"
-export LESS="-R"
-
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
 --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \

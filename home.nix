@@ -6,9 +6,11 @@
   ...
 }: {
   home.stateVersion = "23.05";
+
   imports = [
     ctpModule
     discord-applemusic-rich-presence
+    ./programs/variables.nix
     ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/starship.nix

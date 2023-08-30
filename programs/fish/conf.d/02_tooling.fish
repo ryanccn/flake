@@ -2,15 +2,9 @@
 set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # Homebrew shell
-set -x HOMEBREW_NO_ANALYTICS 1
-set -x HOMEBREW_CASK_OPTS --require-sha
-set -x HOMEBREW_NO_INSECURE_REDIRECT 1
-set -x HOMEBREW_NO_EMOJI 1
 /opt/homebrew/bin/brew shellenv | source
 
 # fnm shell env
-set -gx FNM_RESOLVE_ENGINES true
-set -gx FNM_COREPACK_ENABLED true
 fnm env --use-on-cd | source
 
 # cargo
@@ -20,11 +14,6 @@ fish_add_path "$HOME/.deno/bin"
 
 # pnpm
 set -x PNPM_HOME "$HOME/Library/pnpm"
-
-# disable telemetry
-set -x NEXT_TELEMETRY_DISABLED 1 # Next.js
-set -x CHECKPOINT_DISABLE 1 # Prisma
-set -x DISABLE_TELEMETRY YES # diffusers
 
 # direnv
 set -x DIRENV_LOG_FORMAT ""
