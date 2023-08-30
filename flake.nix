@@ -58,7 +58,9 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
+    darwin-custom-icons = {
+      url = "github:ryanccn/nix-darwin-custom-icons";
+    };
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -83,12 +85,9 @@
         home-manager.darwinModules.home-manager
         darwin-custom-icons.darwinModules.default
         ./system.nix
-        ./users.nix
       ];
 
-      specialArgs = {
-        inherit inputs;
-      };
+      specialArgs = {inherit inputs;};
     };
   };
 }

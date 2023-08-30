@@ -3,108 +3,11 @@
   inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    nil
-    alejandra
-    nixpkgs-fmt
-    attic-client
-    statix
-    cachix
-    direnv
-
-    rustc
-    cargo
-
-    sccache
-    deno
-    fnm
-    bun
-
-    (python311.withPackages (ps:
-      with ps; [
-        pip
-        yt-dlp
-        xkcdpass
-      ]))
-    libffi
-    openssl
-
-    rust-analyzer
-    nodePackages.typescript-language-server
-    rustfmt
-    clippy
-    dprint
-
-    age
-    bat
-    btop
-    cloudflared
-    doggo
-    doppler
-    du-dust
-    fd
-    ffmpeg
-    flyctl
-    fzf
-    gh
-    gen-license
-    gum
-    hyperfine
-    jq
-    just
-    mkcert
-    nerdfix
-    pscale
-    railway
-    ripgrep
-    silicon
-    tealdeer
-    tokei
-    vhs
-    vivid
-    watchexec
-    xh
-    zoxide
-
-    typst
-
-    packwiz
-    catppuccin-catwalk
-
-    nyoom
-    spicetify-cli
-    exiftool
+  imports = [
+    ./modules/nix.nix
+    ./modules/packages.nix
+    ./modules/homebrew.nix
   ];
-
-  services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
-
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    build-users-group = "nixbld";
-    trusted-users = ["ryanccn"];
-    auto-optimise-store = true;
-    extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
-
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
-  nixpkgs = {
-    overlays = [
-      inputs.attic.overlays.default
-      inputs.discord-applemusic-rich-presence.overlays.default
-      inputs.nyoom.overlays.default
-      (import ./overlays/ryan-mono-bin.nix)
-    ];
-
-    config.allowUnfree = true;
-    hostPlatform = "aarch64-darwin";
-  };
 
   system.activationScripts.extraActivation = {
     text = ''
@@ -128,28 +31,20 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
-  homebrew = {
-    enable = true;
-    caskArgs.require_sha = true;
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "uninstall";
-      upgrade = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
+    extraSpecialArgs = {
+      ctpModule = inputs.catppuccin.homeManagerModules.catppuccin;
+      discord-applemusic-rich-presence = inputs.discord-applemusic-rich-presence.homeManagerModules.default;
     };
 
-    casks = let
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
-      "blackhole-16ch"
-      (noQuarantine "eloston-chromium")
-      "sf-symbols"
-      "1password/tap/1password-cli"
-    ];
+    users.ryanccn = import ./home.nix;
+  };
 
-    taps = ["1password/tap"];
+  users.users.ryanccn = {
+    home = "/Users/ryanccn";
   };
 
   system.stateVersion = 4;
