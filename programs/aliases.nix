@@ -1,5 +1,6 @@
 {
   "vim".command = "hx";
+  "cat".command = "bat";
   "dig".command = "doggo";
 
   "g".command = "git";
