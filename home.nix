@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   ctpModule,
   discord-applemusic-rich-presence,
@@ -10,10 +9,14 @@
   imports = [
     ctpModule
     discord-applemusic-rich-presence
+
     ./programs/variables.nix
+    ./programs/fonts.nix
+
     ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/starship.nix
+
     ./programs/git.nix
     ./programs/bat.nix
     ./programs/helix.nix
@@ -23,10 +26,6 @@
   ];
 
   programs.home-manager.enable = true;
-  home.packages = with pkgs; [
-    ryan-mono-bin
-    ryan-term-bin
-  ];
 
   services.discord-applemusic-rich-presence = {
     enable = true;
