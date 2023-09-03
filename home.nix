@@ -13,6 +13,8 @@
     ./programs/variables.nix
     ./programs/fonts.nix
 
+    ./programs/vscode.nix
+
     ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/starship.nix
