@@ -49,6 +49,14 @@
 in {
   programs.vscode = {
     enable = true;
+    package = pkgs.stdenv.mkDerivation {
+      pname = "vscode";
+      version = "1.81.1";
+      src = pkgs.emptyDirectory;
+      installPhase = ''
+        mkdir -p $out
+      '';
+    };
 
     extensions = [];
     mutableExtensionsDir = true;
@@ -173,8 +181,13 @@ in {
 
   home.activation = {
     vscodeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      if ! command -v "code" &> /dev/null; then
+        echo "code CLI is not available"
+        exit 0
+      fi
+
       declare -A currentExtensions
-      for extension in $(${pkgs.vscode}/bin/code --list-extensions); do
+      for extension in $(code --list-extensions); do
         currentExtensions["$extension"]=1;
       done
 
@@ -185,7 +198,7 @@ in {
           (ext: ''
             if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
               echo "installing ${ext}"
-              ${pkgs.vscode}/bin/code --install-extension ${ext} &> /dev/null
+              code --install-extension ${ext} &> /dev/null
             fi
             unset 'currentExtensions[${ext}]'
           '')
@@ -194,7 +207,7 @@ in {
 
       for ext in "''${!currentExtensions[@]}"; do
         echo "uninstalling $ext"
-        ${pkgs.vscode}/bin/code --uninstall-extension $ext &> /dev/null
+        code --uninstall-extension $ext &> /dev/null
         currentExtensions[$ext]=
       done
     '';
