@@ -27,6 +27,7 @@
       inputs.discord-applemusic-rich-presence.overlays.default
       inputs.nyoom.overlays.default
       (import ../overlays/ryan-mono-bin.nix)
+      (import ../overlays/ibm-plex.nix)
     ];
 
     config.allowUnfree = true;
