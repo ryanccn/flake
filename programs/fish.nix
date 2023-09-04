@@ -22,7 +22,7 @@ in {
         if test -d "$argv[1]" -o -f "$argv[1]"
             open -a "Visual Studio Code" "$argv[1]"
         else
-            "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" $argv
+            command code $argv
         end
       '';
     };
