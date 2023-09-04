@@ -2,7 +2,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  flakeOverlays = import ../overlays;
+in {
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
@@ -26,8 +28,8 @@
       inputs.attic.overlays.default
       inputs.discord-applemusic-rich-presence.overlays.default
       inputs.nyoom.overlays.default
-      (import ../overlays/ryan-mono-bin.nix)
-      (import ../overlays/ibm-plex.nix)
+      flakeOverlays.ryan-mono-bin
+      flakeOverlays.ibm-plex
     ];
 
     config.allowUnfree = true;
