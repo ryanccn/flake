@@ -181,13 +181,15 @@ in {
 
   home.activation = {
     vscodeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      if ! command -v "code" &> /dev/null; then
+      code_bin="/usr/local/bin/code"
+
+      if ! command -v "$code_bin" &> /dev/null; then
         echo "code CLI is not available"
         exit 0
       fi
 
       declare -A currentExtensions
-      for extension in $(code --list-extensions); do
+      for extension in $("$code_bin" --list-extensions); do
         currentExtensions["$extension"]=1;
       done
 
@@ -198,7 +200,7 @@ in {
           (ext: ''
             if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
               echo "installing ${ext}"
-              code --install-extension ${ext} &> /dev/null
+              $DRY_RUN_CMD "$code_bin" --install-extension ${ext} &> /dev/null
             fi
             unset 'currentExtensions[${ext}]'
           '')
@@ -207,7 +209,7 @@ in {
 
       for ext in "''${!currentExtensions[@]}"; do
         echo "uninstalling $ext"
-        code --uninstall-extension $ext &> /dev/null
+        $DRY_RUN_CMD "$code_bin" --uninstall-extension $ext &> /dev/null
         currentExtensions[$ext]=
       done
     '';
