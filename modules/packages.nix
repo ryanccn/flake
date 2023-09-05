@@ -6,6 +6,7 @@
     alejandra
     nixpkgs-fmt
 
+    nix-your-shell
     nix-melt
     attic-client
     cachix

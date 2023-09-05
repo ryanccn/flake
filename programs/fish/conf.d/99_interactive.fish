@@ -5,6 +5,8 @@ if status is-interactive
     zoxide init fish | source
     # direnv
     direnv hook fish | source
+    # nix-your-shell
+    nix-your-shell fish | source
 
     set -x FZF_DEFAULT_OPTS " \
 --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \

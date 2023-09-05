@@ -46,5 +46,8 @@ eval "$(zoxide init zsh)"
 # direnv
 command -v direnv &> /dev/null && eval "$(direnv hook zsh)"
 
+# nix-your-shell
+eval "$(nix-your-shell zsh)"
+
 # iTerm
 [ -e "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
