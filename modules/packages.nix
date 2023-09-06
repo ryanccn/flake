@@ -11,6 +11,7 @@
     attic-client
     cachix
     direnv
+    fh
 
     rustc
     cargo
