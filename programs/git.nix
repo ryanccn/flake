@@ -6,6 +6,7 @@
     diff-so-fancy.enable = true;
     ignores = [
       ".DS_Store"
+      ".direnv/"
     ];
 
     userName = "Ryan Cao";
