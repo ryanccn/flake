@@ -1,0 +1,21 @@
+name: "Check flake inputs"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  check-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v3
+
+      - name: Check Nix flake Nixpkgs inputs
+        uses: DeterminateSystems/flake-checker-action@v4
+        with:
+          send-statistics: false
