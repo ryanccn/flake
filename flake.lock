@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "am": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1693926605,
+        "narHash": "sha256-JSdYc8r2tRtxvRePWkcW9tvIq4o5S28TBs7TLfFwum8=",
+        "owner": "ryanccn",
+        "repo": "am",
+        "rev": "0d9424417c9edfea3891fc9a07fb9552fbb88cdf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryanccn",
+        "repo": "am",
+        "type": "github"
+      }
+    },
     "attic": {
       "inputs": {
         "crane": [
@@ -229,6 +249,7 @@
     },
     "root": {
       "inputs": {
+        "am": "am",
         "attic": "attic",
         "catppuccin": "catppuccin",
         "crane": "crane",

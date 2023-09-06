@@ -70,6 +70,7 @@
     packwiz
     catppuccin-catwalk
 
+    am
     nyoom
     spicetify-cli
     exiftool

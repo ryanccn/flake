@@ -28,6 +28,7 @@ in {
       inputs.attic.overlays.default
       inputs.discord-applemusic-rich-presence.overlays.default
       inputs.nyoom.overlays.default
+      inputs.am.overlays.default
       flakeOverlays.ryan-mono-bin
       flakeOverlays.ibm-plex
     ];

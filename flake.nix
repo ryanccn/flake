@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    am = {
+      url = "github:ryanccn/am";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nyoom = {
       url = "https://flakehub.com/f/ryanccn/nyoom/0.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
