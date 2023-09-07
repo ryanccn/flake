@@ -23,7 +23,7 @@
     ./programs/bat.nix
     ./programs/helix.nix
     ./programs/go.nix
-    ./programs/exa.nix
+    ./programs/eza.nix
     ./programs/rust.nix
   ];
 
