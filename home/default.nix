@@ -1,19 +1,19 @@
 {
   config,
   ctpModule,
-  discord-applemusic-rich-presence,
+  discordAppleMusicModule,
   ...
 }: {
   home.stateVersion = "23.05";
 
   imports = [
     ctpModule
-    discord-applemusic-rich-presence
+    discordAppleMusicModule
 
-    ./programs/variables.nix
-    ./programs/fonts.nix
+    ./variables.nix
+    ./fonts.nix
 
-    ./programs/vscode.nix
+    ./apps/vscode.nix
 
     ./programs/zsh.nix
     ./programs/fish.nix
