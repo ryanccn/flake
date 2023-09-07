@@ -37,7 +37,7 @@
 
     extraSpecialArgs = {
       ctpModule = inputs.catppuccin.homeManagerModules.catppuccin;
-      discordAppleMusicModule = inputs.discord-applemusic-rich-presence.homeManagerModules.default;
+      amDiscordModule = inputs.am.homeManagerModules.default;
     };
 
     users.ryanccn = import ./home;

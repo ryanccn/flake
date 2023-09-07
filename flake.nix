@@ -31,11 +31,6 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
-    discord-applemusic-rich-presence = {
-      url = "github:ryanccn/discord-applemusic-rich-presence";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     am = {
       url = "github:ryanccn/am";
       inputs.nixpkgs.follows = "nixpkgs";

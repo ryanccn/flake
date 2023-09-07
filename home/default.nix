@@ -1,14 +1,14 @@
 {
   config,
   ctpModule,
-  discordAppleMusicModule,
+  amDiscordModule,
   ...
 }: {
   home.stateVersion = "23.05";
 
   imports = [
     ctpModule
-    discordAppleMusicModule
+    amDiscordModule
 
     ./variables.nix
     ./fonts.nix
@@ -29,9 +29,9 @@
 
   programs.home-manager.enable = true;
 
-  services.discord-applemusic-rich-presence = {
+  services.am-discord-rich-presence = {
     enable = true;
-    logFile = "${config.home.homeDirectory}/Library/Logs/discord-applemusic-rich-presence.log";
+    logFile = "${config.home.homeDirectory}/Library/Logs/am-discord-rich-presence.log";
   };
 
   catppuccin.flavour = "frappe";

@@ -26,7 +26,6 @@ in {
   nixpkgs = {
     overlays = [
       inputs.attic.overlays.default
-      inputs.discord-applemusic-rich-presence.overlays.default
       inputs.nyoom.overlays.default
       inputs.am.overlays.default
       inputs.fh.overlays.default
