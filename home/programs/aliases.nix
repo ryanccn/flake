@@ -9,6 +9,9 @@
   "j".command = "just";
   "j".fishAlias = true;
 
+  "nb".command = "nix build";
+  "nfu".command = "nix flake update";
+
   "glol".command = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
   "glol".fishAlias = true;
 
