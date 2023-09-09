@@ -4,7 +4,6 @@
   ...
 }: let
   extensions = [
-    "antfu.iconify"
     "antfu.unocss"
     "astro-build.astro-vscode"
     "bierner.lit-html"
@@ -71,6 +70,7 @@ in {
       "catppuccin.customUIColors" = {
         all = {
           "activityBar.activeBorder" = "accent";
+          "statusBarItem.remoteBackground" = "accent";
         };
       };
 
@@ -102,7 +102,7 @@ in {
       "terminal.integrated.cursorBlinking" = true;
       "terminal.integrated.defaultProfile.osx" = "fish";
       "terminal.integrated.inheritEnv" = false;
-      "terminal.integrated.shellIntegration.enabled" = false;
+      "terminal.integrated.shellIntegration.enabled" = true;
 
       "shellcheck.ignorePatterns" = {
         ".envrc" = true;
@@ -210,7 +210,7 @@ in {
       for ext in "''${!currentExtensions[@]}"; do
         echo "uninstalling $ext"
         $DRY_RUN_CMD "$code_bin" --uninstall-extension $ext &> /dev/null
-        currentExtensions[$ext]=
+        unset 'currentExtensions[$ext]'
       done
     '';
   };
