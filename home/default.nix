@@ -25,6 +25,7 @@
     ./programs/go.nix
     ./programs/eza.nix
     ./programs/rust.nix
+    ./programs/glamour.nix
   ];
 
   programs.home-manager.enable = true;

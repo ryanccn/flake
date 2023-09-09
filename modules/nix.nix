@@ -31,6 +31,7 @@ in {
       inputs.fh.overlays.default
       flakeOverlays.ryan-mono-bin
       flakeOverlays.ibm-plex
+      flakeOverlays.ctp-glamour
     ];
 
     config.allowUnfree = true;
