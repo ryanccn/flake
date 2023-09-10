@@ -9,6 +9,18 @@ _: {
         error_symbol = "[➜](bold red)";
       };
 
+      bun.format = "[$symbol($version )]($style)";
+      cmd_duration.format = "[$duration]($style) ";
+      deno.format = "[$symbol($version )]($style)";
+      docker_context.format = "$symbol$context]($style) ";
+      git_branch.format = "[$symbol$branch(:$remote_branch)]($style) ";
+      golang.format = "[$symbol($version )]($style)";
+      nix_shell.format = "[$symbol$state( \($name\))]($style) ";
+      nodejs.format = "[$symbol($version )]($style)";
+      package.format = "[$symbol$version]($style) ";
+      python.format = "[\${symbol}\${pyenv_prefix}(\${version} )(\($virtualenv\) )]($style)";
+      rust.format = "[$symbol($version )]($style)";
+
       aws.symbol = "  ";
       buf.symbol = " ";
       c.symbol = " ";
