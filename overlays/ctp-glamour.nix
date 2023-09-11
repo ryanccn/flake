@@ -29,7 +29,7 @@ in {
           fetchurl,
         }:
           stdenvNoCC.mkDerivation rec {
-            name = "ctp-glamour-${flavor}";
+            pname = "ctp-glamour-${flavor}";
             version = "1.0.0";
 
             src = fetchurl {
