@@ -73,6 +73,8 @@
 
     am
     nyoom
+    nish
+
     spicetify-cli
     exiftool
   ];

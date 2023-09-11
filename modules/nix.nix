@@ -32,6 +32,7 @@ in {
       inputs.attic.overlays.default
       inputs.nyoom.overlays.default
       inputs.am.overlays.default
+      inputs.nish.overlays.default
       inputs.fh.overlays.default
       flakeOverlays.ryan-mono-bin
       flakeOverlays.ibm-plex

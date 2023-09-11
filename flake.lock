@@ -241,6 +241,26 @@
         "type": "github"
       }
     },
+    "nish": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1694420535,
+        "narHash": "sha256-dbFegxUbjyfgqE7WLU/ixPfNszov0cGjxqIA1wlatXI=",
+        "owner": "ryanccn",
+        "repo": "nish",
+        "rev": "cd74ffc6ded40715af06ee4aa72d4810e0d38d5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryanccn",
+        "repo": "nish",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -308,6 +328,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "naersk": "naersk",
+        "nish": "nish",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nyoom": "nyoom",

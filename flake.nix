@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nish = {
+      url = "github:ryanccn/nish";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nyoom = {
       url = "https://flakehub.com/f/ryanccn/nyoom/0.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,7 +106,9 @@
         ./system.nix
       ];
 
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+      };
     };
 
     checks = {

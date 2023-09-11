@@ -22,8 +22,6 @@ set -x DIRENV_LOG_FORMAT ""
 fish_add_path "$HOME/.docker/bin"
 # local bin
 fish_add_path "$HOME/.local/bin"
-# nish
-fish_add_path "$HOME/dev/nish/bin"
 
 # fish
 set fish_greeting

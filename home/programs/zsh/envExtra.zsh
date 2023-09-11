@@ -21,6 +21,3 @@ export PATH="$HOME/.docker/bin:$PATH"
 
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
-
-# nish
-export PATH="$HOME/dev/nish/bin:$PATH"
