@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ./aliases.nix);
 in {
   programs.zsh = {
@@ -16,7 +20,7 @@ in {
     inherit shellAliases;
 
     localVariables = {
-      vivid_theme = "catppuccin-macchiato";
+      vivid_theme = "catppuccin-${config.catppuccin.flavour}";
     };
 
     plugins = [
