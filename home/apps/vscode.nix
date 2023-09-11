@@ -63,6 +63,7 @@ in {
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Frappé";
       "workbench.iconTheme" = "catppuccin-frappe";
+
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
       "catppuccin.accentColor" = "sky";
