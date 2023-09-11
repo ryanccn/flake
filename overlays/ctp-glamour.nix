@@ -26,7 +26,6 @@ in {
       value = prev.callPackage (
         {
           stdenvNoCC,
-          lib,
           fetchurl,
         }:
           stdenvNoCC.mkDerivation rec {

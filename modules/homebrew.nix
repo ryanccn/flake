@@ -17,7 +17,9 @@ _: {
     casks = let
       noQuarantine = name: {
         inherit name;
-        args = {no_quarantine = true;};
+        args = {
+          no_quarantine = true;
+        };
       };
     in [
       "blackhole-16ch"

@@ -1,5 +1,5 @@
 (_: prev: {
-  ibm-plex = prev.ibm-plex.overrideAttrs (prev': {
+  ibm-plex = prev.ibm-plex.overrideAttrs (_: {
     postInstall = ''
       set -eo pipefail
       PATH="${prev.fd}/bin:${prev.python311Packages.fonttools}/bin:$PATH"
