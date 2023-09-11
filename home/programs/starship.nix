@@ -12,7 +12,7 @@ _: {
       bun.format = "[$symbol($version )]($style)";
       cmd_duration.format = "[$duration]($style) ";
       deno.format = "[$symbol($version )]($style)";
-      docker_context.format = "$symbol$context]($style) ";
+      docker_context.format = "[$symbol$context]($style) ";
       git_branch.format = "[$symbol$branch(:$remote_branch)]($style) ";
       golang.format = "[$symbol($version )]($style)";
       nix_shell.format = "[$symbol$state( \($name\))]($style) ";
@@ -22,6 +22,7 @@ _: {
       rust.format = "[$symbol($version )]($style)";
 
       aws.symbol = "  ";
+      bun.symbol = "󰳮 ";
       buf.symbol = " ";
       c.symbol = " ";
       conda.symbol = " ";
