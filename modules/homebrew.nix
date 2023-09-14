@@ -28,6 +28,9 @@ _: {
       "1password/tap/1password-cli"
     ];
 
-    taps = ["1password/tap"];
+    taps = [
+      "1password/tap"
+      "ryanccn/tap"
+    ];
   };
 }

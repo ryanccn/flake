@@ -1,9 +1,9 @@
 (_: prev: let
-  version = "2023.09.04";
+  version = "2023.09.14";
 
   mkFontVariant = {
     variant,
-    sha256,
+    hash,
   }:
     prev.callPackage ({
       lib,
@@ -24,7 +24,7 @@
           mv $postDir/*.ttf $out/share/fonts/truetype
         '';
 
-        inherit sha256;
+        inherit hash;
 
         meta = with lib; {
           homepage = "https://github.com/ryanccn/ryan-mono";
@@ -35,11 +35,11 @@
 in {
   ryan-mono-bin = mkFontVariant {
     variant = "ryan-mono";
-    sha256 = "sha256-q3VU2RvkIi67s048D03yxwGCDxW80JPRJCf6jy5pnNc=";
+    hash = "sha256-T5S9tfJZz/5YDXKTir+NHHxwyJZt+z1fkgzpT7sJyEU=";
   };
 
   ryan-term-bin = mkFontVariant {
     variant = "ryan-term";
-    sha256 = "sha256-i9+xDfpEHPjLANarS3zFiACuTmw6P1h45EYgudy5QZE=";
+    hash = "sha256-RY7l/RG35fE0AkOHSSwbw3vi2ru++J5Wo/43hmNAySg=";
   };
 })
