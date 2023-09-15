@@ -8,9 +8,9 @@ set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 fnm env --use-on-cd | source
 
 # cargo
-fish_add_path "$HOME/.cargo/bin"
+set -p PATH "$HOME/.cargo/bin"
 # deno
-fish_add_path "$HOME/.deno/bin"
+set -p PATH "$HOME/.deno/bin"
 
 # pnpm
 set -x PNPM_HOME "$HOME/Library/pnpm"
@@ -19,9 +19,9 @@ set -x PNPM_HOME "$HOME/Library/pnpm"
 set -x DIRENV_LOG_FORMAT ""
 
 # docker
-fish_add_path "$HOME/.docker/bin"
+set -p PATH "$HOME/.docker/bin"
 # local bin
-fish_add_path "$HOME/.local/bin"
+set -p PATH "$HOME/.local/bin"
 
 # fish
 set fish_greeting

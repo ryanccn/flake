@@ -12,7 +12,7 @@
   system.activationScripts.extraActivation = {
     text = ''
       set -eo pipefail
-      HOME="/var/root" ${pkgs.lib.getExe' pkgs.nvd "nvd"} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
     '';
   };
 
@@ -36,8 +36,7 @@
     useUserPackages = true;
 
     extraSpecialArgs = {
-      ctpModule = inputs.catppuccin.homeManagerModules.catppuccin;
-      amDiscordModule = inputs.am.homeManagerModules.default;
+      inherit inputs;
     };
 
     users.ryanccn = import ./home;

@@ -1,14 +1,13 @@
 {
   config,
-  ctpModule,
-  amDiscordModule,
+  inputs,
   ...
 }: {
   home.stateVersion = "23.05";
 
   imports = [
-    ctpModule
-    amDiscordModule
+    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.am.homeManagerModules.default
 
     ./variables.nix
     ./fonts.nix
