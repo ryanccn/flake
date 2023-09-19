@@ -25,6 +25,14 @@
         path = "/Applications/Notion.app";
         icon = ./icons/notion.icns;
       }
+      {
+        path = "/Applications/Things.app";
+        icon = ./icons/things.icns;
+      }
+      {
+        path = "/Applications/Obsidian.app";
+        icon = ./icons/obsidian.icns;
+      }
     ];
   };
 

@@ -2,25 +2,25 @@
   flavors = [
     {
       flavor = "latte";
-      sha256 = "sha256-V0LsRStF1vL+Tz8G6VaKiwiY/ZIsSkMc+f1WJAITYXU=";
+      hash = "sha256-V0LsRStF1vL+Tz8G6VaKiwiY/ZIsSkMc+f1WJAITYXU=";
     }
     {
       flavor = "frappe";
-      sha256 = "sha256-YOatgYCJKuesVERHZVmF1xtzuLjyxCYstoWYqATq+NU=";
+      hash = "sha256-YOatgYCJKuesVERHZVmF1xtzuLjyxCYstoWYqATq+NU=";
     }
     {
       flavor = "macchiato";
-      sha256 = "sha256-CeSJvhjzHVTtlqgQLKOrdLXtp2OQlMh24IaA1QQiQCk=";
+      hash = "sha256-CeSJvhjzHVTtlqgQLKOrdLXtp2OQlMh24IaA1QQiQCk=";
     }
     {
       flavor = "mocha";
-      sha256 = "sha256-Tx2fQteL4wxhV+qHYZibakiYoEhS4HjyMO0yBcU/F6Q=";
+      hash = "sha256-Tx2fQteL4wxhV+qHYZibakiYoEhS4HjyMO0yBcU/F6Q=";
     }
   ];
 in {
   ctp-glamour = builtins.listToAttrs (builtins.map ({
       flavor,
-      sha256,
+      hash,
     }: {
       name = flavor;
       value = prev.callPackage (
@@ -34,7 +34,7 @@ in {
 
             src = fetchurl {
               url = "https://github.com/catppuccin/glamour/releases/download/v${version}/${flavor}.json";
-              inherit sha256;
+              inherit hash;
             };
 
             unpackPhase = ''
