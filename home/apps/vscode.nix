@@ -11,6 +11,7 @@
     "bradlc.vscode-tailwindcss"
     "Catppuccin.catppuccin-vsc"
     "Catppuccin.catppuccin-vsc-icons"
+    "xaver.clang-format"
     "csstools.postcss"
     "denoland.vscode-deno"
     "dbaeumer.vscode-eslint"
@@ -31,7 +32,6 @@
     "ms-python.vscode-pylance"
     "ms-python.python"
     "mvllow.rose-pine"
-    "ms-vscode.cpptools"
     "Prisma.prisma"
     "nvarner.typst-lsp"
     "ronnidc.nunjucks"
@@ -134,7 +134,7 @@ in {
 
       "[python]"."editor.tabSize" = 4;
       "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
-      "[cpp]"."editor.defaultFormatter" = "ms-vscode.cpptools";
+      "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
       "[toml]"."editor.defaultFormatter" = "tamasfe.even-better-toml";
       "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
@@ -167,6 +167,8 @@ in {
       "deno.inlayHints.variableTypes.enabled" = false;
 
       "svelte.enable-ts-plugin" = true;
+
+      "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
