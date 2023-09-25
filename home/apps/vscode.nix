@@ -50,7 +50,7 @@ in {
     enable = true;
     package = pkgs.stdenv.mkDerivation {
       pname = "vscode";
-      version = "1.81.1";
+      version = "1.81.2";
       src = pkgs.emptyDirectory;
       installPhase = ''
         mkdir -p $out

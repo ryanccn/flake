@@ -30,8 +30,8 @@ in {
         src = pkgs.fetchFromGitHub {
           owner = "ohmyzsh";
           repo = "ohmyzsh";
-          rev = "38ef5192cb1c43159b516d15ab8fed96f847b36b";
-          hash = "sha256-UYi4kEc80LwZRL6BDBuC/QI+5uJLXTe5+KGQKvv/nz4=";
+          rev = "1c55a0fe5246487ec9f18e03b7f28862b76cb7ab";
+          hash = "sha256-TPHdGOQI0hAsduu2UPHZy0lBf1G8+5PCbpE8R5PQglM=";
         };
       }
       {
@@ -39,8 +39,8 @@ in {
         src = pkgs.fetchFromGitHub {
           owner = "ryanccn";
           repo = "vivid-zsh";
-          rev = "a76616c87821e96ae0cbdfb6bf897bffc170a283";
-          hash = "sha256-E00xQMCmOt6fJ+IO/TrpFvskNa9QnDw/6DKR51T7i+8=";
+          rev = "c970eaaf90788c0e75e2a96159953f0f0c2a1b5a";
+          hash = "sha256-HL4QQY1QMhTw76u/xbBzodViDAMjKhRhmVXptO7qKqY=";
         };
       }
     ];

@@ -14,6 +14,10 @@ _: {
       upgrade = true;
     };
 
+    brews = [
+      "pandoc"
+    ];
+
     casks = let
       noQuarantine = name: {
         inherit name;
