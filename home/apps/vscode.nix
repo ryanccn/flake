@@ -83,7 +83,7 @@ in {
       "git.suggestSmartCommit" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
 
-      "editor.fontFamily" = "\"CaskaydiaCove Nerd Font\", monospace";
+      "editor.fontFamily" = "\"RyanMono Nerd Font\", monospace";
       "editor.formatOnSave" = true;
       "editor.fontLigatures" = "'calt', 'ss01'";
       "editor.insertSpaces" = true;
@@ -95,9 +95,9 @@ in {
       "editor.cursorBlinking" = "phase";
       "editor.inlineSuggest.enabled" = true;
       "workbench.editor.highlightModifiedTabs" = true;
-      "workbench.editor.untitled.hint" = "hidden";
+      "workbench.editor.empty.hint" = "hidden";
 
-      "terminal.integrated.fontFamily" = "\"CaskaydiaCove Nerd Font Mono\", monospace";
+      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\", monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
@@ -110,9 +110,9 @@ in {
       };
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "tailwindCSS.includeLanguages" = {
-        typescript = "javascript";
-        typescriptreact = "javascript";
-        vue-html = "html";
+        "typescript" = "javascript";
+        "typescriptreact" = "javascript";
+        "vue-html" = "html";
       };
       "typescript.enablePromptUseWorkspaceTsdk" = true;
 
