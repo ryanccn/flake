@@ -8,5 +8,8 @@ _: {
 
     FNM_RESOLVE_ENGINES = "true";
     FNM_COREPACK_ENABLED = "true";
+
+    DENO_NO_UPDATE_CHECK = "1";
+    CSC_IDENTITY_AUTO_DISCOVERY = "false";
   };
 }
