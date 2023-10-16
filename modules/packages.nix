@@ -35,16 +35,20 @@
     clippy
     dprint
 
+    google-cloud-sdk
+    railway
+    cloudflared
+    flyctl
+    pscale
+
     age
     bat
     btop
-    cloudflared
     doggo
     doppler
     du-dust
     fd
     ffmpeg
-    flyctl
     fzf
     gh
     gen-license
@@ -54,8 +58,6 @@
     just
     mkcert
     nerdfix
-    pscale
-    railway
     ripgrep
     silicon
     tealdeer

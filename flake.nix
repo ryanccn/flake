@@ -47,7 +47,7 @@
     };
 
     fh = {
-      url = "https://flakehub.com/f/DeterminateSystems/fh/=0.1.3.tar.gz";
+      url = "https://flakehub.com/f/DeterminateSystems/fh/0.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.fenix.follows = "fenix";
       inputs.naersk.follows = "naersk";
