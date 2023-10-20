@@ -9,6 +9,8 @@ _: {
         error_symbol = "[➜](bold red)";
       };
 
+      gcloud.disabled = true;
+
       bun.format = "[$symbol($version )]($style)";
       cmd_duration.format = "[$duration]($style) ";
       deno.format = "[$symbol($version )]($style)";
