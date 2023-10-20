@@ -22,6 +22,7 @@
     bun
 
     (python311.withPackages (ps: with ps; [pip]))
+    ruff
     yt-dlp
     xkcdpass
     pipreqs
