@@ -83,7 +83,7 @@ in {
       "git.suggestSmartCommit" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
 
-      "editor.fontFamily" = "\"RyanMono Nerd Font\", monospace";
+      "editor.fontFamily" = "\"CaskaydiaCove NF\",  monospace";
       "editor.formatOnSave" = true;
       "editor.fontLigatures" = "'calt', 'ss01'";
       "editor.insertSpaces" = true;
@@ -97,7 +97,7 @@ in {
       "workbench.editor.highlightModifiedTabs" = true;
       "workbench.editor.empty.hint" = "hidden";
 
-      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\", monospace";
+      "terminal.integrated.fontFamily" = "\"CaskaydiaCove NFM\", monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
