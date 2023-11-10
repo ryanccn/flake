@@ -15,7 +15,7 @@
 
     rustc
     cargo
-    sccache
+    # sccache
 
     fnm
     deno
