@@ -28,7 +28,7 @@
     catppuccin = {
       url = "github:Stonks3141/ctp-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs.home-manager.follows = "home-manager";
     };
 
     am = {

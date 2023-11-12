@@ -84,20 +84,21 @@ in {
       "diffEditor.ignoreTrimWhitespace" = false;
 
       "editor.fontFamily" = "\"CaskaydiaCove NF\",  monospace";
-      "editor.formatOnSave" = true;
       "editor.fontLigatures" = "'calt', 'ss01'";
-      "editor.insertSpaces" = true;
-      "editor.tabSize" = 2;
-      "editor.cursorSmoothCaretAnimation" = "on";
       "editor.fontSize" = 16;
       "editor.lineHeight" = 1.5;
+      "editor.cursorSmoothCaretAnimation" = "on";
       "editor.minimap.renderCharacters" = false;
       "editor.cursorBlinking" = "phase";
-      "editor.inlineSuggest.enabled" = true;
       "workbench.editor.highlightModifiedTabs" = true;
       "workbench.editor.empty.hint" = "hidden";
 
-      "terminal.integrated.fontFamily" = "\"CaskaydiaCove NFM\", monospace";
+      "editor.inlineSuggest.enabled" = true;
+      "editor.tabSize" = 2;
+      "editor.insertSpaces" = true;
+      "editor.formatOnSave" = true;
+
+      "terminal.integrated.fontFamily" = "\"CaskaydiaCove NFM\",  monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
