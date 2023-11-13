@@ -34,7 +34,6 @@ _: {
 
     taps = [
       "1password/tap"
-      "ryanccn/tap"
     ];
   };
 }
