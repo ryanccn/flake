@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v6
+        uses: DeterminateSystems/nix-installer-action@v7
 
       - name: Check Nix flake Nixpkgs inputs
         uses: DeterminateSystems/flake-checker-action@v5
