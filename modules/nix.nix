@@ -29,7 +29,6 @@ in {
 
   nixpkgs = {
     overlays = [
-      inputs.attic.overlays.default
       inputs.nyoom.overlays.default
       inputs.am.overlays.default
       inputs.nish.overlays.default

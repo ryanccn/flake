@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
+    inputs.home-manager.packages.${pkgs.system}.home-manager
+
     nil
     statix
     deadnix
@@ -8,7 +14,6 @@
 
     nix-your-shell
     nix-melt
-    attic-client
     cachix
     direnv
     fh
