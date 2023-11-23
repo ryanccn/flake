@@ -32,6 +32,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nrr = {
+      url = "github:ryanccn/nrr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    choirpack = {
+      url = "github:ryanccn/choirpack";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nyoom = {
       url = "https://flakehub.com/f/ryanccn/nyoom/0.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -41,7 +41,6 @@ in {
       inputs.fh.overlays.default
       flakeOverlays.ryan-mono-bin
       flakeOverlays.ibm-plex
-      flakeOverlays.tokei
     ];
 
     config.allowUnfree = true;

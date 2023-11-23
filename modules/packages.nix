@@ -80,8 +80,10 @@
     catppuccin-catwalk
 
     am
-    nyoom
     nish
+    nrr
+    choirpack
+    nyoom
 
     spicetify-cli
     exiftool
