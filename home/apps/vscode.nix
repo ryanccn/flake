@@ -63,13 +63,15 @@ in {
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Frappé";
       "workbench.iconTheme" = "catppuccin-frappe";
+      "workbench.sideBar.location" = "left";
+      "workbench.activityBar.location" = "top";
 
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
       "catppuccin.accentColor" = "sky";
       "catppuccin.workbenchMode" = "default";
       "catppuccin.customUIColors" = {
-        all = {
+        "all" = {
           "activityBar.activeBorder" = "accent";
           "statusBarItem.remoteBackground" = "accent";
         };
