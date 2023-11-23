@@ -30,7 +30,7 @@
   programs.home-manager.enable = true;
 
   services.am-discord-rich-presence = {
-    enable = true;
+    enable = false;
     logFile = "${config.home.homeDirectory}/Library/Logs/am-discord-rich-presence.log";
   };
 
