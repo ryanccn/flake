@@ -8,6 +8,10 @@ in {
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
+  nix.registry = {
+    n.flake = inputs.nixpkgs;
+  };
+
   nix.settings = {
     experimental-features = "nix-command flakes";
     build-users-group = "nixbld";
@@ -29,12 +33,15 @@ in {
 
   nixpkgs = {
     overlays = [
-      inputs.nyoom.overlays.default
       inputs.am.overlays.default
       inputs.nish.overlays.default
+      inputs.nrr.overlays.default
+      inputs.choirpack.overlays.default
+      inputs.nyoom.overlays.default
       inputs.fh.overlays.default
       flakeOverlays.ryan-mono-bin
       flakeOverlays.ibm-plex
+      flakeOverlays.tokei
     ];
 
     config.allowUnfree = true;
