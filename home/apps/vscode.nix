@@ -12,6 +12,7 @@
     "Catppuccin.catppuccin-vsc"
     "Catppuccin.catppuccin-vsc-icons"
     "xaver.clang-format"
+    "charliermarsh.ruff"
     "csstools.postcss"
     "denoland.vscode-deno"
     "dbaeumer.vscode-eslint"
@@ -28,7 +29,6 @@
     "LeonardSSH.vscord"
     "jnoortheen.nix-ide"
     "ms-python.isort"
-    "ms-python.black-formatter"
     "ms-python.vscode-pylance"
     "ms-python.python"
     "mvllow.rose-pine"
@@ -136,7 +136,7 @@ in {
       "gitlens.defaultDateFormat" = null;
 
       "[python]"."editor.tabSize" = 4;
-      "[python]"."editor.defaultFormatter" = "ms-python.black-formatter";
+      "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
       "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
       "[toml]"."editor.defaultFormatter" = "tamasfe.even-better-toml";
       "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
