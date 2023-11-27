@@ -85,8 +85,9 @@ in {
       "git.suggestSmartCommit" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
 
-      "editor.fontFamily" = "\"CaskaydiaCove NF\",  monospace";
-      "editor.fontLigatures" = "'calt', 'ss01'";
+      "editor.fontFamily" = "\"RyanMono Nerd Font\",  monospace";
+      "editor.fontLigatures" = true;
+      # "editor.fontLigatures" = "'calt', 'ss01'";
       "editor.fontSize" = 16;
       "editor.lineHeight" = 1.5;
       "editor.cursorSmoothCaretAnimation" = "on";
@@ -100,7 +101,7 @@ in {
       "editor.insertSpaces" = true;
       "editor.formatOnSave" = true;
 
-      "terminal.integrated.fontFamily" = "\"CaskaydiaCove NFM\",  monospace";
+      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\",  monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
