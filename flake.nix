@@ -75,6 +75,16 @@
       url = "github:ryanccn/nix-darwin-custom-icons";
     };
 
+    ohmyzsh = {
+      url = "github:ohmyzsh/ohmyzsh";
+      flake = false;
+    };
+
+    vivid-zsh = {
+      url = "github:ryanccn/vivid-zsh";
+      flake = false;
+    };
+
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
