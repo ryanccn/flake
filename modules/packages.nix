@@ -18,9 +18,7 @@
     direnv
     fh
 
-    rustc
-    cargo
-    # sccache
+    fenix.default.toolchain
 
     fnm
     deno
@@ -37,8 +35,6 @@
 
     rust-analyzer
     nodePackages.typescript-language-server
-    rustfmt
-    clippy
     dprint
 
     google-cloud-sdk
@@ -47,7 +43,6 @@
     flyctl
     pscale
 
-    age
     bat
     btop
     doggo
