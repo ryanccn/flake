@@ -330,7 +330,6 @@
         "nrr": "nrr",
         "nyoom": "nyoom",
         "ohmyzsh": "ohmyzsh",
-        "rust-overlay": "rust-overlay",
         "vivid-zsh": "vivid-zsh"
       }
     },
@@ -348,29 +347,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1702261031,
-        "narHash": "sha256-FUsBGXDJapq88XH1+3xfeeZS6cwKnScPkhGMzHn0Dgo=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "d3c43c05ef3cd66ddab4a5a82a7df71e40496aa5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
         "type": "github"
       }
     },
