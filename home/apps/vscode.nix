@@ -109,6 +109,9 @@ in {
       "terminal.integrated.inheritEnv" = false;
       "terminal.integrated.shellIntegration.enabled" = true;
 
+      "javascript.preferGoToSourceDefinition" = true;
+      "typescript.preferGoToSourceDefinition" = true;
+
       "shellcheck.ignorePatterns" = {
         ".envrc" = true;
       };
@@ -140,8 +143,6 @@ in {
       "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
       "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
       "[toml]"."editor.defaultFormatter" = "tamasfe.even-better-toml";
-      "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
-      "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "[svelte]"."editor.defaultFormatter" = "svelte.svelte-vscode";
       "[go][go.mod][go.sum]"."editor.defaultFormatter" = "golang.go";
       "[xml]"."editor.defaultFormatter" = "DotJoshJohnson.xml";
@@ -150,6 +151,8 @@ in {
       "[mdx]"."editor.wordWrap" = "on";
       "[astro]"."editor.defaultFormatter" = "astro-build.astro-vscode";
 
+      "[rust]"."editor.tabSize" = 4;
+      "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
       "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
 
       "files.associations" = {
@@ -174,6 +177,7 @@ in {
 
       "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
 
+      "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
       "nix.serverSettings" = {
@@ -183,6 +187,10 @@ in {
           };
         };
       };
+
+      "typst-lsp.exportPdf" = "never";
+      "typst-lsp.experimentalFormatterMode" = "on";
+      "[typst]"."editor.defaultFormatter" = "nvarner.typst-lsp";
     };
   };
 

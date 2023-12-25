@@ -18,8 +18,6 @@
 
     catppuccin = {
       url = "github:Stonks3141/ctp-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     am = {
