@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: let
   flakeOverlays = import ../overlays;
@@ -11,6 +12,10 @@ in {
   nix.registry = {
     n.flake = inputs.nixpkgs;
   };
+
+  nix.nixPath = [
+    "nixpkgs=${inputs.nixpkgs.outPath}"
+  ];
 
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -29,6 +34,8 @@ in {
       "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
+
+    nix-path = config.nix.nixPath;
   };
 
   nixpkgs = {
