@@ -3,7 +3,11 @@
     enable = true;
     package = pkgs.gitAndTools.gitFull;
 
-    diff-so-fancy.enable = true;
+    difftastic = {
+      enable = true;
+      display = "inline";
+    };
+
     ignores = [
       ".DS_Store"
       ".direnv/"
