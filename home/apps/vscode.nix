@@ -91,7 +91,7 @@ in {
       "editor.fontSize" = 16;
       "editor.lineHeight" = 1.5;
       "editor.cursorSmoothCaretAnimation" = "on";
-      "editor.minimap.renderCharacters" = false;
+      # "editor.minimap.renderCharacters" = false;
       "editor.cursorBlinking" = "phase";
       "workbench.editor.highlightModifiedTabs" = true;
       "workbench.editor.empty.hint" = "hidden";
