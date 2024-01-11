@@ -43,7 +43,7 @@
     "timonwong.shellcheck"
     "unifiedjs.vscode-mdx"
     "Vue.volar"
-    "yoavbls.pretty-ts-errors"
+    "YoavBls.pretty-ts-errors"
   ];
 in {
   programs.vscode = {
