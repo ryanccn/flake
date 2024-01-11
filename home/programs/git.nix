@@ -1,12 +1,8 @@
-{pkgs, ...}: {
+_: {
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
 
-    difftastic = {
-      enable = true;
-      display = "inline";
-    };
+    difftastic.enable = true;
 
     ignores = [
       ".DS_Store"
