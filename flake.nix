@@ -88,7 +88,6 @@
   };
 
   outputs = {
-    self,
     nix-darwin,
     home-manager,
     darwin-custom-icons,
@@ -104,17 +103,6 @@
       specialArgs = {
         inherit inputs;
       };
-    };
-
-    checks = {
-      aarch64-darwin =
-        builtins.mapAttrs (
-          _: v:
-            builtins.seq
-            v.config.system.build.toplevel
-            v.pkgs.emptyFile
-        )
-        self.darwinConfigurations;
     };
   };
 }

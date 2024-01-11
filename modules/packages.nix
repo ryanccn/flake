@@ -6,15 +6,13 @@
   environment.systemPackages = with pkgs; [
     inputs.home-manager.packages.${pkgs.system}.home-manager
 
-    nil
-    statix
-    deadnix
     alejandra
     nixpkgs-fmt
+    statix
+    deadnix
 
     nix-your-shell
     nix-melt
-    cachix
     direnv
     fh
 
@@ -70,7 +68,6 @@
     mkcert
     nerdfix
     ripgrep
-    silicon
     tealdeer
     tokei
     vhs
