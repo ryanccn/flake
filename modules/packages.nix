@@ -51,7 +51,6 @@
     flyctl
     pscale
 
-    bat
     btop
     doggo
     doppler
