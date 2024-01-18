@@ -1,6 +1,11 @@
 _: {
   programs.starship = {
     enable = true;
+
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+
     settings = {
       command_timeout = 1000;
 

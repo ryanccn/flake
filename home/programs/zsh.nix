@@ -14,7 +14,7 @@ in {
     syntaxHighlighting.enable = true;
 
     envExtra = builtins.readFile ./zsh/envExtra.zsh;
-    initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
+    # initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
     initExtra = builtins.readFile ./zsh/initExtra.zsh;
 
     inherit shellAliases;

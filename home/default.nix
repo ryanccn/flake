@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  home.stateVersion = "23.05";
+  programs.home-manager.enable = true;
 
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
@@ -17,6 +17,9 @@
     ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/starship.nix
+    ./programs/fzf.nix
+    ./programs/zoxide.nix
+    ./programs/direnv.nix
 
     ./programs/git.nix
     ./programs/bat.nix
@@ -25,9 +28,8 @@
     ./programs/eza.nix
     ./programs/rust.nix
     ./programs/glamour.nix
+    ./programs/tealdeer.nix
   ];
-
-  programs.home-manager.enable = true;
 
   services.am-discord-rich-presence = {
     enable = false;
@@ -35,4 +37,6 @@
   };
 
   catppuccin.flavour = "frappe";
+
+  home.stateVersion = "23.05";
 }

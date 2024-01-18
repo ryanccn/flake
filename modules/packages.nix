@@ -13,7 +13,6 @@
 
     nix-your-shell
     nix-melt
-    direnv
     fh
 
     (fenix.combine (
@@ -51,14 +50,12 @@
     flyctl
     pscale
 
-    btop
+    # btop
     doggo
     doppler
     du-dust
     fd
     ffmpeg
-    fzf
-    gh
     gen-license
     gum
     hyperfine
@@ -67,13 +64,11 @@
     mkcert
     nerdfix
     ripgrep
-    tealdeer
     tokei
     vhs
     vivid
     watchexec
     xh
-    zoxide
 
     typst
 
