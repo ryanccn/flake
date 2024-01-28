@@ -19,10 +19,12 @@ in {
 
   nix.settings = {
     experimental-features = "nix-command flakes";
-    build-users-group = "nixbld";
-    trusted-users = ["ryanccn"];
     auto-optimise-store = true;
     extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
+
+    sandbox = true;
+    build-users-group = "nixbld";
+    trusted-users = ["ryanccn"];
 
     extra-substituters = [
       "https://nix-community.cachix.org"
