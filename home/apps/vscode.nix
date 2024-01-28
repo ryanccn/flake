@@ -4,45 +4,49 @@
   ...
 }: let
   extensions = [
+    "antfu.icons-carbon"
     "antfu.unocss"
     "astro-build.astro-vscode"
     "bierner.lit-html"
     "bmalehorn.vscode-fish"
     "bradlc.vscode-tailwindcss"
     "Catppuccin.catppuccin-vsc"
-    "Catppuccin.catppuccin-vsc-icons"
-    "xaver.clang-format"
+    # "Catppuccin.catppuccin-vsc-icons"
     "charliermarsh.ruff"
-    "csstools.postcss"
-    "denoland.vscode-deno"
     "dbaeumer.vscode-eslint"
+    "denoland.vscode-deno"
     "dprint.dprint"
     "DotJoshJohnson.xml"
-    "EditorConfig.EditorConfig"
     "eamodio.gitlens"
-    "github.vscode-github-actions"
+    "EditorConfig.EditorConfig"
+    "enkia.tokyo-night"
     "esbenp.prettier-vscode"
+    "github.vscode-github-actions"
     "GraphQL.vscode-graphql"
     "GraphQL.vscode-graphql-syntax"
     "golang.go"
     "griimick.vhs"
     "LeonardSSH.vscord"
+    # "jdinhlife.gruvbox"
     "jnoortheen.nix-ide"
+    "miguelsolorio.symbols"
     "ms-python.isort"
     "ms-python.vscode-pylance"
     "ms-python.python"
-    "mvllow.rose-pine"
-    "Prisma.prisma"
+    # "mvllow.rose-pine"
     "nvarner.typst-lsp"
+    "Prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
-    "tamasfe.even-better-toml"
     "sastan.twind-intellisense"
     "skellock.just"
     "svelte.svelte-vscode"
+    "tamasfe.even-better-toml"
     "timonwong.shellcheck"
     "unifiedjs.vscode-mdx"
+    "usernamehw.errorlens"
     "Vue.volar"
+    "xaver.clang-format"
     "YoavBls.pretty-ts-errors"
   ];
 in {
@@ -50,7 +54,7 @@ in {
     enable = true;
     package = pkgs.stdenv.mkDerivation {
       pname = "vscode";
-      version = "1.81.2";
+      version = "1.85.2";
       src = pkgs.emptyDirectory;
       installPhase = ''
         mkdir -p $out
@@ -61,10 +65,13 @@ in {
     mutableExtensionsDir = true;
 
     userSettings = {
-      "workbench.colorTheme" = "Catppuccin Frappé";
-      "workbench.iconTheme" = "catppuccin-frappe";
+      "workbench.colorTheme" = "Tokyo Night";
+      "workbench.iconTheme" = "symbols";
+      "workbench.productIconTheme" = "icons-carbon";
       "workbench.sideBar.location" = "left";
       "workbench.activityBar.location" = "top";
+
+      "symbols.hidesExplorerArrows" = false;
 
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;

@@ -27,7 +27,5 @@ _: {
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
-    # this is a TEMPORARY WORKAROUND for https://github.com/nix-community/home-manager/issues/4744
-    settings.version = 1;
   };
 }
