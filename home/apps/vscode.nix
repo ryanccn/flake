@@ -88,9 +88,9 @@ in {
       "git.confirmSync" = false;
       "diffEditor.renderSideBySide" = false;
       "git.inputValidation" = "off";
-      "gitlens.showWelcomeOnInstall" = false;
       "git.suggestSmartCommit" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
+      "gitlens.showWelcomeOnInstall" = false;
 
       "editor.fontFamily" = "\"RyanMono Nerd Font\",  monospace";
       "editor.fontLigatures" = true;
@@ -161,6 +161,8 @@ in {
       "[rust]"."editor.tabSize" = 4;
       "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
       "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      "rust-analyzer.check.command" = "clippy";
+      "rust-analyzer.showUnlinkedFileNotification" = false;
 
       "files.associations" = {
         "*.mcmeta" = "json";
@@ -172,13 +174,6 @@ in {
         ".tokeignore" = "ignore";
         "flake.lock" = "json";
       };
-
-      "deno.inlayHints.enumMemberValues.enabled" = false;
-      "deno.inlayHints.functionLikeReturnTypes.enabled" = false;
-      "deno.inlayHints.parameterNames.enabled" = "none";
-      "deno.inlayHints.parameterTypes.enabled" = false;
-      "deno.inlayHints.propertyDeclarationTypes.enabled" = false;
-      "deno.inlayHints.variableTypes.enabled" = false;
 
       "svelte.enable-ts-plugin" = true;
 
