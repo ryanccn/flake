@@ -13,7 +13,7 @@
 
     nix-your-shell
     nix-melt
-    fh
+    # fh
 
     (fenix.combine (
       with fenix;
@@ -61,7 +61,7 @@
     hyperfine
     jq
     just
-    mkcert
+    minica
     nerdfix
     ripgrep
     tokei
