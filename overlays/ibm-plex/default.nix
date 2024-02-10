@@ -1,4 +1,4 @@
-(_: prev: {
+_: (_: prev: {
   ibm-plex = prev.ibm-plex.overrideAttrs (_: {
     postInstall = ''
       set -eo pipefail

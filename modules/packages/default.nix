@@ -15,19 +15,6 @@
     nix-melt
     # fh
 
-    (fenix.combine (
-      with fenix;
-      with stable; [
-        cargo
-        rustc
-        rustfmt
-        clippy
-        rust-src
-        rust-docs
-        targets.wasm32-unknown-unknown.stable.rust-std
-      ]
-    ))
-
     fnm
     deno
     bun

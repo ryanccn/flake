@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ./aliases.nix);
+  shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ../aliases);
 in {
   programs.zsh = {
     enable = true;
@@ -13,9 +13,9 @@ in {
 
     syntaxHighlighting.enable = true;
 
-    envExtra = builtins.readFile ./zsh/envExtra.zsh;
+    envExtra = builtins.readFile ./envExtra.zsh;
     # initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
-    initExtra = builtins.readFile ./zsh/initExtra.zsh;
+    initExtra = builtins.readFile ./initExtra.zsh;
 
     inherit shellAliases;
 

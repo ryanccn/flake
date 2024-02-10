@@ -1,6 +1,4 @@
 {
-  description = "Ryan's MacBook Pro flake";
-
   inputs = {
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -14,6 +12,12 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
 
     catppuccin = {
@@ -50,7 +54,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.fenix.follows = "fenix";
       inputs.naersk.follows = "naersk";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-compat.follows = "";
     };
 
     naersk = {
@@ -80,29 +84,16 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
-
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
   };
 
-  outputs = {
-    nix-darwin,
-    home-manager,
-    darwin-custom-icons,
-    ...
-  } @ inputs: {
-    darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
-      modules = [
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+
+      system.modules.darwin = with inputs; [
         home-manager.darwinModules.home-manager
         darwin-custom-icons.darwinModules.default
-        ./system.nix
       ];
-
-      specialArgs = {
-        inherit inputs;
-      };
     };
-  };
 }

@@ -3,14 +3,14 @@
   lib,
   ...
 }: let
-  extensions = [
+  extensions = builtins.map lib.strings.toLower [
     "antfu.icons-carbon"
     "antfu.unocss"
     "astro-build.astro-vscode"
     "bierner.lit-html"
     "bmalehorn.vscode-fish"
     "bradlc.vscode-tailwindcss"
-    "Catppuccin.catppuccin-vsc"
+    # "Catppuccin.catppuccin-vsc"
     # "Catppuccin.catppuccin-vsc-icons"
     "charliermarsh.ruff"
     "dbaeumer.vscode-eslint"
@@ -19,7 +19,7 @@
     "DotJoshJohnson.xml"
     "eamodio.gitlens"
     "EditorConfig.EditorConfig"
-    "enkia.tokyo-night"
+    # "enkia.tokyo-night"
     "esbenp.prettier-vscode"
     "github.vscode-github-actions"
     "GraphQL.vscode-graphql"
@@ -27,7 +27,7 @@
     "golang.go"
     "griimick.vhs"
     "LeonardSSH.vscord"
-    # "jdinhlife.gruvbox"
+    "jdinhlife.gruvbox"
     "jnoortheen.nix-ide"
     "miguelsolorio.symbols"
     "ms-python.isort"
@@ -54,7 +54,7 @@ in {
     enable = true;
     package = pkgs.stdenv.mkDerivation {
       pname = "vscode";
-      version = "1.85.2";
+      version = "1.86.0";
       src = pkgs.emptyDirectory;
       installPhase = ''
         mkdir -p $out
@@ -65,7 +65,7 @@ in {
     mutableExtensionsDir = true;
 
     userSettings = {
-      "workbench.colorTheme" = "Tokyo Night";
+      "workbench.colorTheme" = "Gruvbox Dark Hard";
       "workbench.iconTheme" = "symbols";
       "workbench.productIconTheme" = "icons-carbon";
       "workbench.sideBar.location" = "left";

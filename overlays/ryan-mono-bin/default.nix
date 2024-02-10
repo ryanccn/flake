@@ -1,4 +1,4 @@
-(_: prev: let
+_: (_: prev: let
   version = "2023.11.26";
 
   mkFontVariant = {

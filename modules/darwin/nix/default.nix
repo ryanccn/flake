@@ -3,9 +3,7 @@
   inputs,
   config,
   ...
-}: let
-  flakeOverlays = import ../overlays;
-in {
+}: {
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
@@ -26,17 +24,6 @@ in {
     trusted-users = ["ryanccn"];
     sandbox = true;
 
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://crane.cachix.org"
-      "https://cache.garnix.io"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-    ];
-
     nix-path = config.nix.nixPath;
   };
 
@@ -49,8 +36,6 @@ in {
       inputs.choirpack.overlays.default
       inputs.nyoom.overlays.default
       inputs.fh.overlays.default
-      flakeOverlays.ryan-mono-bin
-      flakeOverlays.ibm-plex
     ];
 
     config.allowUnfree = true;
