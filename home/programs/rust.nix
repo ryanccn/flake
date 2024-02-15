@@ -1,11 +1,12 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   toml = pkgs.formats.toml {};
 in {
-  home.file.".cargo/config.toml".source = toml.generate "config.toml" {
+  home.file."${config.xdg.dataHome}/cargo/config.toml".source = toml.generate "config.toml" {
     build.rustc-wrapper = "${lib.getExe' pkgs.sccache "sccache"}";
   };
 

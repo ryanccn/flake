@@ -14,17 +14,32 @@ fish_add_path -Pm /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
 fnm env --use-on-cd | source
 
 # cargo
-fish_add_path -P "$HOME/.cargo/bin"
+fish_add_path -P "$CARGO_HOME/bin"
+# go
+fish_add_path -P "$GOPATH/bin"
 # deno
 fish_add_path -P "$HOME/.deno/bin"
 
 # pnpm
 set -x PNPM_HOME "$HOME/Library/pnpm"
+fish_add_path -P "$PNPM_HOME"
 
-# docker
-fish_add_path -P "$HOME/.docker/bin"
 # local bin
 fish_add_path -P "$HOME/.local/bin"
+
+function expose_app_to_path
+    set -f app $argv[1]
+
+    if test -d ~/"Applications/$app.app"
+        fish_add_path -P ~/"Applications/$app.app/Contents/MacOS"
+    end
+    if test -d "/Applications/$app.app"
+        fish_add_path -P "/Applications/$app.app/Contents/MacOS"
+    end
+end
+
+expose_app_to_path Ghostty
+expose_app_to_path WezTerm
 
 # suppress greeting
 set fish_greeting

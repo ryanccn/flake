@@ -7,17 +7,17 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # fnm shell env
 eval "$(fnm env --use-on-cd)"
 
+# cargo
+export PATH="$CARGO_HOME/bin:$PATH"
+# go
+export PATH="$GOPATH/bin:$PATH"
+
 # deno
 export PATH="$HOME/.deno/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="${HOME}/Library/pnpm"
-
-# direnv
-export DIRENV_LOG_FORMAT=""
-
-# docker
-export PATH="$HOME/.docker/bin:$PATH"
+export PATH="$PNPM_HOME:$PATH"
 
 # local bin
 export PATH="$HOME/.local/bin:$PATH"
