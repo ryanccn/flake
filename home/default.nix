@@ -13,6 +13,7 @@
     ./fonts.nix
 
     ./apps/vscode.nix
+    ./apps/ghostty.nix
 
     ./programs/zsh.nix
     ./programs/fish.nix
