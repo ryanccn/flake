@@ -16,6 +16,8 @@ _: {
 
     brews = [
       "pandoc"
+      "fontforge"
+      "ttfautohint"
     ];
 
     casks = let

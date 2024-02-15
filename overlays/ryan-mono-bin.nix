@@ -1,5 +1,5 @@
 (_: prev: let
-  version = "2023.11.26";
+  version = "2024.02.15";
 
   mkFontVariant = {
     variant,
@@ -8,38 +8,37 @@
     prev.callPackage ({
       lib,
       fetchzip,
+      stdenvNoCC,
     }:
-      fetchzip rec {
+      stdenvNoCC.mkDerivation {
         pname = variant;
         inherit version;
 
-        url = "https://github.com/ryanccn/ryan-mono/releases/download/${version}/${variant}.zip";
-        stripRoot = false;
+        src = fetchzip {
+          url = "https://github.com/ryanccn/ryan-mono/releases/download/v${version}/${variant}.tar.xz";
+          stripRoot = false;
+          inherit hash;
+        };
 
-        postFetch = ''
-          postDir="$TMPDIR/post"
-          mkdir -p $postDir
-          mv $out/* $postDir
-          mkdir -p $out/share/fonts/truetype
-          mv $postDir/*.ttf $out/share/fonts/truetype
+        buildPhase = ''
+          mkdir -p "$out"/share/fonts/truetype
+          cp *.ttf "$out"/share/fonts/truetype
         '';
-
-        inherit hash;
 
         meta = with lib; {
           homepage = "https://github.com/ryanccn/ryan-mono";
-          description = "Iosevka with customizations and Nerd Font patches";
           platforms = platforms.all;
+          license = licenses.ofl;
         };
       }) {};
 in {
   ryan-mono-bin = mkFontVariant {
-    variant = "ryan-mono";
-    hash = "sha256-hA9Z1SOD9Ij1sPSyHXg9SUMPuJqKnocYfXwCTMAgJJU=";
+    variant = "RyanMono";
+    hash = "sha256-9ojd6qCMf+lGa//5ZmY/ob6sbJvkBLqWTjyz7I5Yr4M=";
   };
 
   ryan-term-bin = mkFontVariant {
-    variant = "ryan-term";
-    hash = "sha256-j/1wvyN60m7SlUV0c6tk2jgj53EEgWEJMcCOvbrAkVI=";
+    variant = "RyanTerm";
+    hash = "sha256-23+qURL4jBzsnyglPrYYF2pBTkp/WpzR9GQ2nbuJC4E=";
   };
 })

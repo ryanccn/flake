@@ -10,32 +10,32 @@
     "bierner.lit-html"
     "bmalehorn.vscode-fish"
     "bradlc.vscode-tailwindcss"
-    "Catppuccin.catppuccin-vsc"
-    # "Catppuccin.catppuccin-vsc-icons"
+    "catppuccin.catppuccin-vsc"
+    "catppuccin.catppuccin-vsc-icons"
     "charliermarsh.ruff"
     "dbaeumer.vscode-eslint"
     "denoland.vscode-deno"
     "dprint.dprint"
-    "DotJoshJohnson.xml"
+    "dotjoshjohnson.xml"
     "eamodio.gitlens"
-    "EditorConfig.EditorConfig"
-    "enkia.tokyo-night"
+    "editorconfig.editorconfig"
+    # "enkia.tokyo-night"
     "esbenp.prettier-vscode"
     "github.vscode-github-actions"
-    "GraphQL.vscode-graphql"
-    "GraphQL.vscode-graphql-syntax"
+    "graphql.vscode-graphql"
+    "graphql.vscode-graphql-syntax"
     "golang.go"
     "griimick.vhs"
-    "LeonardSSH.vscord"
+    "leonardssh.vscord"
     # "jdinhlife.gruvbox"
     "jnoortheen.nix-ide"
-    "miguelsolorio.symbols"
+    # "miguelsolorio.symbols"
     "ms-python.isort"
     "ms-python.vscode-pylance"
     "ms-python.python"
     # "mvllow.rose-pine"
     "nvarner.typst-lsp"
-    "Prisma.prisma"
+    "prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
     "sastan.twind-intellisense"
@@ -45,16 +45,16 @@
     "timonwong.shellcheck"
     "unifiedjs.vscode-mdx"
     "usernamehw.errorlens"
-    "Vue.volar"
+    "vue.volar"
     "xaver.clang-format"
-    "YoavBls.pretty-ts-errors"
+    "yoavbls.pretty-ts-errors"
   ];
 in {
   programs.vscode = {
     enable = true;
     package = pkgs.stdenv.mkDerivation {
       pname = "vscode";
-      version = "1.85.2";
+      version = "1.86.2";
       src = pkgs.emptyDirectory;
       installPhase = ''
         mkdir -p $out
@@ -65,9 +65,8 @@ in {
     mutableExtensionsDir = true;
 
     userSettings = {
-      "workbench.colorTheme" = "Tokyo Night";
-      "workbench.iconTheme" = "symbols";
-      "workbench.productIconTheme" = "icons-carbon";
+      "workbench.colorTheme" = "Catppuccin Frappé";
+      "workbench.iconTheme" = "catppuccin-frappe";
       "workbench.sideBar.location" = "left";
       "workbench.activityBar.location" = "top";
 
@@ -76,11 +75,15 @@ in {
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
       "catppuccin.accentColor" = "sky";
-      "catppuccin.workbenchMode" = "default";
+      "catppuccin.workbenchMode" = "flat";
       "catppuccin.customUIColors" = {
         "all" = {
           "activityBar.activeBorder" = "accent";
           "statusBarItem.remoteBackground" = "accent";
+          "activityBarTop.foreground" = "text";
+          "activityBarTop.inactiveForeground" = "subtext1";
+          "activityBarTop.activeBorder" = "accent";
+          "activityBarTop.dropBorder" = "accent";
         };
       };
 
@@ -92,7 +95,7 @@ in {
       "diffEditor.ignoreTrimWhitespace" = false;
       "gitlens.showWelcomeOnInstall" = false;
 
-      "editor.fontFamily" = "\"RyanMono Nerd Font\",  monospace";
+      "editor.fontFamily" = "\"Ryan Mono\", \"Symbols Nerd Font\", \"Apple Color Emoji\", monospace";
       "editor.fontLigatures" = true;
       # "editor.fontLigatures" = "'calt', 'ss01'";
       "editor.fontSize" = 16;
@@ -108,7 +111,7 @@ in {
       "editor.insertSpaces" = true;
       "editor.formatOnSave" = true;
 
-      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\",  monospace";
+      "terminal.integrated.fontFamily" = "\"Ryan Term\", \"Symbols Nerd Font\", \"Apple Color Emoji\", monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
@@ -116,19 +119,20 @@ in {
       "terminal.integrated.inheritEnv" = false;
       "terminal.integrated.shellIntegration.enabled" = true;
 
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+
       "javascript.preferGoToSourceDefinition" = true;
       "typescript.preferGoToSourceDefinition" = true;
+      "typescript.enablePromptUseWorkspaceTsdk" = true;
 
-      "shellcheck.ignorePatterns" = {
-        ".envrc" = true;
-      };
-      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "eslint.experimental.useFlatConfig" = true;
+
+      "shellcheck.ignorePatterns".".envrc" = true;
       "tailwindCSS.includeLanguages" = {
         "typescript" = "javascript";
         "typescriptreact" = "javascript";
         "vue-html" = "html";
       };
-      "typescript.enablePromptUseWorkspaceTsdk" = true;
 
       "telemetry.telemetryLevel" = "off";
       "workbench.enableExperiments" = false;
