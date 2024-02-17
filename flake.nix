@@ -88,6 +88,7 @@
   };
 
   outputs = {
+    self,
     nix-darwin,
     home-manager,
     darwin-custom-icons,
@@ -101,8 +102,10 @@
       ];
 
       specialArgs = {
-        inherit inputs;
+        inherit self inputs;
       };
     };
+
+    overlays = import ./overlays;
   };
 }

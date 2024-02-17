@@ -4,7 +4,7 @@
   ...
 }: let
   extensions = [
-    "antfu.icons-carbon"
+    # "antfu.icons-carbon"
     "antfu.unocss"
     "astro-build.astro-vscode"
     "bierner.lit-html"

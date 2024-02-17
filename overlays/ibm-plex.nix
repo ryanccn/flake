@@ -21,6 +21,7 @@
         ttx "$medium_font"
         sed -i 's/Medm/Medium/g' "$ttx_path"
         ttx -f "$ttx_path"
+        rm "$ttx_path"
       done
 
       semibold_fonts=$(fd --extension=otf SemiBold)
@@ -33,6 +34,7 @@
         ttx "$semibold_font"
         sed -i 's/SmBld/Semibold/g' "$ttx_path"
         ttx -f "$ttx_path"
+        rm "$ttx_path"
       done
 
       echo -e "''${ansi_green}Done!''${ansi_reset}"

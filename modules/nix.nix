@@ -1,11 +1,10 @@
 {
+  self,
   pkgs,
   inputs,
   config,
   ...
-}: let
-  flakeOverlays = import ../overlays;
-in {
+}: {
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
@@ -39,8 +38,8 @@ in {
       inputs.choirpack.overlays.default
       inputs.nyoom.overlays.default
       inputs.fh.overlays.default
-      flakeOverlays.ryan-mono-bin
-      flakeOverlays.ibm-plex
+      self.overlays.ryan-mono-bin
+      self.overlays.ibm-plex
     ];
 
     config.allowUnfree = true;

@@ -1,5 +1,5 @@
 (_: prev: let
-  version = "2024.02.15";
+  version = "2024.02.16";
 
   mkFontVariant = {
     variant,
@@ -16,7 +16,6 @@
 
         src = fetchzip {
           url = "https://github.com/ryanccn/ryan-mono/releases/download/v${version}/${variant}.tar.xz";
-          stripRoot = false;
           inherit hash;
         };
 
@@ -34,11 +33,11 @@
 in {
   ryan-mono-bin = mkFontVariant {
     variant = "RyanMono";
-    hash = "sha256-9ojd6qCMf+lGa//5ZmY/ob6sbJvkBLqWTjyz7I5Yr4M=";
+    hash = "sha256-4h9T3r/kngeGUYMj6N05QFuvg0rPICqZBKDloB/WtMc=";
   };
 
   ryan-term-bin = mkFontVariant {
     variant = "RyanTerm";
-    hash = "sha256-23+qURL4jBzsnyglPrYYF2pBTkp/WpzR9GQ2nbuJC4E=";
+    hash = "sha256-NBl4Z2JT88WbgcPuei3Jcfb5n7T89oWCzOm9vBtAmkc=";
   };
 })
