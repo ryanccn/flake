@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        label:
+          - Ryans-MacBook-Pro
+        include:
+          - label: Ryans-MacBook-Pro
+            path: darwinConfigurations.Ryans-MacBook-Pro.config.system.build.toplevel
+            runner: macos-14
+
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v7
+
+      - name: Build
+        run: nix build -L --show-trace .#${{ matrix.path }}

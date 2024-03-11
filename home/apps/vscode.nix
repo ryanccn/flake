@@ -89,9 +89,9 @@ in {
 
       "git.autofetch" = true;
       "git.confirmSync" = false;
-      "diffEditor.renderSideBySide" = false;
-      "git.inputValidation" = "off";
+      "git.inputValidation" = false;
       "git.suggestSmartCommit" = false;
+      "diffEditor.renderSideBySide" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
       "gitlens.showWelcomeOnInstall" = false;
 
@@ -111,7 +111,7 @@ in {
       "editor.insertSpaces" = true;
       "editor.formatOnSave" = true;
 
-      "terminal.integrated.fontFamily" = "\"Ryan Term\", \"Symbols Nerd Font\", \"Apple Color Emoji\", monospace";
+      "terminal.integrated.fontFamily" = "\"Ryan Term\", \"Symbols Nerd Font Mono\", \"Apple Color Emoji\", monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;

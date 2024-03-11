@@ -15,12 +15,12 @@
     ./apps/vscode.nix
     ./apps/ghostty.nix
 
-    ./programs/zsh.nix
     ./programs/fish.nix
+    ./programs/zsh.nix
     ./programs/starship.nix
-    ./programs/fzf.nix
     ./programs/zoxide.nix
     ./programs/direnv.nix
+    ./programs/atuin.nix
 
     ./programs/git.nix
     ./programs/bat.nix
@@ -32,6 +32,7 @@
     ./programs/tealdeer.nix
   ];
 
+  programs.bash.enable = true;
   xdg.enable = true;
 
   services.am-discord-rich-presence = {

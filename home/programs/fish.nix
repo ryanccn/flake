@@ -7,6 +7,12 @@ in {
     enable = true;
     inherit shellAbbrs shellAliases;
 
+    shellInit = ''
+      for config in ${./fish/configs}/*.fish
+        source "$config"
+      end
+    '';
+
     functions = {
       take = ''
         set dir $argv[1]
@@ -28,8 +34,8 @@ in {
     };
   };
 
-  home.file.".config/fish/conf.d" = {
-    source = ./fish/conf.d;
-    recursive = true;
-  };
+  # home.file.".config/fish/conf.d" = {
+  #   source = ./fish/conf.d;
+  #   recursive = true;
+  # };
 }

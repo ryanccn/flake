@@ -12,6 +12,7 @@
     deadnix
 
     nix-your-shell
+    nix-output-monitor
     nix-melt
     # fh
 
