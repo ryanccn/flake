@@ -32,11 +32,11 @@
     nodePackages.typescript-language-server
     dprint
 
-    google-cloud-sdk
+    # google-cloud-sdk
     railway
     cloudflared
     flyctl
-    pscale
+    # pscale
 
     # btop
     doggo

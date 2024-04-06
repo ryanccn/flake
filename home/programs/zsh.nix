@@ -7,11 +7,11 @@
 in {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
-    enableCompletion = true;
     dotDir = ".config/zsh";
 
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    enableCompletion = true;
 
     envExtra = builtins.readFile ./zsh/envExtra.zsh;
     # initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;

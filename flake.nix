@@ -33,6 +33,8 @@
     nrr = {
       url = "github:ryanccn/nrr";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
     choirpack = {
@@ -51,6 +53,12 @@
       inputs.fenix.follows = "fenix";
       inputs.naersk.follows = "naersk";
       inputs.flake-compat.follows = "flake-compat";
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
     naersk = {

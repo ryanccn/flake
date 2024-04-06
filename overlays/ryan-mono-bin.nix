@@ -1,5 +1,5 @@
 (_: prev: let
-  version = "2024.03.11";
+  version = "2024.04.06";
 
   mkFontVariant = {
     variant,
@@ -33,11 +33,11 @@
 in {
   ryan-mono-bin = mkFontVariant {
     variant = "RyanMono";
-    hash = "sha256-+ReEWd8Kpdgnq9zKA0+7KVkwwrV7tcVM9ldes2UeiG0=";
+    hash = "sha256-oqrG258ONpwekBdyBnxl9x+8wHlBaUpYoP4PIIeD4+4=";
   };
 
   ryan-term-bin = mkFontVariant {
     variant = "RyanTerm";
-    hash = "sha256-eAu26f/pJPMwV4BiABPwNJI1HRF4HbPsm/fL6/tseq4=";
+    hash = "sha256-FwIo1bVNkIrd9LIQUg4hSKv13dv97X7IVo3/IejVuGg=";
   };
 })

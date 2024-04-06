@@ -1,7 +1,6 @@
 _: {
   programs.git = {
     enable = true;
-
     difftastic.enable = true;
 
     ignores = [
@@ -19,6 +18,14 @@ _: {
       commit.gpgsign = true;
       gpg.format = "ssh";
       "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+
+      log.date = "iso";
+      merge.conflictstyle = "zdiff3";
+      diff.algorithm = "histogram";
+
+      transfer.fsckobjects = true;
+      fetch.fsckobjects = true;
+      receive.fsckObjects = true;
 
       push.autoSetupRemote = true;
     };

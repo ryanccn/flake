@@ -17,7 +17,7 @@
     "denoland.vscode-deno"
     "dprint.dprint"
     "dotjoshjohnson.xml"
-    "eamodio.gitlens"
+    # "eamodio.gitlens"
     "editorconfig.editorconfig"
     # "enkia.tokyo-night"
     "esbenp.prettier-vscode"
@@ -46,6 +46,7 @@
     "unifiedjs.vscode-mdx"
     "usernamehw.errorlens"
     "vue.volar"
+    "waderyan.gitblame"
     "xaver.clang-format"
     "yoavbls.pretty-ts-errors"
   ];
@@ -54,8 +55,8 @@ in {
     enable = true;
     package = pkgs.stdenv.mkDerivation {
       pname = "vscode";
-      version = "1.86.2";
-      src = pkgs.emptyDirectory;
+      version = "1.87.2";
+      dontUnpack = true;
       installPhase = ''
         mkdir -p $out
       '';
@@ -74,7 +75,7 @@ in {
 
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
-      "catppuccin.accentColor" = "sky";
+      "catppuccin.accentColor" = "sapphire";
       "catppuccin.workbenchMode" = "flat";
       "catppuccin.customUIColors" = {
         "all" = {
@@ -94,6 +95,9 @@ in {
       "diffEditor.renderSideBySide" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
       "gitlens.showWelcomeOnInstall" = false;
+
+      "gitblame.inlineMessageEnabled" = true;
+      "gitblame.inlineMessageFormat" = "\${author.name} · \${time.ago} · \${commit.summary,120}";
 
       "editor.fontFamily" = "\"Ryan Mono\", \"Symbols Nerd Font\", \"Apple Color Emoji\", monospace";
       "editor.fontLigatures" = true;
@@ -146,9 +150,9 @@ in {
       "vscord.status.state.text.editing" = "Working on {file_name}{file_extension}";
       "vscord.status.buttons.button1.enabled" = false;
 
-      "gitlens.defaultTimeFormat" = "HH=mm";
-      "gitlens.defaultDateShortFormat" = "YYYY/MM/DD";
-      "gitlens.defaultDateFormat" = null;
+      # "gitlens.defaultTimeFormat" = "HH=mm";
+      # "gitlens.defaultDateShortFormat" = "YYYY/MM/DD";
+      # "gitlens.defaultDateFormat" = null;
 
       "[python]"."editor.tabSize" = 4;
       "[python]"."editor.defaultFormatter" = "charliermarsh.ruff";
