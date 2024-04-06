@@ -6,7 +6,7 @@
   ...
 }: {
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  nix.package = pkgs.nixVersions.unstable;
 
   nix.registry = {
     n.flake = inputs.nixpkgs;
@@ -31,7 +31,7 @@
 
   nixpkgs = {
     overlays = [
-      inputs.fenix.overlays.default
+      inputs.rust-overlay.overlays.default
       inputs.am.overlays.default
       inputs.nish.overlays.default
       inputs.nrr.overlays.default

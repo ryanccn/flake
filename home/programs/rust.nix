@@ -7,22 +7,12 @@
   toml = pkgs.formats.toml {};
 in {
   home.file."${config.xdg.dataHome}/cargo/config.toml".source = toml.generate "config.toml" {
-    build.rustc-wrapper = "${lib.getExe' pkgs.sccache "sccache"}";
+    linker = "${lib.getExe pkgs.clang}";
+    rustflags = ["-C" "link-arg=-fuse-ld=${lib.getExe pkgs.mold}"];
   };
 
   home.packages = with pkgs; [
-    (fenix.combine (
-      with fenix;
-      with stable; [
-        cargo
-        rustc
-        rustfmt
-        clippy
-        rust-src
-        targets.wasm32-unknown-unknown.stable.rust-std
-      ]
-    ))
-
+    rust-bin.stable.latest.default
     cargo-bloat
     cargo-cache
     cargo-deny
