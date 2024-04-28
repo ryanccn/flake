@@ -14,13 +14,12 @@
     nix-your-shell
     nix-output-monitor
     nix-melt
-    # fh
 
     fnm
     deno
     bun
 
-    (python311.withPackages (ps: with ps; [pip]))
+    (python312.withPackages (ps: with ps; [pip]))
     ruff
     yt-dlp
     xkcdpass

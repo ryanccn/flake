@@ -2,10 +2,6 @@ _: {
   programs.starship = {
     enable = true;
 
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-
     settings = {
       command_timeout = 1000;
 
@@ -16,17 +12,17 @@ _: {
 
       gcloud.disabled = true;
 
-      bun.format = "[$symbol($version )]($style)";
+      bun.format = "[$symbol($version)]($style) ";
       cmd_duration.format = "[$duration]($style) ";
-      deno.format = "[$symbol($version )]($style)";
+      deno.format = "[$symbol($version)]($style) ";
       docker_context.format = "[$symbol$context]($style) ";
       git_branch.format = "[$symbol$branch(:$remote_branch)]($style) ";
-      golang.format = "[$symbol($version )]($style)";
+      golang.format = "[$symbol($version)]($style) ";
       nix_shell.format = "[$symbol$state( \($name\))]($style) ";
-      nodejs.format = "[$symbol($version )]($style)";
+      nodejs.format = "[$symbol($version)]($style) ";
       package.format = "[$symbol$version]($style) ";
       python.format = "[\${symbol}\${pyenv_prefix}(\${version} )(\($virtualenv\) )]($style)";
-      rust.format = "[$symbol($version )]($style)";
+      rust.format = "[$symbol($version)]($style) ";
 
       aws.symbol = " ";
       bun.symbol = "󰳮 ";

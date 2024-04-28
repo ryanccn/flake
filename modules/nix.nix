@@ -37,7 +37,6 @@
       inputs.nrr.overlays.default
       inputs.choirpack.overlays.default
       inputs.nyoom.overlays.default
-      inputs.fh.overlays.default
       self.overlays.ryan-mono-bin
       self.overlays.ibm-plex
     ];

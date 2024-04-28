@@ -5,6 +5,8 @@
 in {
   programs.fish = {
     enable = true;
+    catppuccin.enable = true;
+
     inherit shellAbbrs shellAliases;
 
     shellInit = ''
@@ -34,8 +36,12 @@ in {
     };
   };
 
-  # home.file.".config/fish/conf.d" = {
-  #   source = ./fish/conf.d;
-  #   recursive = true;
-  # };
+  programs.fzf = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+  };
 }

@@ -12,7 +12,10 @@ in {
   };
 
   home.packages = with pkgs; [
-    rust-bin.stable.latest.default
+    (rust-bin.stable.latest.default.override {
+      extensions = ["llvm-tools-preview"];
+    })
+
     cargo-bloat
     cargo-cache
     cargo-deny

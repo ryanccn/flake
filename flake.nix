@@ -17,7 +17,7 @@
     };
 
     catppuccin = {
-      url = "github:Stonks3141/ctp-nix";
+      url = "github:catppuccin/nix";
     };
 
     am = {
@@ -47,28 +47,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fh = {
-      url = "https://flakehub.com/f/DeterminateSystems/fh/0.*.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.fenix.follows = "fenix";
-      inputs.naersk.follows = "naersk";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-    };
-
-    naersk = {
-      url = "github:nix-community/naersk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     darwin-custom-icons = {
@@ -87,11 +69,6 @@
 
     flake-utils = {
       url = "github:numtide/flake-utils";
-    };
-
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
     };
   };
 

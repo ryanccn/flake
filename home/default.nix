@@ -18,9 +18,7 @@
     ./programs/fish.nix
     ./programs/zsh.nix
     ./programs/starship.nix
-    ./programs/zoxide.nix
     ./programs/direnv.nix
-    ./programs/atuin.nix
 
     ./programs/git.nix
     ./programs/bat.nix
