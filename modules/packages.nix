@@ -40,7 +40,7 @@
     # btop
     doggo
     doppler
-    du-dust
+    dust
     fd
     ffmpeg
     gen-license
@@ -48,7 +48,7 @@
     hyperfine
     jq
     just
-    minica
+    # minica
     nerdfix
     ripgrep
     tokei
@@ -62,9 +62,9 @@
     packwiz
     catppuccin-catwalk
 
-    am
-    nish
     nrr
+    am
+    # nish
     choirpack
     nyoom
 

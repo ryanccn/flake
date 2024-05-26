@@ -53,9 +53,9 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.stdenv.mkDerivation {
+    package = pkgs.stdenvNoCC.mkDerivation {
       pname = "vscode";
-      version = "1.87.2";
+      version = "1.89.1";
       dontUnpack = true;
       installPhase = ''
         mkdir -p $out

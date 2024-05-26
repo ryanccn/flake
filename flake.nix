@@ -16,6 +16,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
+      flake = false;
+    };
+
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -76,6 +88,7 @@
     self,
     nix-darwin,
     home-manager,
+    lix-module,
     darwin-custom-icons,
     ...
   } @ inputs: {
@@ -83,6 +96,7 @@
       modules = [
         home-manager.darwinModules.home-manager
         darwin-custom-icons.darwinModules.default
+        lix-module.nixosModules.default
         ./system.nix
       ];
 

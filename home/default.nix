@@ -38,7 +38,8 @@
     logFile = "${config.home.homeDirectory}/Library/Logs/am-discord-rich-presence.log";
   };
 
-  catppuccin.flavour = "frappe";
+  catppuccin.flavor = "frappe";
+  catppuccin.accent = "sapphire";
 
   home.stateVersion = "23.05";
 }

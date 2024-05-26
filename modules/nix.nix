@@ -1,12 +1,12 @@
 {
   self,
-  pkgs,
+  # pkgs,
   inputs,
   config,
   ...
 }: {
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nixVersions.unstable;
+  # nix.package = pkgs.nixVersions.latest;
 
   nix.registry = {
     n.flake = inputs.nixpkgs;
@@ -25,6 +25,14 @@
     trusted-users = ["ryanccn"];
     sandbox = true;
     use-xdg-base-directories = true;
+
+    extra-substituters = [
+      "https://cache.lix.systems"
+    ];
+
+    extra-trusted-public-keys = [
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+    ];
 
     nix-path = config.nix.nixPath;
   };

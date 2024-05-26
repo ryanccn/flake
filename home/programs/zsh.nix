@@ -20,7 +20,7 @@ in {
     inherit shellAliases;
 
     localVariables = {
-      vivid_theme = "catppuccin-${config.catppuccin.flavour}";
+      vivid_theme = "catppuccin-${config.catppuccin.flavor}";
     };
 
     plugins = [
