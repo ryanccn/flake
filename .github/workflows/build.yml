@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v7
+        uses: DeterminateSystems/nix-installer-action@v12
 
       - name: Build
         run: nix build -L --show-trace .#${{ matrix.path }}
