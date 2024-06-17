@@ -1,3 +1,1 @@
-_: {
-  programs.glamour.catppuccin.enable = true;
-}
+_: { programs.glamour.catppuccin.enable = true; }

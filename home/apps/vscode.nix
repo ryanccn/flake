@@ -3,7 +3,8 @@
   lib,
   self,
   ...
-}: let
+}:
+let
   extensions = [
     # "antfu.icons-carbon"
     "antfu.unocss"
@@ -52,7 +53,8 @@
     # "xaver.clang-format"
     "yoavbls.pretty-ts-errors"
   ];
-in {
+in
+{
   programs.vscode = {
     enable = true;
     package = pkgs.stdenvNoCC.mkDerivation {
@@ -64,7 +66,7 @@ in {
       '';
     };
 
-    extensions = [];
+    extensions = [ ];
     mutableExtensionsDir = true;
 
     userSettings = {
@@ -197,7 +199,7 @@ in {
       "nix.serverPath" = lib.getExe pkgs.nixd;
       "nix.serverSettings" = {
         nixd = {
-          formatting.command = [(lib.getExe pkgs.alejandra)];
+          formatting.command = [ (lib.getExe pkgs.alejandra) ];
           nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
         };
       };
@@ -209,7 +211,7 @@ in {
   };
 
   home.activation = {
-    vscodeExtensions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    vscodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       code_bin="/usr/local/bin/code"
 
       if ! command -v "$code_bin" &> /dev/null; then
@@ -222,19 +224,15 @@ in {
         currentExtensions["$extension"]=1;
       done
 
-      ${builtins.concatStringsSep
-        "\n"
-        (
-          builtins.map
-          (ext: ''
-            if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
-              echo "installing ${ext}"
-              $DRY_RUN_CMD "$code_bin" --install-extension ${ext} &> /dev/null
-            fi
-            unset 'currentExtensions[${ext}]'
-          '')
-          extensions
-        )}
+      ${builtins.concatStringsSep "\n" (
+        builtins.map (ext: ''
+          if [[ -z "''${currentExtensions[${ext}]+unset}" ]]; then
+            echo "installing ${ext}"
+            $DRY_RUN_CMD "$code_bin" --install-extension ${ext} &> /dev/null
+          fi
+          unset 'currentExtensions[${ext}]'
+        '') extensions
+      )}
 
       for ext in "''${!currentExtensions[@]}"; do
         echo "uninstalling $ext"

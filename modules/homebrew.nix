@@ -20,22 +20,22 @@ _: {
       "ttfautohint"
     ];
 
-    casks = let
-      noQuarantine = name: {
-        inherit name;
-        args = {
-          no_quarantine = true;
+    casks =
+      let
+        noQuarantine = name: {
+          inherit name;
+          args = {
+            no_quarantine = true;
+          };
         };
-      };
-    in [
-      "blackhole-16ch"
-      (noQuarantine "eloston-chromium")
-      "sf-symbols"
-      "1password/tap/1password-cli"
-    ];
+      in
+      [
+        "blackhole-16ch"
+        (noQuarantine "eloston-chromium")
+        "sf-symbols"
+        "1password/tap/1password-cli"
+      ];
 
-    taps = [
-      "1password/tap"
-    ];
+    taps = [ "1password/tap" ];
   };
 }

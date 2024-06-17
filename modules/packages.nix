@@ -1,13 +1,11 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   environment.systemPackages = with pkgs; [
     inputs.home-manager.packages.${pkgs.system}.home-manager
 
     alejandra
     nixpkgs-fmt
+    nixfmt-rfc-style
     statix
     deadnix
 
@@ -19,7 +17,7 @@
     deno
     bun
 
-    (python312.withPackages (ps: with ps; [pip]))
+    (python312.withPackages (ps: with ps; [ pip ]))
     ruff
     yt-dlp
     xkcdpass

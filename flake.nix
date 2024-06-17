@@ -84,25 +84,27 @@
     };
   };
 
-  outputs = {
-    self,
-    nix-darwin,
-    home-manager,
-    darwin-custom-icons,
-    ...
-  } @ inputs: {
-    darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
-      modules = [
-        home-manager.darwinModules.home-manager
-        darwin-custom-icons.darwinModules.default
-        ./system.nix
-      ];
+  outputs =
+    {
+      self,
+      nix-darwin,
+      home-manager,
+      darwin-custom-icons,
+      ...
+    }@inputs:
+    {
+      darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
+        modules = [
+          home-manager.darwinModules.home-manager
+          darwin-custom-icons.darwinModules.default
+          ./system.nix
+        ];
 
-      specialArgs = {
-        inherit self inputs;
+        specialArgs = {
+          inherit self inputs;
+        };
       };
-    };
 
-    overlays = import ./overlays;
-  };
+      overlays = import ./overlays;
+    };
 }

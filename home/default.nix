@@ -1,8 +1,5 @@
+{ config, inputs, ... }:
 {
-  config,
-  inputs,
-  ...
-}: {
   programs.home-manager.enable = true;
 
   imports = [

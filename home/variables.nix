@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   home.sessionVariables = {
     NEXT_TELEMETRY_DISABLED = "1";
     NUXT_TELEMETRY_DISABLED = "1";

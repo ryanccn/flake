@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     inter
     public-sans
@@ -16,8 +17,6 @@
       '';
     })
 
-    (nerdfonts.override {
-      fonts = ["NerdFontsSymbolsOnly"];
-    })
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 }

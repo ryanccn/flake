@@ -1,15 +1,15 @@
-_: prev: let
+_: prev:
+let
   version = "2024.05.26";
 
-  mkFontVariant = {
-    variant,
-    hash,
-  }:
-    prev.callPackage ({
-      lib,
-      fetchzip,
-      stdenvNoCC,
-    }:
+  mkFontVariant =
+    { variant, hash }:
+    prev.callPackage (
+      {
+        lib,
+        fetchzip,
+        stdenvNoCC,
+      }:
       stdenvNoCC.mkDerivation {
         pname = variant;
         inherit version;
@@ -30,8 +30,10 @@ _: prev: let
           platforms = platforms.all;
           license = licenses.ofl;
         };
-      }) {};
-in {
+      }
+    ) { };
+in
+{
   ryan-mono-bin = prev.symlinkJoin {
     name = "ryan-mono-bin-${version}";
 

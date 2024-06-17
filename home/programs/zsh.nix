@@ -1,10 +1,8 @@
-{
-  config,
-  inputs,
-  ...
-}: let
+{ config, inputs, ... }:
+let
   shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ./aliases.nix);
-in {
+in
+{
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";

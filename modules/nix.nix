@@ -4,7 +4,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   services.nix-daemon.enable = true;
   nix.package = pkgs.nixVersions.latest;
 
@@ -12,27 +13,24 @@
     n.flake = inputs.nixpkgs;
   };
 
-  nix.nixPath = [
-    "nixpkgs=${inputs.nixpkgs.outPath}"
-  ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
   nix.settings = {
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
-    extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
+    extra-platforms = [
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
 
     build-users-group = "nixbld";
-    trusted-users = ["ryanccn"];
+    trusted-users = [ "ryanccn" ];
     sandbox = true;
     use-xdg-base-directories = true;
 
-    extra-substituters = [
-      "https://cache.lix.systems"
-    ];
+    extra-substituters = [ "https://cache.lix.systems" ];
 
-    extra-trusted-public-keys = [
-      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-    ];
+    extra-trusted-public-keys = [ "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o=" ];
 
     nix-path = config.nix.nixPath;
   };

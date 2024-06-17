@@ -3,7 +3,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   imports = [
     ./modules/nix.nix
     ./modules/packages.nix
