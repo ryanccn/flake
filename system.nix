@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  self,
   ...
 }: {
   imports = [
@@ -45,7 +46,7 @@
     useUserPackages = true;
 
     extraSpecialArgs = {
-      inherit inputs;
+      inherit self inputs;
     };
 
     users.ryanccn = import ./home;

@@ -88,7 +88,6 @@
     self,
     nix-darwin,
     home-manager,
-    lix-module,
     darwin-custom-icons,
     ...
   } @ inputs: {
@@ -96,7 +95,6 @@
       modules = [
         home-manager.darwinModules.home-manager
         darwin-custom-icons.darwinModules.default
-        lix-module.nixosModules.default
         ./system.nix
       ];
 

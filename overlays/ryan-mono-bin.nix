@@ -1,5 +1,5 @@
-(_: prev: let
-  version = "2024.04.06";
+_: prev: let
+  version = "2024.05.26";
 
   mkFontVariant = {
     variant,
@@ -19,9 +19,10 @@
           inherit hash;
         };
 
-        buildPhase = ''
-          mkdir -p "$out"/share/fonts/truetype
-          cp *.ttf "$out"/share/fonts/truetype
+        installPhase = ''
+          runHook preInstall
+          install -Dm644 *.ttf -t $out/share/fonts/truetype
+          runHook postInstall
         '';
 
         meta = with lib; {
@@ -31,13 +32,29 @@
         };
       }) {};
 in {
-  ryan-mono-bin = mkFontVariant {
-    variant = "RyanMono";
-    hash = "sha256-oqrG258ONpwekBdyBnxl9x+8wHlBaUpYoP4PIIeD4+4=";
-  };
+  ryan-mono-bin = prev.symlinkJoin {
+    name = "ryan-mono-bin-${version}";
 
-  ryan-term-bin = mkFontVariant {
-    variant = "RyanTerm";
-    hash = "sha256-FwIo1bVNkIrd9LIQUg4hSKv13dv97X7IVo3/IejVuGg=";
+    paths = [
+      (mkFontVariant {
+        variant = "RyanMono";
+        hash = "sha256-smlvBfpwVoD0qfmmHcJjsLdiblXjy5eevZfK4qDc9x8=";
+      })
+
+      (mkFontVariant {
+        variant = "RyanTerm";
+        hash = "sha256-12xaJqgR5R6SZnZ7vJeD5zg2TZbWEiUrdyK+ljekMvc=";
+      })
+
+      (mkFontVariant {
+        variant = "RyanMonoNerdFont";
+        hash = "sha256-n2d9K1rJuWCF2NgkRLQQCNCAxYfiBVv/jpn+BzqBvAI=";
+      })
+
+      (mkFontVariant {
+        variant = "RyanTermNerdFont";
+        hash = "sha256-yrzgNRD560FhHLSK1neHVSnB+ZiHP2bmKzD1pGTu9Ro=";
+      })
+    ];
   };
-})
+}

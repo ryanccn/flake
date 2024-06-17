@@ -1,12 +1,12 @@
 {
   self,
-  # pkgs,
+  pkgs,
   inputs,
   config,
   ...
 }: {
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nixVersions.latest;
+  nix.package = pkgs.nixVersions.latest;
 
   nix.registry = {
     n.flake = inputs.nixpkgs;

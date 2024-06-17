@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  self,
   ...
 }: let
   extensions = [
@@ -15,8 +16,8 @@
     "charliermarsh.ruff"
     "dbaeumer.vscode-eslint"
     "denoland.vscode-deno"
-    "dprint.dprint"
     "dotjoshjohnson.xml"
+    "dprint.dprint"
     # "eamodio.gitlens"
     "editorconfig.editorconfig"
     # "enkia.tokyo-night"
@@ -34,6 +35,7 @@
     "ms-python.vscode-pylance"
     "ms-python.python"
     # "mvllow.rose-pine"
+    "naumovs.color-highlight"
     "nvarner.typst-lsp"
     "prisma.prisma"
     "ronnidc.nunjucks"
@@ -47,7 +49,7 @@
     "usernamehw.errorlens"
     "vue.volar"
     "waderyan.gitblame"
-    "xaver.clang-format"
+    # "xaver.clang-format"
     "yoavbls.pretty-ts-errors"
   ];
 in {
@@ -71,7 +73,7 @@ in {
       "workbench.sideBar.location" = "left";
       "workbench.activityBar.location" = "top";
 
-      "symbols.hidesExplorerArrows" = false;
+      # "symbols.hidesExplorerArrows" = false;
 
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
@@ -99,9 +101,9 @@ in {
       "gitblame.inlineMessageEnabled" = true;
       "gitblame.inlineMessageFormat" = "\${author.name} · \${time.ago} · \${commit.summary,120}";
 
-      "editor.fontFamily" = "\"Ryan Mono\", \"Symbols Nerd Font\", \"Apple Color Emoji\", monospace";
-      "editor.fontLigatures" = true;
-      # "editor.fontLigatures" = "'calt', 'ss01'";
+      "editor.fontFamily" = "\"RyanMono Nerd Font\", \"Apple Color Emoji\", monospace";
+      # "editor.fontLigatures" = true;
+      "editor.fontLigatures" = "'calt', 'ss01'";
       "editor.fontSize" = 16;
       "editor.lineHeight" = 1.5;
       "editor.cursorSmoothCaretAnimation" = "on";
@@ -115,7 +117,7 @@ in {
       "editor.insertSpaces" = true;
       "editor.formatOnSave" = true;
 
-      "terminal.integrated.fontFamily" = "\"Ryan Term\", \"Symbols Nerd Font Mono\", \"Apple Color Emoji\", monospace";
+      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\", \"Apple Color Emoji\", monospace";
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
@@ -185,16 +187,18 @@ in {
 
       "svelte.enable-ts-plugin" = true;
 
-      "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
+      "color-highlight.matchRgbWithNoFunction" = true;
+      "color-highlight.matchHslWithNoFunction" = true;
+
+      # "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
 
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      "nix.serverPath" = lib.getExe pkgs.nixd;
       "nix.serverSettings" = {
-        nil = {
-          formatting = {
-            command = ["${pkgs.alejandra}/bin/alejandra"];
-          };
+        nixd = {
+          formatting.command = [(lib.getExe pkgs.alejandra)];
+          nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
         };
       };
 
