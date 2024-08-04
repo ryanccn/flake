@@ -16,6 +16,6 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v7
 
       - name: Check Nix flake Nixpkgs inputs
-        uses: DeterminateSystems/flake-checker-action@v5
+        uses: DeterminateSystems/flake-checker-action@v8
         with:
           send-statistics: false
