@@ -3,9 +3,9 @@
   environment.systemPackages = with pkgs; [
     inputs.home-manager.packages.${pkgs.system}.home-manager
 
+    nixfmt-rfc-style
     alejandra
     nixpkgs-fmt
-    nixfmt-rfc-style
     statix
     deadnix
 

@@ -12,12 +12,11 @@ _: {
     userEmail = "70191398+ryanccn@users.noreply.github.com";
 
     extraConfig = {
-      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4VfgP5+HdCmM/VpTcW8jLKLyR8s0qqoIDXv7iTnWlR";
       init.defaultBranch = "main";
 
       commit.gpgsign = true;
-      gpg.format = "ssh";
-      "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      gpg.format = "openpgp";
+      user.signingkey = "48C96B2057D71CB1";
 
       log.date = "iso";
       merge.conflictstyle = "zdiff3";

@@ -199,7 +199,7 @@ in
       "nix.serverPath" = lib.getExe pkgs.nixd;
       "nix.serverSettings" = {
         nixd = {
-          formatting.command = [ (lib.getExe pkgs.alejandra) ];
+          formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
           nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
         };
       };

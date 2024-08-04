@@ -19,6 +19,7 @@ in
   home.packages = with pkgs; [
     (rust-bin.stable.latest.default.override { extensions = [ "llvm-tools-preview" ]; })
 
+    cargo-audit
     cargo-bloat
     cargo-cache
     cargo-deny
