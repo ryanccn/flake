@@ -18,13 +18,10 @@
     bun
 
     (python312.withPackages (ps: with ps; [ pip ]))
+    uv
     ruff
     yt-dlp
     xkcdpass
-    pipreqs
-
-    libffi
-    openssl
 
     nodePackages.typescript-language-server
     dprint
@@ -32,8 +29,7 @@
     # google-cloud-sdk
     railway
     cloudflared
-    flyctl
-    # pscale
+    # flyctl
 
     # btop
     doggo
@@ -46,7 +42,6 @@
     hyperfine
     jq
     just
-    # minica
     nerdfix
     ripgrep
     tokei
@@ -56,17 +51,13 @@
     xh
 
     typst
-
     packwiz
-    catppuccin-catwalk
+    spicetify-cli
+    exiftool
 
     nrr
     am
     # nish
-    choirpack
     nyoom
-
-    spicetify-cli
-    exiftool
   ];
 }
