@@ -20,6 +20,11 @@
       url = "github:catppuccin/nix";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     am = {
       url = "github:ryanccn/am";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +71,7 @@
       nix-darwin,
       home-manager,
       darwin-custom-icons,
+      nix-index-database,
       ...
     }@inputs:
     {
@@ -73,6 +79,7 @@
         modules = [
           home-manager.darwinModules.home-manager
           darwin-custom-icons.darwinModules.default
+          nix-index-database.darwinModules.nix-index
           ./system.nix
         ];
 

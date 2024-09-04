@@ -13,6 +13,8 @@
     DENO_NO_UPDATE_CHECK = "1";
     CSC_IDENTITY_AUTO_DISCOVERY = "false";
 
+    COMMA_NIXPKGS_FLAKE = "n";
+
     LESSHISTFILE = "${config.xdg.stateHome}/less/history";
     NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";

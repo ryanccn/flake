@@ -54,4 +54,6 @@
     config.allowUnfree = true;
     hostPlatform = "aarch64-darwin";
   };
+
+  programs.nix-index-database.comma.enable = true;
 }
