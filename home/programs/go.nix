@@ -5,7 +5,7 @@ _: {
   };
 
   home.sessionVariables = {
-    GOTOOLCHAIN = "path";
+    GOTOOLCHAIN = "local";
     GOPROXY = "direct";
   };
 }
