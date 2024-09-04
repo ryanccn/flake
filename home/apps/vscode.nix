@@ -2,6 +2,7 @@
   pkgs,
   lib,
   self,
+  config,
   ...
 }:
 let
@@ -59,10 +60,10 @@ in
     enable = true;
     package = pkgs.stdenvNoCC.mkDerivation {
       pname = "vscode";
-      version = "1.89.1";
+      version = "1.92.2";
       dontUnpack = true;
       installPhase = ''
-        mkdir -p $out
+        mkdir -p "$out"
       '';
     };
 
@@ -77,9 +78,9 @@ in
 
       # "symbols.hidesExplorerArrows" = false;
 
+      "catppuccin.accentColor" = config.catppuccin.accent;
       "catppuccin.boldKeywords" = false;
       "catppuccin.italicKeywords" = true;
-      "catppuccin.accentColor" = "sapphire";
       "catppuccin.workbenchMode" = "flat";
       "catppuccin.customUIColors" = {
         "all" = {
