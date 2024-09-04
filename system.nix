@@ -9,6 +9,7 @@
     ./modules/nix.nix
     ./modules/packages.nix
     ./modules/homebrew.nix
+    ./modules/fish.nix
   ];
 
   system.activationScripts.extraActivation = {

@@ -16,8 +16,14 @@
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
   nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    # https://github.com/NixOS/nix/issues/7273
+    auto-optimise-store = !pkgs.stdenv.isDarwin;
+
     extra-platforms = [
       "x86_64-darwin"
       "aarch64-darwin"
@@ -28,9 +34,8 @@
     sandbox = true;
     use-xdg-base-directories = true;
 
-    extra-substituters = [ "https://cache.lix.systems" ];
-
-    extra-trusted-public-keys = [ "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o=" ];
+    extra-substituters = [ ];
+    extra-trusted-public-keys = [ ];
 
     nix-path = config.nix.nixPath;
   };
@@ -41,7 +46,6 @@
       inputs.am.overlays.default
       inputs.nish.overlays.default
       inputs.nrr.overlays.default
-      inputs.choirpack.overlays.default
       inputs.nyoom.overlays.default
       self.overlays.ryan-mono-bin
       self.overlays.ibm-plex

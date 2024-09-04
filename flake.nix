@@ -16,18 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -44,13 +32,6 @@
 
     nrr = {
       url = "github:ryanccn/nrr";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
-    choirpack = {
-      url = "github:ryanccn/choirpack";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -76,10 +57,6 @@
     vivid-zsh = {
       url = "github:ryanccn/vivid-zsh";
       flake = false;
-    };
-
-    flake-utils = {
-      url = "github:numtide/flake-utils";
     };
   };
 
