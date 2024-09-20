@@ -1,8 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    inputs.home-manager.packages.${pkgs.system}.home-manager
-
     nixfmt-rfc-style
     alejandra
     nixpkgs-fmt
@@ -37,7 +35,6 @@
     dust
     fd
     ffmpeg
-    gen-license
     gum
     hyperfine
     jq
@@ -52,12 +49,13 @@
 
     typst
     packwiz
-    spicetify-cli
+    # spicetify-cli
     exiftool
 
     nrr
     am
-    # nish
     nyoom
+    morlana
+    spdx-gen
   ];
 }

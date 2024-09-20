@@ -7,7 +7,7 @@
 }:
 {
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nixVersions.latest;
+  # nix.package = pkgs.nixVersions.latest;
 
   nix.registry = {
     n.flake = inputs.nixpkgs;
@@ -43,10 +43,13 @@
   nixpkgs = {
     overlays = [
       inputs.rust-overlay.overlays.default
-      inputs.am.overlays.default
-      inputs.nish.overlays.default
+
       inputs.nrr.overlays.default
+      inputs.am.overlays.default
       inputs.nyoom.overlays.default
+      inputs.morlana.overlays.default
+      inputs.spdx-gen.overlays.default
+
       self.overlays.ryan-mono-bin
       self.overlays.ibm-plex
     ];

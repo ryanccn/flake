@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   self,
   ...
@@ -11,13 +10,6 @@
     ./modules/homebrew.nix
     ./modules/fish.nix
   ];
-
-  system.activationScripts.extraActivation = {
-    text = ''
-      set -eo pipefail
-      HOME="/var/root" ${pkgs.lib.getExe pkgs.nvd} --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
-    '';
-  };
 
   security.pam.enableSudoTouchIdAuth = true;
 

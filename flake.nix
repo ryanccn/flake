@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -28,21 +33,30 @@
     am = {
       url = "github:ryanccn/am";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nish = {
-      url = "github:ryanccn/nish";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-filter.follows = "nix-filter";
     };
 
     nrr = {
       url = "github:ryanccn/nrr";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-filter.follows = "nix-filter";
     };
 
     nyoom = {
-      url = "https://flakehub.com/f/ryanccn/nyoom/0.*.tar.gz";
+      url = "github:ryanccn/nyoom";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    morlana = {
+      url = "github:ryanccn/morlana";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-filter.follows = "nix-filter";
+    };
+
+    spdx-gen = {
+      url = "github:ryanccn/spdx-gen";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-filter.follows = "nix-filter";
     };
 
     rust-overlay = {
@@ -52,6 +66,10 @@
 
     darwin-custom-icons = {
       url = "github:ryanccn/nix-darwin-custom-icons";
+    };
+
+    nix-filter = {
+      url = "github:numtide/nix-filter";
     };
 
     ohmyzsh = {
@@ -69,17 +87,19 @@
     {
       self,
       nix-darwin,
+      lix-module,
       home-manager,
-      darwin-custom-icons,
       nix-index-database,
+      darwin-custom-icons,
       ...
     }@inputs:
     {
       darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
         modules = [
+          lix-module.nixosModules.default
           home-manager.darwinModules.home-manager
-          darwin-custom-icons.darwinModules.default
           nix-index-database.darwinModules.nix-index
+          darwin-custom-icons.darwinModules.default
           ./system.nix
         ];
 

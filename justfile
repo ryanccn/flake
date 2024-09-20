@@ -1,8 +1,12 @@
 switch *args:
-  darwin-rebuild switch --flake . --verbose --show-trace {{args}}
+  morlana switch {{args}}
 
-delete-old:
-  sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations old && home-manager expire-generations now 
+wipe-history:
+  sudo -H nix profile wipe-history --profile "/nix/var/nix/profiles/default"
+  sudo -H nix profile wipe-history --profile "/nix/var/nix/profiles/system"
+  sudo -H nix profile wipe-history --profile "/nix/var/nix/profiles/per-user/root/profile"
+  nix profile wipe-history --profile "${XDG_STATE_HOME-$HOME/.local/state}/nix/profiles/profile"
+  nix profile wipe-history --profile "${XDG_STATE_HOME-$HOME/.local/state}/nix/profiles/home-manager"
 
 update:
   nix flake update
