@@ -17,7 +17,13 @@ in
   };
 
   home.packages = with pkgs; [
-    (rust-bin.stable.latest.default.override { extensions = [ "llvm-tools-preview" ]; })
+    (rust-bin.stable.latest.default.override {
+      extensions = [
+        "rust-src"
+        "rust-analyzer"
+        "llvm-tools-preview"
+      ];
+    })
 
     cargo-audit
     cargo-bloat

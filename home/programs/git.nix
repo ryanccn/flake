@@ -6,6 +6,9 @@ _: {
     ignores = [
       ".DS_Store"
       ".direnv/"
+      ".vscode/"
+      ".zed/"
+      ".idea/"
     ];
 
     userName = "Ryan Cao";
@@ -14,17 +17,25 @@ _: {
     extraConfig = {
       init.defaultBranch = "main";
 
-      commit.gpgsign = true;
+      commit.gpgSign = true;
       gpg.format = "openpgp";
-      user.signingkey = "48C96B2057D71CB1";
+      user.signingKey = "48C96B2057D71CB1";
 
       log.date = "iso";
-      merge.conflictstyle = "zdiff3";
+      merge.conflictStyle = "zdiff3";
       diff.algorithm = "histogram";
 
-      transfer.fsckobjects = true;
-      fetch.fsckobjects = true;
+      transfer.fsckObjects = true;
+      fetch.fsckObjects = true;
       receive.fsckObjects = true;
+
+      blame.ignoreRevsFile = ".git-blame-ignore-revs";
+
+      fetch.prune = true;
+      fetch.pruneTags = true;
+
+      branch.sort = "-committerdate";
+      tag.sort = "taggerdate";
 
       push.autoSetupRemote = true;
     };

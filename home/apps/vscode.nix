@@ -173,7 +173,8 @@ in
 
       "[rust]"."editor.tabSize" = 4;
       "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
-      "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+
+      "rust-analyzer.server.path" = "rust-analyzer";
       "rust-analyzer.check.command" = "clippy";
       "rust-analyzer.showUnlinkedFileNotification" = false;
 
