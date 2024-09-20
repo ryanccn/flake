@@ -14,6 +14,7 @@
     CSC_IDENTITY_AUTO_DISCOVERY = "false";
 
     COMMA_NIXPKGS_FLAKE = "n";
+    COMMA_PICKER = "fzf";
 
     LESSHISTFILE = "${config.xdg.stateHome}/less/history";
     NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";

@@ -44,6 +44,11 @@ in
 
   programs.fzf = {
     enable = true;
+    defaultOptions = [
+      "--height 40%"
+      "--layout reverse"
+      "--border"
+    ];
     catppuccin.enable = true;
   };
 
