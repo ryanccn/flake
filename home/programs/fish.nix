@@ -1,11 +1,12 @@
 { lib, ... }:
 let
   aliases = import ./aliases.nix;
-  shellAbbrs = builtins.mapAttrs (_: a: a.command) (
-    lib.filterAttrs (_: b: !(b.fishAlias or false)) aliases
+
+  shellAbbrs = builtins.mapAttrs (lib.const (builtins.getAttr "command")) (
+    lib.filterAttrs (_: a: !(lib.maybeAttr "fishAlias" false a)) aliases
   );
-  shellAliases = builtins.mapAttrs (_: a: a.command) (
-    lib.filterAttrs (_: b: builtins.hasAttr "fishAlias" b && b.fishAlias) aliases
+  shellAliases = builtins.mapAttrs (lib.const (builtins.getAttr "command")) (
+    lib.filterAttrs (_: a: lib.maybeAttr "fishAlias" false a) aliases
   );
 in
 {

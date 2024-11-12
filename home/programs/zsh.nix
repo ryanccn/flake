@@ -1,6 +1,11 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 let
-  shellAliases = builtins.mapAttrs (_: alias: alias.command) (import ./aliases.nix);
+  shellAliases = builtins.mapAttrs (lib.const (builtins.getAttr "command")) (import ./aliases.nix);
 in
 {
   programs.zsh = {

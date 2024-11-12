@@ -1,14 +1,12 @@
 {
   pkgs,
   lib,
-  self,
+  # self,
   config,
   ...
 }:
 let
   extensions = [
-    # "antfu.icons-carbon"
-    "antfu.unocss"
     "astro-build.astro-vscode"
     "bierner.lit-html"
     "bmalehorn.vscode-fish"
@@ -29,20 +27,17 @@ let
     "graphql.vscode-graphql-syntax"
     "golang.go"
     "griimick.vhs"
-    "leonardssh.vscord"
+    # "leonardssh.vscord"
     # "jdinhlife.gruvbox"
     "jnoortheen.nix-ide"
-    # "miguelsolorio.symbols"
     "ms-python.isort"
     "ms-python.vscode-pylance"
     "ms-python.python"
-    # "mvllow.rose-pine"
+    "myriad-dreamin.tinymist"
     "naumovs.color-highlight"
-    "nvarner.typst-lsp"
     "prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
-    "sastan.twind-intellisense"
     "skellock.just"
     "svelte.svelte-vscode"
     "tamasfe.even-better-toml"
@@ -51,7 +46,6 @@ let
     "usernamehw.errorlens"
     "vue.volar"
     "waderyan.gitblame"
-    # "xaver.clang-format"
     "yoavbls.pretty-ts-errors"
   ];
 in
@@ -80,7 +74,7 @@ in
 
       "catppuccin.accentColor" = config.catppuccin.accent;
       "catppuccin.boldKeywords" = false;
-      "catppuccin.italicKeywords" = true;
+      "catppuccin.italicKeywords" = false;
       "catppuccin.workbenchMode" = "flat";
       "catppuccin.customUIColors" = {
         "all" = {
@@ -99,14 +93,13 @@ in
       "git.suggestSmartCommit" = false;
       "diffEditor.renderSideBySide" = false;
       "diffEditor.ignoreTrimWhitespace" = false;
-      "gitlens.showWelcomeOnInstall" = false;
+      # "gitlens.showWelcomeOnInstall" = false;
 
       "gitblame.inlineMessageEnabled" = true;
       "gitblame.inlineMessageFormat" = "\${author.name} · \${time.ago} · \${commit.summary,120}";
 
-      "editor.fontFamily" = "\"RyanMono Nerd Font\", \"Apple Color Emoji\", monospace";
-      # "editor.fontLigatures" = true;
-      "editor.fontLigatures" = "'calt', 'ss01'";
+      "editor.fontFamily" = ''"Ryan Mono", "Symbols Nerd Font", monospace'';
+      "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
       "editor.lineHeight" = 1.5;
       "editor.cursorSmoothCaretAnimation" = "on";
@@ -114,13 +107,14 @@ in
       "editor.cursorBlinking" = "phase";
       "workbench.editor.highlightModifiedTabs" = true;
       "workbench.editor.empty.hint" = "hidden";
+      "chat.commandCenter.enabled" = false;
 
       "editor.inlineSuggest.enabled" = true;
       "editor.tabSize" = 2;
       "editor.insertSpaces" = true;
       "editor.formatOnSave" = true;
 
-      "terminal.integrated.fontFamily" = "\"RyanTerm Nerd Font\", \"Apple Color Emoji\", monospace";
+      "terminal.integrated.fontFamily" = ''"Ryan Term", "Symbols Nerd Font Mono", monospace'';
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.lineHeight" = 1.5;
       "terminal.integrated.cursorBlinking" = true;
@@ -149,11 +143,11 @@ in
       "extensions.ignoreRecommendations" = true;
       "editor.accessibilitySupport" = "off";
 
-      "vscord.status.details.text.editing" = "In {workspace}";
-      "vscord.status.details.text.viewing" = "In {workspace}";
-      "vscord.status.problems.enabled" = false;
-      "vscord.status.state.text.editing" = "Working on {file_name}{file_extension}";
-      "vscord.status.buttons.button1.enabled" = false;
+      # "vscord.status.details.text.editing" = "In {workspace}";
+      # "vscord.status.details.text.viewing" = "In {workspace}";
+      # "vscord.status.problems.enabled" = false;
+      # "vscord.status.state.text.editing" = "Working on {file_name}{file_extension}";
+      # "vscord.status.buttons.button1.enabled" = false;
 
       # "gitlens.defaultTimeFormat" = "HH=mm";
       # "gitlens.defaultDateShortFormat" = "YYYY/MM/DD";
@@ -198,17 +192,15 @@ in
 
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = lib.getExe pkgs.nixd;
+      "nix.serverPath" = lib.getExe pkgs.nil;
       "nix.serverSettings" = {
-        nixd = {
+        nil = {
           formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
-          nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
+          # nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
         };
       };
 
-      "typst-lsp.exportPdf" = "never";
-      "typst-lsp.experimentalFormatterMode" = "on";
-      "[typst]"."editor.defaultFormatter" = "nvarner.typst-lsp";
+      "[typst]"."editor.defaultFormatter" = "myriad-dreamin.tinymist";
     };
   };
 

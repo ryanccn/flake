@@ -1,11 +1,13 @@
 {
   pkgs,
+  inputs,
   lib,
   config,
   ...
 }:
 let
   toml = pkgs.formats.toml { };
+  rust-bin = inputs.rust-overlay.lib.mkRustBin { } pkgs;
 in
 {
   home.file."${config.xdg.dataHome}/cargo/config.toml".source = toml.generate "config.toml" {

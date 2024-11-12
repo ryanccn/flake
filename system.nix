@@ -1,5 +1,7 @@
 {
   inputs,
+  inputs',
+  flake',
   self,
   ...
 }:
@@ -8,7 +10,6 @@
     ./modules/nix.nix
     ./modules/packages.nix
     ./modules/homebrew.nix
-    ./modules/fish.nix
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
@@ -19,10 +20,6 @@
       {
         path = "/Applications/Notion.app";
         icon = ./icons/notion.icns;
-      }
-      {
-        path = "/Applications/Things.app";
-        icon = ./icons/things.icns;
       }
       {
         path = "/Applications/Obsidian.app";
@@ -40,7 +37,12 @@
     useUserPackages = true;
 
     extraSpecialArgs = {
-      inherit self inputs;
+      inherit
+        self
+        flake'
+        inputs
+        inputs'
+        ;
     };
 
     users.ryanccn = import ./home;
@@ -50,5 +52,5 @@
     home = "/Users/ryanccn";
   };
 
-  system.stateVersion = 4;
+  system.stateVersion = 5;
 }

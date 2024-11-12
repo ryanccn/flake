@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -45,6 +40,7 @@
     nyoom = {
       url = "github:ryanccn/nyoom";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-filter.follows = "nix-filter";
     };
 
     morlana = {
@@ -86,28 +82,43 @@
   outputs =
     {
       self,
+      nixpkgs,
       nix-darwin,
-      lix-module,
       home-manager,
       nix-index-database,
       darwin-custom-icons,
       ...
     }@inputs:
-    {
-      darwinConfigurations.Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
-        modules = [
-          lix-module.nixosModules.default
-          home-manager.darwinModules.home-manager
-          nix-index-database.darwinModules.nix-index
-          darwin-custom-icons.darwinModules.default
-          ./system.nix
-        ];
+    let
+      inherit (nixpkgs) lib;
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
-        specialArgs = {
-          inherit self inputs;
+      forAllSystems = lib.genAttrs systems;
+    in
+    {
+      darwinConfigurations = {
+        Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
+          modules = [
+            ./modules/_module.nix
+
+            home-manager.darwinModules.home-manager
+            nix-index-database.darwinModules.nix-index
+            darwin-custom-icons.darwinModules.default
+
+            ./system.nix
+          ];
+
+          specialArgs = {
+            inherit self inputs;
+          };
         };
       };
 
-      overlays = import ./overlays;
+      packages = forAllSystems (system: (import ./packages) nixpkgs.legacyPackages.${system});
     };
 }

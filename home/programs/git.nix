@@ -29,8 +29,6 @@ _: {
       fetch.fsckObjects = true;
       receive.fsckObjects = true;
 
-      blame.ignoreRevsFile = ".git-blame-ignore-revs";
-
       fetch.prune = true;
       fetch.pruneTags = true;
 

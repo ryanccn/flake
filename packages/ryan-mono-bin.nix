@@ -1,10 +1,13 @@
-_: prev:
+{
+  callPackage,
+  symlinkJoin,
+}:
 let
   version = "2024.05.26";
 
   mkFontVariant =
     { variant, hash }:
-    prev.callPackage (
+    callPackage (
       {
         lib,
         fetchzip,
@@ -33,30 +36,28 @@ let
       }
     ) { };
 in
-{
-  ryan-mono-bin = prev.symlinkJoin {
-    name = "ryan-mono-bin-${version}";
+symlinkJoin {
+  name = "ryan-mono-bin-${version}";
 
-    paths = [
-      (mkFontVariant {
-        variant = "RyanMono";
-        hash = "sha256-smlvBfpwVoD0qfmmHcJjsLdiblXjy5eevZfK4qDc9x8=";
-      })
+  paths = [
+    (mkFontVariant {
+      variant = "RyanMono";
+      hash = "sha256-smlvBfpwVoD0qfmmHcJjsLdiblXjy5eevZfK4qDc9x8=";
+    })
 
-      (mkFontVariant {
-        variant = "RyanTerm";
-        hash = "sha256-12xaJqgR5R6SZnZ7vJeD5zg2TZbWEiUrdyK+ljekMvc=";
-      })
+    (mkFontVariant {
+      variant = "RyanTerm";
+      hash = "sha256-12xaJqgR5R6SZnZ7vJeD5zg2TZbWEiUrdyK+ljekMvc=";
+    })
 
-      (mkFontVariant {
-        variant = "RyanMonoNerdFont";
-        hash = "sha256-n2d9K1rJuWCF2NgkRLQQCNCAxYfiBVv/jpn+BzqBvAI=";
-      })
+    (mkFontVariant {
+      variant = "RyanMonoNerdFont";
+      hash = "sha256-n2d9K1rJuWCF2NgkRLQQCNCAxYfiBVv/jpn+BzqBvAI=";
+    })
 
-      (mkFontVariant {
-        variant = "RyanTermNerdFont";
-        hash = "sha256-yrzgNRD560FhHLSK1neHVSnB+ZiHP2bmKzD1pGTu9Ro=";
-      })
-    ];
-  };
+    (mkFontVariant {
+      variant = "RyanTermNerdFont";
+      hash = "sha256-yrzgNRD560FhHLSK1neHVSnB+ZiHP2bmKzD1pGTu9Ro=";
+    })
+  ];
 }

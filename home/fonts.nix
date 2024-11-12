@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, flake', ... }:
 {
   home.packages = with pkgs; [
     inter
     public-sans
-    ibm-plex
 
-    ryan-mono-bin
+    flake'.packages.ibm-plex-compat
+    flake'.packages.ryan-mono-bin
 
     # Install the variable fonts for Cascadia Code (which
     # are recommended) instead of the static fonts
@@ -17,6 +17,8 @@
       '';
     })
 
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {
+      fonts = [ "NerdFontsSymbolsOnly" ];
+    })
   ];
 }

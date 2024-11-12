@@ -7,7 +7,11 @@ _: {
 
   homebrew = {
     enable = true;
-    caskArgs.require_sha = true;
+
+    caskArgs = {
+      require_sha = true;
+    };
+
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";

@@ -38,5 +38,5 @@
   catppuccin.flavor = "frappe";
   catppuccin.accent = "sapphire";
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "24.11";
 }

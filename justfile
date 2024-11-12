@@ -1,5 +1,8 @@
-switch *args:
-  morlana switch {{args}}
+switch:
+  morlana switch
+
+build:
+  morlana build
 
 wipe-history:
   sudo -H nix profile wipe-history --profile "/nix/var/nix/profiles/default"

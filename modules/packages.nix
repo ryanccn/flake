@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs', ... }:
 {
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
@@ -40,6 +40,7 @@
     jq
     just
     nerdfix
+    reuse
     ripgrep
     tokei
     vhs
@@ -52,10 +53,10 @@
     # spicetify-cli
     exiftool
 
-    nrr
-    am
-    nyoom
-    morlana
-    spdx-gen
+    inputs'.nrr.packages.default
+    inputs'.am.packages.default
+    inputs'.nyoom.packages.default
+    inputs'.morlana.packages.default
+    inputs'.spdx-gen.packages.default
   ];
 }

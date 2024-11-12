@@ -1,19 +1,20 @@
 {
-  self,
   pkgs,
   inputs,
   config,
   ...
 }:
 {
+  nix.package = pkgs.nixVersions.latest;
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nixVersions.latest;
 
   nix.registry = {
     n.flake = inputs.nixpkgs;
   };
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
+  nix.nixPath = [
+    "nixpkgs=${inputs.nixpkgs.outPath}"
+  ];
 
   nix.settings = {
     experimental-features = [
@@ -40,20 +41,12 @@
     nix-path = config.nix.nixPath;
   };
 
+  environment.profiles = [
+    "\${XDG_STATE_HOME}/nix/profile"
+    "$HOME/.local/state/nix/profile"
+  ];
+
   nixpkgs = {
-    overlays = [
-      inputs.rust-overlay.overlays.default
-
-      inputs.nrr.overlays.default
-      inputs.am.overlays.default
-      inputs.nyoom.overlays.default
-      inputs.morlana.overlays.default
-      inputs.spdx-gen.overlays.default
-
-      self.overlays.ryan-mono-bin
-      self.overlays.ibm-plex
-    ];
-
     config.allowUnfree = true;
     hostPlatform = "aarch64-darwin";
   };
