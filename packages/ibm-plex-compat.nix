@@ -1,23 +1,21 @@
 {
   ibm-plex,
-  fd,
   python312Packages,
+  families ? [ ],
 }:
-ibm-plex.overrideAttrs (_: {
+(ibm-plex.override { inherit families; }).overrideAttrs (_: {
   pname = "ibm-plex-compat";
 
   postInstall = ''
     set -eo pipefail
-    PATH="${fd}/bin:${python312Packages.fonttools}/bin:$PATH"
+    PATH="${python312Packages.fonttools}/bin:$PATH"
 
     cd "$out/share/fonts/opentype"
 
     ansi_green="\033[32m"
     ansi_reset="\033[0m"
 
-    medium_fonts=$(fd --extension=otf Medium)
-
-    for medium_font in $medium_fonts; do
+    for medium_font in $(find . -type f -name '*.otf' -and -name '*Medium*'); do
       echo -e "''${ansi_green}Patching''${ansi_reset} $medium_font (Medm -> Medium)"
 
       ttx_path="''${medium_font%.*}.ttx"
@@ -28,9 +26,7 @@ ibm-plex.overrideAttrs (_: {
       rm "$ttx_path"
     done
 
-    semibold_fonts=$(fd --extension=otf SemiBold)
-
-    for semibold_font in $semibold_fonts; do
+    for semibold_font in $(find . -type f -name '*.otf' -and -name '*SemiBold*'); do
       echo -e "''${ansi_green}Patching''${ansi_reset} $semibold_font (SmBld -> Semibold)"
 
       ttx_path="''${semibold_font%.*}.ttx"

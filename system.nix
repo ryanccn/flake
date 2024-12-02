@@ -7,6 +7,9 @@
 }:
 {
   imports = [
+    inputs.home-manager.darwinModules.home-manager
+    inputs.darwin-custom-icons.darwinModules.default
+
     ./modules/nix.nix
     ./modules/packages.nix
     ./modules/homebrew.nix

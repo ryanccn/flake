@@ -4,11 +4,17 @@
     inter
     public-sans
 
-    flake'.packages.ibm-plex-compat
+    (flake'.packages.ibm-plex-compat.override {
+      families = [
+        "sans"
+        "serif"
+        "mono"
+      ];
+    })
+
     flake'.packages.ryan-mono-bin
 
-    # Install the variable fonts for Cascadia Code (which
-    # are recommended) instead of the static fonts
+    # Install variable fonts for Cascadia Code instead of static fonts
     (cascadia-code.overrideAttrs {
       installPhase = ''
         runHook preInstall
@@ -17,8 +23,6 @@
       '';
     })
 
-    (nerdfonts.override {
-      fonts = [ "NerdFontsSymbolsOnly" ];
-    })
+    nerd-fonts.symbols-only
   ];
 }

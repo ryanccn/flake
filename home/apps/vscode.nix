@@ -1,8 +1,8 @@
 {
   pkgs,
   lib,
-  # self,
   config,
+  # self,
   ...
 }:
 let
@@ -194,9 +194,9 @@ in
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = lib.getExe pkgs.nil;
       "nix.serverSettings" = {
-        nil = {
+        "nil" = {
           formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
-          # nixpkgs.expr = "(builtins.getFlake \"${self}\").pkgs";
+          # nixpkgs.expr = "import (builtins.getFlake \"${self}\").inputs.nixpkgs { }";
         };
       };
 

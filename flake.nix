@@ -77,6 +77,10 @@
       url = "github:ryanccn/vivid-zsh";
       flake = false;
     };
+
+    systems = {
+      url = "github:nix-systems/default";
+    };
   };
 
   outputs =
@@ -84,32 +88,18 @@
       self,
       nixpkgs,
       nix-darwin,
-      home-manager,
-      nix-index-database,
-      darwin-custom-icons,
+      systems,
       ...
     }@inputs:
     let
       inherit (nixpkgs) lib;
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      forAllSystems = lib.genAttrs systems;
+      forAllSystems = lib.genAttrs (import systems);
     in
     {
       darwinConfigurations = {
         Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
           modules = [
             ./modules/_module.nix
-
-            home-manager.darwinModules.home-manager
-            nix-index-database.darwinModules.nix-index
-            darwin-custom-icons.darwinModules.default
-
             ./system.nix
           ];
 

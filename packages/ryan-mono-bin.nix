@@ -1,63 +1,43 @@
 {
-  callPackage,
-  symlinkJoin,
+  lib,
+  stdenvNoCC,
+  fetchzip,
 }:
 let
-  version = "2024.05.26";
+  version = "2024.11.18";
 
-  mkFontVariant =
-    { variant, hash }:
-    callPackage (
-      {
-        lib,
-        fetchzip,
-        stdenvNoCC,
-      }:
-      stdenvNoCC.mkDerivation {
-        pname = variant;
-        inherit version;
-
-        src = fetchzip {
-          url = "https://github.com/ryanccn/ryan-mono/releases/download/v${version}/${variant}.tar.xz";
-          inherit hash;
-        };
-
-        installPhase = ''
-          runHook preInstall
-          install -Dm644 *.ttf -t $out/share/fonts/truetype
-          runHook postInstall
-        '';
-
-        meta = with lib; {
-          homepage = "https://github.com/ryanccn/ryan-mono";
-          platforms = platforms.all;
-          license = licenses.ofl;
-        };
-      }
-    ) { };
+  hashes = {
+    "RyanMono" = "sha256-c+NRiWMMZEmX2ImFpvSboPEKYPuBahYsjAzddsYi1Lo=";
+    "RyanTerm" = "sha256-uYqK1ktgZPbhAOX3FyFWKDUSBDBQX6KtepT3PGcGuB0=";
+    # "RyanMonoNerdFont" = "sha256-CKBgRHXw6U3PjXruHCE+YsksHn+hJGjwWwtS9CbGcXg=";
+    # "RyanTermNerdFont" = "sha256-4GYYuZ//Ekk7jNi2zjxTMziaOOx4f2K17xcYIzOYAWc=";
+  };
 in
-symlinkJoin {
-  name = "ryan-mono-bin-${version}";
+stdenvNoCC.mkDerivation {
+  pname = "ryan-mono-bin";
+  inherit version;
 
-  paths = [
-    (mkFontVariant {
-      variant = "RyanMono";
-      hash = "sha256-smlvBfpwVoD0qfmmHcJjsLdiblXjy5eevZfK4qDc9x8=";
-    })
+  srcs = lib.mapAttrsToList (
+    family: hash:
+    fetchzip {
+      url = "https://github.com/ryanccn/ryan-mono/releases/download/v${version}/${family}.tar.xz";
+      inherit hash;
+    }
+  ) hashes;
 
-    (mkFontVariant {
-      variant = "RyanTerm";
-      hash = "sha256-12xaJqgR5R6SZnZ7vJeD5zg2TZbWEiUrdyK+ljekMvc=";
-    })
+  sourceRoot = ".";
+  dontUnpack = true;
 
-    (mkFontVariant {
-      variant = "RyanMonoNerdFont";
-      hash = "sha256-n2d9K1rJuWCF2NgkRLQQCNCAxYfiBVv/jpn+BzqBvAI=";
-    })
+  installPhase = ''
+    runHook preInstall
+    find $srcs -type f -name '*.ttf' -exec install -Dm644 {} -t $out/share/fonts/truetype \;
+    runHook postInstall
+  '';
 
-    (mkFontVariant {
-      variant = "RyanTermNerdFont";
-      hash = "sha256-yrzgNRD560FhHLSK1neHVSnB+ZiHP2bmKzD1pGTu9Ro=";
-    })
-  ];
+  meta = with lib; {
+    description = "Ryan's homemade Iosevka build";
+    homepage = "https://github.com/ryanccn/ryan-mono";
+    platforms = platforms.all;
+    license = licenses.ofl;
+  };
 }

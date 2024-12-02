@@ -1,4 +1,11 @@
-{ pkgs, inputs', ... }:
+{
+  pkgs,
+  inputs',
+  ...
+}:
+let
+  defaultPackage = name: inputs'.${name}.packages.default;
+in
 {
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
@@ -25,8 +32,8 @@
     dprint
 
     # google-cloud-sdk
-    railway
-    cloudflared
+    # railway
+    # cloudflared
     # flyctl
 
     # btop
@@ -49,14 +56,14 @@
     xh
 
     typst
-    packwiz
-    # spicetify-cli
     exiftool
+    # packwiz
+    # spicetify-cli
 
-    inputs'.nrr.packages.default
-    inputs'.am.packages.default
-    inputs'.nyoom.packages.default
-    inputs'.morlana.packages.default
-    inputs'.spdx-gen.packages.default
+    (defaultPackage "nrr")
+    (defaultPackage "am")
+    (defaultPackage "nyoom")
+    (defaultPackage "morlana")
+    (defaultPackage "spdx-gen")
   ];
 }

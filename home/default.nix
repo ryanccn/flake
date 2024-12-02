@@ -1,10 +1,15 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  ...
+}:
 {
   programs.home-manager.enable = true;
 
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.am.homeManagerModules.default
+    inputs.nix-index-database.hmModules.nix-index
 
     ./variables.nix
     ./fonts.nix
@@ -34,6 +39,8 @@
     enable = false;
     logFile = "${config.home.homeDirectory}/Library/Logs/am-discord-rich-presence.log";
   };
+
+  programs.nix-index-database.comma.enable = true;
 
   catppuccin.flavor = "frappe";
   catppuccin.accent = "sapphire";
