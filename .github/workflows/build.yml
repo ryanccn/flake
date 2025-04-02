@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ryan Cao <hello@ryanccn.dev>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 name: Build
 
 on:
@@ -6,24 +10,30 @@ on:
   pull_request:
     branches: ["main"]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     strategy:
       matrix:
         label:
-          - Ryans-MacBook-Pro
+          - caladan
         include:
-          - label: Ryans-MacBook-Pro
-            path: darwinConfigurations.Ryans-MacBook-Pro.config.system.build.toplevel
+          - label: caladan
+            attr: darwinConfigurations.caladan.config.system.build.toplevel
             runner: macos-14
 
     runs-on: ${{ matrix.runner }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
+        with:
+          persist-credentials: false
+
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v15
+        uses: cachix/install-nix-action@d1ca217b388ee87b2507a9a93bf01368bde7cec2 # ratchet:cachix/install-nix-action@v31
 
       - name: Build
-        run: nix build -L --show-trace .#${{ matrix.path }}
+        run: nix build -L --show-trace .#${{ matrix.attr }}

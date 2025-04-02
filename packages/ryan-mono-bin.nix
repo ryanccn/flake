@@ -1,16 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Ryan Cao <hello@ryanccn.dev>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 {
   lib,
   stdenvNoCC,
   fetchzip,
 }:
 let
-  version = "2024.11.18";
+  version = "2025.03.09";
 
   hashes = {
-    "RyanMono" = "sha256-c+NRiWMMZEmX2ImFpvSboPEKYPuBahYsjAzddsYi1Lo=";
-    "RyanTerm" = "sha256-uYqK1ktgZPbhAOX3FyFWKDUSBDBQX6KtepT3PGcGuB0=";
-    # "RyanMonoNerdFont" = "sha256-CKBgRHXw6U3PjXruHCE+YsksHn+hJGjwWwtS9CbGcXg=";
-    # "RyanTermNerdFont" = "sha256-4GYYuZ//Ekk7jNi2zjxTMziaOOx4f2K17xcYIzOYAWc=";
+    "ryan-mono" = "sha256-CDYRMkHbHTQgoVforRxLb+vMZuUwQ4Whl0kDAyadFKQ=";
+    "ryan-term" = "sha256-iPPoJ803P3Gw0pO37jFiaLr+Yug3vwxNHBiP2fr+1cg=";
   };
 in
 stdenvNoCC.mkDerivation {

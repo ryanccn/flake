@@ -1,6 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Ryan Cao <hello@ryanccn.dev>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 {
   ibm-plex,
-  python312Packages,
+  python313Packages,
   families ? [ ],
 }:
 (ibm-plex.override { inherit families; }).overrideAttrs (_: {
@@ -8,7 +12,7 @@
 
   postInstall = ''
     set -eo pipefail
-    PATH="${python312Packages.fonttools}/bin:$PATH"
+    PATH="${python313Packages.fonttools}/bin:$PATH"
 
     cd "$out/share/fonts/opentype"
 

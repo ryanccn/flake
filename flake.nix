@@ -1,13 +1,37 @@
+# SPDX-FileCopyrightText: 2025 Ryan Cao <hello@ryanccn.dev>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 {
-  description = "Ryan's MacBook Pro flake";
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      imports = [
+        ./checks
+        ./packages
+        ./systems
+      ];
+    };
 
   inputs = {
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,6 +42,7 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {
@@ -28,44 +53,31 @@
     am = {
       url = "github:ryanccn/am";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-filter.follows = "nix-filter";
     };
 
     nrr = {
       url = "github:ryanccn/nrr";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-filter.follows = "nix-filter";
     };
 
     nyoom = {
       url = "github:ryanccn/nyoom";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-filter.follows = "nix-filter";
     };
 
     morlana = {
       url = "github:ryanccn/morlana";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-filter.follows = "nix-filter";
     };
 
     spdx-gen = {
       url = "github:ryanccn/spdx-gen";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nix-filter.follows = "nix-filter";
     };
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    darwin-custom-icons = {
-      url = "github:ryanccn/nix-darwin-custom-icons";
-    };
-
-    nix-filter = {
-      url = "github:numtide/nix-filter";
     };
 
     ohmyzsh = {
@@ -77,38 +89,5 @@
       url = "github:ryanccn/vivid-zsh";
       flake = false;
     };
-
-    systems = {
-      url = "github:nix-systems/default";
-    };
   };
-
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nix-darwin,
-      systems,
-      ...
-    }@inputs:
-    let
-      inherit (nixpkgs) lib;
-      forAllSystems = lib.genAttrs (import systems);
-    in
-    {
-      darwinConfigurations = {
-        Ryans-MacBook-Pro = nix-darwin.lib.darwinSystem {
-          modules = [
-            ./modules/_module.nix
-            ./system.nix
-          ];
-
-          specialArgs = {
-            inherit self inputs;
-          };
-        };
-      };
-
-      packages = forAllSystems (system: (import ./packages) nixpkgs.legacyPackages.${system});
-    };
 }

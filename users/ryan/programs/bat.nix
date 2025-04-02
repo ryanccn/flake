@@ -2,5 +2,12 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# style: switch to `nixfmt-rfc-style`
-02e3e3a7accee3cd32ea1d6b946fb8da20555fa5
+{
+  programs.bat = {
+    enable = true;
+
+    config = {
+      style = "plain";
+    };
+  };
+}
