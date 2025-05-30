@@ -14,8 +14,6 @@ in
 {
   environment.systemPackages = with pkgs; [
     nixfmt-rfc-style
-    alejandra
-    nixpkgs-fmt
     statix
     deadnix
 
@@ -32,21 +30,11 @@ in
     yt-dlp
     xkcdpass
 
-    # nodePackages.typescript-language-server
-    dprint
-
-    # google-cloud-sdk
-    # railway
-    # cloudflared
-    # flyctl
-
-    # btop
     doggo
     doppler
+    dprint
     dust
     fd
-    ffmpeg
-    # gum
     hyperfine
     jq
     just
@@ -59,15 +47,16 @@ in
     watchexec
     xh
 
-    typst
     exiftool
-    # packwiz
-    # spicetify-cli
+    ffmpeg
+    typst
 
     defaultPackages.nrr
     defaultPackages.am
     defaultPackages.nyoom
     defaultPackages.morlana
     defaultPackages.spdx-gen
+    defaultPackages.moldau
+    defaultPackages.arkencrab
   ];
 }

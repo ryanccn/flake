@@ -28,12 +28,11 @@ let
     "graphql.vscode-graphql"
     "graphql.vscode-graphql-syntax"
     "golang.go"
-    "griimick.vhs"
     "jnoortheen.nix-ide"
+    "ms-python.debugpy"
     "ms-python.isort"
-    "ms-python.vscode-pylance"
     "ms-python.python"
-    "myriad-dreamin.tinymist"
+    "ms-python.vscode-pylance"
     "naumovs.color-highlight"
     "prisma.prisma"
     "ronnidc.nunjucks"
@@ -60,18 +59,17 @@ let
     "[astro]" = "astro-build.astro-vscode";
     "[rust]" = "rust-lang.rust-analyzer";
     "[nix]" = "jnoortheen.nix-ide";
-    "[typst]" = "myriad-dreamin.tinymist";
   };
 in
 {
   programs.vscode = {
     enable = true;
     package = pkgs.writeShellApplication {
-      name = "vscode-1.98.2";
+      name = "vscode-1.100.2";
       text = "";
       derivationArgs = {
         pname = "vscode";
-        version = "1.98.2";
+        version = "1.100.2";
       };
     };
 
@@ -104,12 +102,13 @@ in
         "git.confirmSync" = false;
         "git.inputValidation" = false;
         "git.suggestSmartCommit" = false;
+        "git.branchRandomName.enable" = true;
         "git.blame.editorDecoration.enabled" = true;
 
         "diffEditor.renderSideBySide" = false;
         "diffEditor.ignoreTrimWhitespace" = false;
 
-        "editor.fontFamily" = ''"IBM Plex Mono", "Symbols Nerd Font", monospace'';
+        "editor.fontFamily" = ''"Ryan Mono", "Symbols Nerd Font", monospace'';
         "editor.fontLigatures" = true;
         "editor.fontSize" = 16;
         "editor.lineHeight" = 1.5;
@@ -125,7 +124,7 @@ in
         "editor.insertSpaces" = true;
         "editor.formatOnSave" = true;
 
-        "terminal.integrated.fontFamily" = ''"IBM Plex Mono", "Symbols Nerd Font Mono", monospace'';
+        "terminal.integrated.fontFamily" = ''"Ryan Term", "Symbols Nerd Font Mono", monospace'';
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.lineHeight" = 1.5;
         "terminal.integrated.cursorBlinking" = true;
@@ -150,6 +149,7 @@ in
         };
 
         "telemetry.telemetryLevel" = "off";
+        "telemetry.feedback.enabled" = false;
         "workbench.enableExperiments" = false;
         "workbench.settings.enableNaturalLanguageSearch" = false;
         "extensions.ignoreRecommendations" = true;

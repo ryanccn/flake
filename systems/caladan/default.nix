@@ -40,5 +40,6 @@
     home = "/Users/ryan";
   };
 
+  system.primaryUser = "ryan";
   system.stateVersion = 6;
 }

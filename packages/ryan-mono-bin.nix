@@ -8,11 +8,11 @@
   fetchzip,
 }:
 let
-  version = "2025.03.09";
+  version = "2025.04.28";
 
   hashes = {
-    "ryan-mono" = "sha256-CDYRMkHbHTQgoVforRxLb+vMZuUwQ4Whl0kDAyadFKQ=";
-    "ryan-term" = "sha256-iPPoJ803P3Gw0pO37jFiaLr+Yug3vwxNHBiP2fr+1cg=";
+    "ryan-mono" = "sha256-UPw0L5j7h9YcmI1nvgqg0kgYKLi8Ip4ghYzwpanoaqE=";
+    "ryan-term" = "sha256-uu6lEfhtnAp8v50jvY9oXPnOFnDoIAWxxAAjNIXQbec=";
   };
 in
 stdenvNoCC.mkDerivation {

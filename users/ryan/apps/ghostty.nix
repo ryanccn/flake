@@ -18,7 +18,7 @@ let
     theme = "catppuccin-${config.catppuccin.flavor}";
     window-colorspace = "display-p3";
 
-    font-family = "IBM Plex Mono";
+    font-family = "Ryan Term";
     font-size = 14;
     font-feature = [
       "-calt"

@@ -21,8 +21,7 @@ in
     enableCompletion = true;
 
     envExtra = builtins.readFile ./zsh/envExtra.zsh;
-    # initExtraBeforeCompInit = builtins.readFile ./zsh/initExtraBeforeCompInit.zsh;
-    initExtra = builtins.readFile ./zsh/initExtra.zsh;
+    initContent = builtins.readFile ./zsh/initExtra.zsh;
 
     inherit shellAliases;
 

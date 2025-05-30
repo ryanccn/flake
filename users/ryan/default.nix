@@ -10,7 +10,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     inputs.nix-index-database.hmModules.nix-index
 
     ./variables.nix
@@ -37,6 +37,7 @@
   programs.bash.enable = true;
   xdg.enable = true;
 
+  programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
 
   home.stateVersion = "24.11";
