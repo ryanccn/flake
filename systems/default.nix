@@ -8,14 +8,13 @@
   ...
 }:
 let
-  specialArgsModule = (
+  specialArgsModule =
     { pkgs, ... }:
     {
       _module.args = {
         inputs' = withSystem pkgs.stdenvNoCC.hostPlatform.system (builtins.getAttr "inputs'");
       };
-    }
-  );
+    };
 in
 {
   flake.darwinConfigurations = {

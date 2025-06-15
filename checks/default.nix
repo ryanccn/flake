@@ -5,7 +5,7 @@
 { self, ... }:
 {
   perSystem =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
     let
       mkFlakeCheck =
         args:

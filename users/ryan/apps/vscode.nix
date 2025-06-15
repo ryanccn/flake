@@ -6,10 +6,18 @@
   pkgs,
   lib,
   config,
-  # self,
   ...
 }:
 let
+  flavorName =
+    {
+      "latte" = "Latte";
+      "frappe" = "Frappé";
+      "macchiato" = "Macchiato";
+      "mocha" = "Mocha";
+    }
+    .${config.catppuccin.flavor};
+
   extensions = [
     "astro-build.astro-vscode"
     "bierner.lit-html"
@@ -78,8 +86,8 @@ in
 
     profiles.default.userSettings = builtins.foldl' lib.recursiveUpdate { } [
       {
-        "workbench.colorTheme" = "Catppuccin Frappé";
-        "workbench.iconTheme" = "catppuccin-frappe";
+        "workbench.colorTheme" = "Catppuccin ${flavorName}";
+        "workbench.iconTheme" = "catppuccin-${config.catppuccin.flavor}";
         "workbench.sideBar.location" = "left";
         "workbench.activityBar.location" = "top";
 
@@ -128,10 +136,16 @@ in
         "terminal.integrated.fontSize" = 14;
         "terminal.integrated.lineHeight" = 1.5;
         "terminal.integrated.cursorBlinking" = true;
-        "terminal.integrated.defaultProfile.osx" = "fish";
         "terminal.integrated.inheritEnv" = false;
         "terminal.integrated.enablePersistentSessions" = false;
         "terminal.integrated.shellIntegration.enabled" = false;
+        "terminal.integrated.defaultProfile.osx" = "fish";
+        "terminal.integrated.profiles.osx" = {
+          "fish" = {
+            "path" = "/run/current-system/sw/bin/fish";
+            "args" = [ "-l" ];
+          };
+        };
 
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
 
@@ -187,7 +201,7 @@ in
         "nix.serverSettings" = {
           "nil" = {
             formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
-            # nixpkgs.expr = "import (builtins.getFlake \"${self}\").inputs.nixpkgs { }";
+            nix.flake.autoArchive = false;
           };
         };
       }

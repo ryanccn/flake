@@ -22,7 +22,7 @@ in
     nix-melt
 
     fnm
-    deno
+    # deno (hydra build failure)
     bun
 
     uv

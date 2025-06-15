@@ -89,15 +89,5 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ohmyzsh = {
-      url = "github:ohmyzsh/ohmyzsh";
-      flake = false;
-    };
-
-    vivid-zsh = {
-      url = "github:ryanccn/vivid-zsh";
-      flake = false;
-    };
   };
 }

@@ -2,8 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-set -x LS_COLORS "$(vivid generate catppuccin-frappe)"
+set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+set -gx LS_COLORS "$(vivid generate catppuccin-macchiato)"
 
 /opt/homebrew/bin/brew shellenv | source
 
