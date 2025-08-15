@@ -47,4 +47,8 @@
     config.allowUnfree = true;
     hostPlatform = "aarch64-darwin";
   };
+
+  environment.variables = {
+    NIX_INSTALLER_DIAGNOSTIC_ENDPOINT = "";
+  };
 }

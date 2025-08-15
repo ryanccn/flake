@@ -27,19 +27,8 @@
       "pandoc"
     ];
 
-    casks =
-      let
-        noQuarantine = name: {
-          inherit name;
-          args = {
-            no_quarantine = true;
-          };
-        };
-      in
-      [
-        "blackhole-16ch"
-        (noQuarantine "librewolf")
-        (noQuarantine "eloston-chromium")
-      ];
+    casks = [
+      "blackhole-16ch"
+    ];
   };
 }

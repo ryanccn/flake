@@ -112,6 +112,7 @@ in
         "git.suggestSmartCommit" = false;
         "git.branchRandomName.enable" = true;
         "git.blame.editorDecoration.enabled" = true;
+        "git.useIntegratedAskPass" = false;
 
         "diffEditor.renderSideBySide" = false;
         "diffEditor.ignoreTrimWhitespace" = false;
@@ -122,6 +123,7 @@ in
         "editor.lineHeight" = 1.5;
         # "editor.cursorBlinking" = "phase";
         # "editor.cursorSmoothCaretAnimation" = "on";
+        "editor.minimap.enabled" = false;
         # "editor.minimap.renderCharacters" = false;
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.editor.empty.hint" = "hidden";

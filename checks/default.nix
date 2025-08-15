@@ -45,5 +45,7 @@
           nativeBuildInputs = with pkgs; [ reuse ];
         };
       };
+
+      formatter = pkgs.nixfmt-rfc-style;
     };
 }

@@ -2,22 +2,30 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{ lib, ... }:
-let
-  aliases = import ./aliases.nix;
-
-  shellAbbrs = builtins.mapAttrs (lib.const (builtins.getAttr "command")) (
-    lib.filterAttrs (_: a: !(lib.maybeAttr "fishAlias" false a)) aliases
-  );
-  shellAliases = builtins.mapAttrs (lib.const (builtins.getAttr "command")) (
-    lib.filterAttrs (_: a: lib.maybeAttr "fishAlias" false a) aliases
-  );
-in
 {
   programs.fish = {
     enable = true;
 
-    inherit shellAbbrs shellAliases;
+    shellAbbrs = {
+      g = "git";
+      j = "just";
+
+      nb = "nix build";
+      nfu = "nix flake update";
+
+      glol = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'";
+      ghrvw = "gh repo view --web";
+
+      opr = "op run --env-file=.env.1password --";
+      dr = "doppler run --";
+
+      dequarantine = "xattr -d com.apple.quarantine";
+
+      bcpa = "brew cleanup --prune=all";
+      puil = "pnpm update --interactive --latest";
+    };
+
+    shellAliases = { };
 
     shellInit = ''
       for config in ${./fish/configs}/*.fish

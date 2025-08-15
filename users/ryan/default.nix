@@ -11,7 +11,7 @@
 
   imports = [
     inputs.catppuccin.homeModules.catppuccin
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
 
     ./variables.nix
     ./fonts.nix
