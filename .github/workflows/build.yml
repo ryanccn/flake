@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@fc6e360bedc9ee72d75e701397f0bb30dce77568 # ratchet:cachix/install-nix-action@v31
+        uses: cachix/install-nix-action@56a7bb7b56d9a92d4fd1bc05758de7eea4a370a8 # ratchet:cachix/install-nix-action@v31
 
       - name: Build
         run: nix build -L --show-trace .#${{ matrix.attr }}
