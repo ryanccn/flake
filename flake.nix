@@ -73,21 +73,28 @@
     spdx-gen = {
       url = "github:ryanccn/spdx-gen";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     moldau = {
       url = "github:ryanccn/moldau";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     arkencrab = {
       url = "github:ryanccn/arkencrab";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ferrix = {
+      url = "github:ryanccn/ferrix";
     };
   };
 }

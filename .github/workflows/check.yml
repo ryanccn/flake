@@ -19,12 +19,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # ratchet:actions/checkout@v5
         with:
           persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@fc6e360bedc9ee72d75e701397f0bb30dce77568 # ratchet:cachix/install-nix-action@v31
+        run: .github/workflows/install-nix.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Check
         run: nix build --print-build-logs '.#checks.x86_64-linux.nixfmt'
@@ -34,12 +36,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # ratchet:actions/checkout@v5
         with:
           persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@fc6e360bedc9ee72d75e701397f0bb30dce77568 # ratchet:cachix/install-nix-action@v31
+        run: .github/workflows/install-nix.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Check
         run: nix build --print-build-logs '.#checks.x86_64-linux.reuse'

@@ -3,8 +3,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 if status is-interactive
-    nix-your-shell fish | source
-
     if test -d "$(brew --prefix)/share/fish/completions"
         set -p fish_complete_path "$(brew --prefix)/share/fish/completions"
     end

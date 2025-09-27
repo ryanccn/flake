@@ -2,10 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{
-  inputs,
-  ...
-}:
+{ inputs, ... }:
 {
   programs.home-manager.enable = true;
 

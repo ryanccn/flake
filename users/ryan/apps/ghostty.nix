@@ -15,7 +15,7 @@ let
   };
 
   settings = {
-    theme = "catppuccin-${config.catppuccin.flavor}";
+    theme = "Catppuccin ${lib.toSentenceCase config.catppuccin.flavor}";
     window-colorspace = "display-p3";
 
     font-family = "Ryan Term";

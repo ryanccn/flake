@@ -17,7 +17,6 @@ in
     statix
     deadnix
 
-    nix-your-shell
     nix-output-monitor
     nix-melt
 
@@ -43,7 +42,6 @@ in
     ripgrep
     tokei
     vhs
-    vivid
     watchexec
     xh
 

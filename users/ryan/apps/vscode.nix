@@ -127,7 +127,7 @@ in
         # "editor.minimap.renderCharacters" = false;
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.editor.empty.hint" = "hidden";
-        "chat.commandCenter.enabled" = false;
+        "chat.disableAIFeatures" = true;
 
         "editor.inlineSuggest.enabled" = true;
         "editor.tabSize" = 2;

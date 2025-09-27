@@ -2,10 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   nix.package = pkgs.nixVersions.latest;
 

@@ -2,14 +2,16 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+{ config, ... }:
 {
   programs.go = {
     enable = true;
-    goPath = ".local/share/go";
-  };
 
-  home.sessionVariables = {
-    GOTOOLCHAIN = "local";
-    GOPROXY = "direct";
+    env = {
+      GOPATH = "${config.xdg.dataHome}/go";
+      GOTOOLCHAIN = "local";
+      GOPROXY = "direct";
+    };
+    telemetry.mode = "off";
   };
 }

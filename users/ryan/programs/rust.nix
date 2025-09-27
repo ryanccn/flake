@@ -2,11 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 let
   rust-bin = inputs.rust-overlay.lib.mkRustBin { } pkgs;
 in

@@ -41,5 +41,6 @@
   };
 
   system.primaryUser = "ryan";
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 6;
 }

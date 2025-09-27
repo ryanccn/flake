@@ -8,6 +8,7 @@
     accent = "sapphire";
 
     bat.enable = true;
+    eza.enable = true;
     fish.enable = true;
     fzf.enable = true;
     glamour.enable = true;

@@ -2,11 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 let
   pkgs' = inputs.self.packages.${pkgs.stdenvNoCC.hostPlatform.system};
 in
