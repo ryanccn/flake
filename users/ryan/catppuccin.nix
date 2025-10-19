@@ -4,8 +4,8 @@
 
 {
   catppuccin = {
-    flavor = "macchiato";
-    accent = "sapphire";
+    flavor = "frappe";
+    accent = "blue";
 
     bat.enable = true;
     eza.enable = true;

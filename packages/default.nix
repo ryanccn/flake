@@ -8,7 +8,6 @@
     {
       packages = {
         helix-with-lsps = pkgs.callPackage ./helix-with-lsps.nix { };
-        ibm-plex-compat = pkgs.callPackage ./ibm-plex-compat.nix { };
         ryan-mono-bin = pkgs.callPackage ./ryan-mono-bin.nix { };
       };
     };

@@ -11,7 +11,7 @@ in
     pkgs.inter
     pkgs.lxgw-wenkai
 
-    (pkgs'.ibm-plex-compat.override {
+    (pkgs.ibm-plex.override {
       families = [
         "sans"
         "serif"

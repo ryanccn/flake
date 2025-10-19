@@ -48,7 +48,7 @@ installer_args=(install)
 case "$OSTYPE" in
     linux*)   installer_args+=(linux) ;;
     darwin*)  installer_args+=(macos) ;;
-    *)        echo "unknown: $OSTYPE" ;;
+    *)        echo "Aborting: unsupported OSTYPE $OSTYPE"; exit 1 ;;
 esac
 
 if [[ ! ($OSTYPE =~ darwin || -e /run/systemd/system) ]]; then
