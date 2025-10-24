@@ -53,21 +53,25 @@
     am = {
       url = "github:ryanccn/am";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     nrr = {
       url = "github:ryanccn/nrr";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     nyoom = {
       url = "github:ryanccn/nyoom";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     morlana = {
       url = "github:ryanccn/morlana";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ferrix.follows = "ferrix";
     };
 
     spdx-gen = {

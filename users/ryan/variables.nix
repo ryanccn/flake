@@ -29,6 +29,5 @@
     DOCKER_CONFIG = "${config.xdg.configHome}/docker";
     FLY_CONFIG_DIR = "${config.xdg.stateHome}/fly";
     GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-    GNUPGHOME = "${config.xdg.dataHome}/gnupg";
   };
 }

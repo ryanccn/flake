@@ -19,6 +19,7 @@ in
 
     nix-output-monitor
     nix-melt
+    nvd
 
     fnm
     deno

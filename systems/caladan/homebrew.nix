@@ -24,6 +24,7 @@
 
     brews = [
       "gnupg"
+      "pinentry-mac"
       "pandoc"
     ];
 

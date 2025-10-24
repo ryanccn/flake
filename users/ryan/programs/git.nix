@@ -15,10 +15,10 @@
       ".idea/"
     ];
 
-    userName = "Ryan Cao";
-    userEmail = "70191398+ryanccn@users.noreply.github.com";
+    settings = {
+      user.name = "Ryan Cao";
+      user.email = "hello@ryanccn.dev";
 
-    extraConfig = {
       init.defaultBranch = "main";
 
       commit.gpgSign = true;
@@ -38,12 +38,11 @@
       fetch.pruneTags = true;
       fetch.all = true;
 
-      transfer.fsckObjects = true;
-
       branch.sort = "-committerdate";
       tag.sort = "version:refname";
 
       push.autoSetupRemote = true;
+      transfer.fsckObjects = true;
     };
   };
 
