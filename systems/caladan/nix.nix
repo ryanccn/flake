@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   nix.package = pkgs.nixVersions.latest;
 
@@ -44,6 +49,12 @@
     hostPlatform = "aarch64-darwin";
     # config.allowUnfree = true;
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ ];
+
+    overlays = [
+      (_: prev: {
+        comma = prev.comma.override { nix = config.nix.package; };
+      })
+    ];
   };
 
   environment.variables = {

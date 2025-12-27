@@ -41,9 +41,12 @@ in
     nerdfix
     reuse
     ripgrep
+    shellcheck
     tokei
     vhs
     watchexec
+
+    curl
     xh
 
     exiftool

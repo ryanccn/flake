@@ -14,12 +14,39 @@ permissions:
   contents: read
 
 jobs:
-  nixfmt:
+  collect:
+    runs-on: ubuntu-latest
+    outputs:
+      checks: ${{ steps.checks.outputs.checks }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # ratchet:actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Install Nix
+        run: .github/workflows/install-nix.sh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Collect checks
+        id: checks
+        run: |
+          echo "checks=$(nix eval --impure --json --expr 'builtins.attrNames (builtins.getFlake (toString ./.)).checks.${builtins.currentSystem}')" | tee "$GITHUB_OUTPUT"
+
+  check:
+    needs: collect
+    strategy:
+      matrix:
+        check: ${{ fromJson(needs.collect.outputs.checks) }}
+      fail-fast: false
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # ratchet:actions/checkout@v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # ratchet:actions/checkout@v6
         with:
           persist-credentials: false
 
@@ -29,21 +56,4 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Check
-        run: nix build --print-build-logs '.#checks.x86_64-linux.nixfmt'
-
-  reuse:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # ratchet:actions/checkout@v5
-        with:
-          persist-credentials: false
-
-      - name: Install Nix
-        run: .github/workflows/install-nix.sh
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-
-      - name: Check
-        run: nix build --print-build-logs '.#checks.x86_64-linux.reuse'
+        run: nix build --fallback --print-build-logs '.#checks.x86_64-linux.${{ matrix.check }}'

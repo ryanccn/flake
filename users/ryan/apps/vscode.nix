@@ -31,7 +31,6 @@ let
     "dotjoshjohnson.xml"
     "dprint.dprint"
     "editorconfig.editorconfig"
-    "esbenp.prettier-vscode"
     "github.vscode-github-actions"
     "graphql.vscode-graphql"
     "graphql.vscode-graphql-syntax"
@@ -42,6 +41,7 @@ let
     "ms-python.python"
     "ms-python.vscode-pylance"
     "naumovs.color-highlight"
+    "prettier.prettier-vscode"
     "prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
@@ -73,11 +73,11 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.writeShellApplication {
-      name = "vscode-1.100.2";
+      name = "vscode-1.107.0";
       text = "";
       derivationArgs = {
         pname = "vscode";
-        version = "1.100.2";
+        version = "1.107.0";
       };
     };
 
@@ -127,7 +127,9 @@ in
         # "editor.minimap.renderCharacters" = false;
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.editor.empty.hint" = "hidden";
+
         "chat.disableAIFeatures" = true;
+        "workbench.settings.showAISearchToggle" = false;
 
         "editor.inlineSuggest.enabled" = true;
         "editor.tabSize" = 2;
@@ -149,7 +151,7 @@ in
           };
         };
 
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "editor.defaultFormatter" = "prettier.prettier-vscode";
 
         "javascript.preferGoToSourceDefinition" = true;
         "typescript.preferGoToSourceDefinition" = true;
