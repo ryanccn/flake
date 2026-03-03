@@ -31,6 +31,7 @@ let
     "dotjoshjohnson.xml"
     "dprint.dprint"
     "editorconfig.editorconfig"
+    "esbenp.prettier-vscode"
     "github.vscode-github-actions"
     "graphql.vscode-graphql"
     "graphql.vscode-graphql-syntax"
@@ -41,7 +42,6 @@ let
     "ms-python.python"
     "ms-python.vscode-pylance"
     "naumovs.color-highlight"
-    "prettier.prettier-vscode"
     "prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
@@ -141,6 +141,7 @@ in
         "terminal.integrated.lineHeight" = 1.5;
         "terminal.integrated.cursorBlinking" = true;
         "terminal.integrated.inheritEnv" = false;
+        "terminal.integrated.initialHint" = false;
         "terminal.integrated.enablePersistentSessions" = false;
         "terminal.integrated.shellIntegration.enabled" = false;
         "terminal.integrated.defaultProfile.osx" = "fish";
@@ -151,7 +152,7 @@ in
           };
         };
 
-        "editor.defaultFormatter" = "prettier.prettier-vscode";
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
 
         "javascript.preferGoToSourceDefinition" = true;
         "typescript.preferGoToSourceDefinition" = true;
@@ -204,7 +205,7 @@ in
         "nix.serverPath" = lib.getExe pkgs.nil;
         "nix.serverSettings" = {
           "nil" = {
-            formatting.command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
+            formatting.command = [ (lib.getExe pkgs.nixfmt) ];
             nix.flake.autoArchive = false;
           };
         };

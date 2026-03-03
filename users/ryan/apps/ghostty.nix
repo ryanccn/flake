@@ -15,6 +15,7 @@
     settings = {
       theme = "Catppuccin ${lib.toSentenceCase config.catppuccin.flavor}";
       window-colorspace = "display-p3";
+      auto-update-channel = "tip";
 
       font-family = "Ryan Term";
       font-size = 14;

@@ -35,7 +35,7 @@
           name = "nixfmt";
           command = "find . -name '*.nix' -exec nixfmt --check {} +";
 
-          nativeBuildInputs = with pkgs; [ nixfmt-rfc-style ];
+          nativeBuildInputs = with pkgs; [ nixfmt ];
         };
 
         reuse = mkFlakeCheck {
@@ -46,6 +46,6 @@
         };
       };
 
-      formatter = pkgs.nixfmt-rfc-style;
+      formatter = pkgs.nixfmt;
     };
 }

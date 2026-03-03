@@ -13,7 +13,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
     statix
     deadnix
 
