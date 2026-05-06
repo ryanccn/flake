@@ -5,6 +5,7 @@
 {
   programs.tealdeer = {
     enable = true;
+    enableAutoUpdates = false;
     settings = {
       display.compact = true;
     };

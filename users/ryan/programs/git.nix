@@ -15,15 +15,18 @@
       ".idea/"
     ];
 
+    signing = {
+      format = "ssh";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM4VfgP5+HdCmM/VpTcW8jLKLyR8s0qqoIDXv7iTnWlR";
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      signByDefault = true;
+    };
+
     settings = {
       user.name = "Ryan Cao";
       user.email = "hello@ryanccn.dev";
 
       init.defaultBranch = "main";
-
-      commit.gpgSign = true;
-      gpg.format = "openpgp";
-      user.signingKey = "F605AB4AF937D5D0";
 
       column.ui = "auto";
       log.date = "iso";

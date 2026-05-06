@@ -9,7 +9,7 @@
   ...
 }:
 let
-  defaultPackages = lib.mapAttrs (_: value: value.packages.default) inputs';
+  inputPackage = lib.mapAttrs (_: value: value.packages.default) inputs';
 in
 {
   environment.systemPackages = with pkgs; [
@@ -19,7 +19,6 @@ in
 
     nix-output-monitor
     nix-melt
-    nvd
 
     fnm
     deno
@@ -38,7 +37,6 @@ in
     hyperfine
     jq
     just
-    nerdfix
     reuse
     ripgrep
     shellcheck
@@ -53,12 +51,10 @@ in
     ffmpeg
     typst
 
-    defaultPackages.nrr
-    defaultPackages.am
-    defaultPackages.nyoom
-    defaultPackages.morlana
-    defaultPackages.spdx-gen
-    defaultPackages.moldau
-    defaultPackages.arkencrab
+    inputPackage.nrr
+    inputPackage.am
+    inputPackage.morlana
+    inputPackage.moldau
+    inputPackage.arkencrab
   ];
 }
