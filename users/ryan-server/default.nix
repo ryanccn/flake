@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Ryan Cao <hello@ryanccn.dev>
+# SPDX-FileCopyrightText: 2026 Ryan Cao <hello@ryanccn.dev>
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -12,9 +12,6 @@
 
     ../shared/variables.nix
     ../shared/catppuccin.nix
-
-    ../shared/apps/vscode.nix
-    ../shared/apps/ghostty.nix
 
     ../shared/programs/fish.nix
     ../shared/programs/zsh.nix
@@ -36,5 +33,5 @@
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 }

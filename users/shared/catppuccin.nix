@@ -4,7 +4,10 @@
 
 {
   catppuccin = {
-    flavor = "frappe";
+    enable = true;
+    autoEnable = false;
+
+    flavor = "latte";
     accent = "blue";
 
     bat.enable = true;

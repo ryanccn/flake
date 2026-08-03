@@ -21,8 +21,8 @@ in
     nix-melt
 
     fnm
-    deno
-    bun
+    # deno
+    # bun
 
     uv
     ruff
@@ -42,7 +42,7 @@ in
     shellcheck
     tokei
     vhs
-    watchexec
+    # watchexec
 
     curl
     xh
@@ -55,6 +55,5 @@ in
     inputPackage.am
     inputPackage.morlana
     inputPackage.moldau
-    inputPackage.arkencrab
   ];
 }

@@ -5,6 +5,7 @@
 {
   inputs,
   withSystem,
+  lib,
   ...
 }:
 let
@@ -17,11 +18,22 @@ let
     };
 in
 {
-  flake.darwinConfigurations = {
-    caladan = inputs.nix-darwin.lib.darwinSystem {
+  flake.nixosConfigurations = {
+    umiri = lib.nixosSystem {
       modules = [
         specialArgsModule
-        ./caladan
+        ./umiri
+      ];
+
+      specialArgs = { inherit inputs; };
+    };
+  };
+
+  flake.darwinConfigurations = {
+    tomori = inputs.nix-darwin.lib.darwinSystem {
+      modules = [
+        specialArgsModule
+        ./tomori
       ];
 
       specialArgs = { inherit inputs; };

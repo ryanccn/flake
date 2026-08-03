@@ -73,11 +73,11 @@ in
   programs.vscode = {
     enable = true;
     package = pkgs.writeShellApplication {
-      name = "vscode-1.107.0";
+      name = "vscode-1.129.1";
       text = "";
       derivationArgs = {
         pname = "vscode";
-        version = "1.107.0";
+        version = "1.129.1";
       };
     };
 
@@ -89,7 +89,9 @@ in
         "workbench.colorTheme" = "Catppuccin ${flavorName}";
         "workbench.iconTheme" = "catppuccin-${config.catppuccin.flavor}";
         "workbench.sideBar.location" = "left";
-        "workbench.activityBar.location" = "top";
+        "workbench.activityBar.compact" = true;
+        "workbench.commandPalette.history" = 0;
+        "workbench.experimental.modernUI" = true;
 
         "editor.semanticHighlighting.enabled" = true;
         "terminal.integrated.minimumContrastRatio" = 1;

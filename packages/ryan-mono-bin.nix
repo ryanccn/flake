@@ -6,13 +6,14 @@
   lib,
   stdenvNoCC,
   fetchzip,
+  installFonts,
 }:
 let
-  version = "2025.04.28";
+  version = "2026.05.23";
 
   hashes = {
-    "ryan-mono" = "sha256-UPw0L5j7h9YcmI1nvgqg0kgYKLi8Ip4ghYzwpanoaqE=";
-    "ryan-term" = "sha256-uu6lEfhtnAp8v50jvY9oXPnOFnDoIAWxxAAjNIXQbec=";
+    "ryan-mono" = "sha256-Z2TBc/B45Z5R69WKTLCxbqjrF2WrhLR5ENxd83GP2WU=";
+    "ryan-term" = "sha256-tVK/uK9AMf0VytGHImIBQWKlHHCxRDXqGL0RsltgXCk=";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -22,24 +23,19 @@ stdenvNoCC.mkDerivation {
   srcs = lib.mapAttrsToList (
     family: hash:
     fetchzip {
+      name = "${family}-src";
       url = "https://github.com/ryanccn/ryan-mono/releases/download/v${version}/${family}.tar.xz";
       inherit hash;
     }
   ) hashes;
 
   sourceRoot = ".";
-  dontUnpack = true;
+  nativeBuildInputs = [ installFonts ];
 
-  installPhase = ''
-    runHook preInstall
-    find $srcs -type f -name '*.ttf' -exec install -Dm644 {} -t $out/share/fonts/truetype \;
-    runHook postInstall
-  '';
-
-  meta = with lib; {
+  meta = {
     description = "Ryan's homemade Iosevka build";
     homepage = "https://github.com/ryanccn/ryan-mono";
-    platforms = platforms.all;
-    license = licenses.ofl;
+    platforms = lib.platforms.all;
+    license = lib.licenses.ofl;
   };
 }

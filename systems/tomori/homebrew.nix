@@ -18,8 +18,8 @@
 
     onActivation = {
       autoUpdate = true;
-      cleanup = "uninstall";
       upgrade = true;
+      extraFlags = [ "--force-cleanup" ];
     };
 
     brews = [
@@ -29,6 +29,7 @@
     ];
 
     casks = [
+      "ungoogled-chromium"
       "blackhole-16ch"
     ];
   };

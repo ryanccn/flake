@@ -2,11 +2,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+if test -d "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password"
+    set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+end
 
-/opt/homebrew/bin/brew shellenv | source
+if command -q brew
+    /opt/homebrew/bin/brew shellenv | source
+end
 
-fnm env --use-on-cd | source
+if command -q fnm
+    fnm env --use-on-cd | source
+end
 
 fish_add_path -P "$CARGO_HOME/bin"
 fish_add_path -P "$GOPATH/bin"
