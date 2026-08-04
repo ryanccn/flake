@@ -16,14 +16,11 @@
     ../shared/programs/fish.nix
     ../shared/programs/zsh.nix
     ../shared/programs/starship.nix
-    ../shared/programs/direnv.nix
 
     ../shared/programs/git.nix
     ../shared/programs/bat.nix
     ../shared/programs/helix.nix
-    ../shared/programs/go.nix
     ../shared/programs/eza.nix
-    ../shared/programs/rust.nix
     ../shared/programs/tealdeer.nix
   ];
 

@@ -28,6 +28,8 @@
     ../shared/programs/eza.nix
     ../shared/programs/rust.nix
     ../shared/programs/tealdeer.nix
+
+    ./fonts.nix
   ];
 
   programs.bash.enable = true;

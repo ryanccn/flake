@@ -4,7 +4,6 @@
 
 {
   pkgs,
-  lib,
   config,
   ...
 }:
@@ -26,18 +25,19 @@
 
     sandbox = true;
     use-xdg-base-directories = true;
+    auto-optimise-store = true;
 
     extra-substituters = [ ];
     extra-trusted-public-keys = [ ];
   };
 
-  nixpkgs = {
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ ];
-
-    overlays = [
-      (_: prev: {
-        comma = prev.comma.override { nix = config.nix.package; };
-      })
-    ];
+  nix.gc = {
+    automatic = true;
   };
+
+  nixpkgs.overlays = [
+    (_: prev: {
+      comma = prev.comma.override { nix = config.nix.package; };
+    })
+  ];
 }

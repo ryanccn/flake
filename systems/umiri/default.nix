@@ -4,6 +4,7 @@
 
 {
   pkgs,
+  lib,
   inputs,
   inputs',
   ...
@@ -29,7 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    helix
+    ghostty.terminfo
   ];
 
   networking.hostName = "umiri";
@@ -47,10 +48,10 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  programs.fish.enable = true;
-  programs.starship.enable = true;
-
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   services.openssh = {
     enable = true;
@@ -58,6 +59,7 @@
   };
   services.tailscale = {
     enable = true;
+    extraUpFlags = [ "--ssh" ];
   };
 
   home-manager = {
@@ -72,6 +74,14 @@
     };
 
     users.ryan = import "${inputs.self}/users/ryan-server";
+  };
+
+  system.activationScripts.dix = {
+    supportsDryActivation = true;
+
+    text = ''
+      ${lib.getExe pkgs.dix} /run/current-system "$systemConfig"
+    '';
   };
 
   system.stateVersion = "26.05"; # I read the comment
