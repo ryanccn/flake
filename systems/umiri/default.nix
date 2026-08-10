@@ -57,9 +57,27 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
+
   services.tailscale = {
     enable = true;
-    extraUpFlags = [ "--ssh" ];
+    extraUpFlags = [
+      "--ssh"
+      "--accept-dns=false"
+    ];
+  };
+
+  services.resolved = {
+    enable = true;
+    settings.Resolve = {
+      DNS = [
+        "1.1.1.1#cloudflare-dns.com"
+        "1.0.0.1#cloudflare-dns.com"
+        "2606:4700:4700::1111#cloudflare-dns.com"
+        "2606:4700:4700::1001#cloudflare-dns.com"
+      ];
+      DNSSEC = true;
+      DNSOverTLS = true;
+    };
   };
 
   home-manager = {

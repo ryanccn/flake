@@ -7,7 +7,7 @@
     enable = true;
     autoEnable = false;
 
-    flavor = "latte";
+    flavor = "frappe";
     accent = "blue";
 
     bat.enable = true;
