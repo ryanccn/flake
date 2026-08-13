@@ -66,17 +66,24 @@
     ];
   };
 
-  services.resolved = {
+  services.unbound = {
     enable = true;
-    settings.Resolve = {
-      DNS = [
-        "1.1.1.1#cloudflare-dns.com"
-        "1.0.0.1#cloudflare-dns.com"
-        "2606:4700:4700::1111#cloudflare-dns.com"
-        "2606:4700:4700::1001#cloudflare-dns.com"
+    settings = {
+      server = {
+        num-threads = 8;
+      };
+      forward-zone = [
+        {
+          name = ".";
+          forward-tls-upstream = true;
+          forward-addr = [
+            "1.1.1.1@853#cloudflare-dns.com"
+            "1.0.0.1@853#cloudflare-dns.com"
+            "2606:4700:4700::1111@853#cloudflare-dns.com"
+            "2606:4700:4700::1001@853#cloudflare-dns.com"
+          ];
+        }
       ];
-      DNSSEC = true;
-      DNSOverTLS = true;
     };
   };
 
