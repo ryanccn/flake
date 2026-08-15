@@ -24,7 +24,7 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "docker"
+      "podman"
     ];
   };
 
@@ -48,8 +48,9 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
+    dockerSocket.enable = true;
     autoPrune.enable = true;
   };
 
