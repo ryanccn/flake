@@ -6,32 +6,12 @@ if test -d "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password"
     set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 end
 
-if test -x /opt/homebrew/bin/brew
-    /opt/homebrew/bin/brew shellenv | source
-end
-
 if command -q fnm
     fnm env --use-on-cd | source
 end
 
 fish_add_path -P "$CARGO_HOME/bin"
 fish_add_path -P "$GOPATH/bin"
-fish_add_path -P "$HOME/.deno/bin"
-fish_add_path -P "$HOME/.orbstack/bin"
 fish_add_path -P "$HOME/.local/bin"
-
-function expose_app_to_path
-    set -f app $argv[1]
-
-    if test -d "$HOME/Applications/$app.app"
-        fish_add_path -P "$HOME/Applications/$app.app/Contents/MacOS"
-    end
-    if test -d "/Applications/$app.app"
-        fish_add_path -P "/Applications/$app.app/Contents/MacOS"
-    end
-end
-
-expose_app_to_path Ghostty
-expose_app_to_path WezTerm
 
 set fish_greeting

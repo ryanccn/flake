@@ -12,6 +12,10 @@
   homebrew = {
     enable = true;
 
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+
     caskArgs = {
       require_sha = true;
     };

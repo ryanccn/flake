@@ -29,6 +29,8 @@
 
       command = "/run/current-system/sw/bin/fish -l";
 
+      background-opacity = 0.9;
+      background-blur = "macos-glass-regular";
       macos-option-as-alt = true;
       macos-secure-input-indication = false;
 
