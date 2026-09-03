@@ -21,48 +21,38 @@ let
   extensions = [
     "astro-build.astro-vscode"
     "bierner.lit-html"
-    "bmalehorn.vscode-fish"
     "bradlc.vscode-tailwindcss"
     "catppuccin.catppuccin-vsc"
     "catppuccin.catppuccin-vsc-icons"
     "charliermarsh.ruff"
     "dbaeumer.vscode-eslint"
-    "denoland.vscode-deno"
-    "dotjoshjohnson.xml"
     "dprint.dprint"
     "editorconfig.editorconfig"
     "esbenp.prettier-vscode"
     "github.vscode-github-actions"
-    "graphql.vscode-graphql"
-    "graphql.vscode-graphql-syntax"
     "golang.go"
     "jnoortheen.nix-ide"
-    "ms-python.debugpy"
-    "ms-python.isort"
+    "mkhl.direnv"
     "ms-python.python"
     "ms-python.vscode-pylance"
     "naumovs.color-highlight"
-    "prisma.prisma"
     "ronnidc.nunjucks"
     "rust-lang.rust-analyzer"
     "skellock.just"
     "svelte.svelte-vscode"
     "tamasfe.even-better-toml"
     "timonwong.shellcheck"
-    "unifiedjs.vscode-mdx"
     "usernamehw.errorlens"
     "vue.volar"
     "yoavbls.pretty-ts-errors"
+    "ziglang.vscode-zig"
   ];
 
   defaultFormatters = {
     "[python]" = "charliermarsh.ruff";
-    "[cpp]" = "xaver.clang-format";
     "[toml]" = "tamasfe.even-better-toml";
     "[svelte]" = "svelte.svelte-vscode";
     "[go][go.mod][go.sum]" = "golang.go";
-    "[xml]" = "DotJoshJohnson.xml";
-    "[fish]" = "bmalehorn.vscode-fish";
     "[just]" = "skellock.just";
     "[astro]" = "astro-build.astro-vscode";
     "[rust]" = "rust-lang.rust-analyzer";
@@ -72,17 +62,7 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.writeShellApplication {
-      name = "vscode-1.129.1";
-      text = "";
-      derivationArgs = {
-        pname = "vscode";
-        version = "1.129.1";
-      };
-    };
-
-    profiles.default.extensions = [ ];
-    mutableExtensionsDir = true;
+    package = null;
 
     profiles.default.userSettings = builtins.foldl' lib.recursiveUpdate { } [
       {
@@ -123,10 +103,7 @@ in
         "editor.fontLigatures" = true;
         "editor.fontSize" = 16;
         "editor.lineHeight" = 1.5;
-        # "editor.cursorBlinking" = "phase";
-        # "editor.cursorSmoothCaretAnimation" = "on";
         "editor.minimap.enabled" = false;
-        # "editor.minimap.renderCharacters" = false;
         "workbench.editor.highlightModifiedTabs" = true;
         "workbench.editor.empty.hint" = "hidden";
 
@@ -159,8 +136,6 @@ in
         "javascript.preferGoToSourceDefinition" = true;
         "typescript.preferGoToSourceDefinition" = true;
         "typescript.enablePromptUseWorkspaceTsdk" = true;
-
-        "eslint.useFlatConfig" = true;
 
         "shellcheck.ignorePatterns".".envrc" = true;
         "tailwindCSS.includeLanguages" = {

@@ -9,17 +9,16 @@ let
       lib,
       symlinkJoin,
       makeBinaryWrapper,
-      git,
+      gitMinimal,
     }:
     symlinkJoin {
-      pname = "${git.pname}-wrapped";
-      inherit (git) version meta;
-      paths = [ git ];
+      inherit (gitMinimal) pname version meta;
+      paths = [ gitMinimal ];
 
       nativeBuildInputs = [ makeBinaryWrapper ];
 
       postBuild = ''
-        wrapProgram $out/bin/${git.meta.mainProgram} \
+        wrapProgram $out/bin/${gitMinimal.meta.mainProgram} \
           --set TZ UTC
       '';
     }

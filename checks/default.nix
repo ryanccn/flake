@@ -9,7 +9,7 @@
     let
       mkFlakeCheck =
         args:
-        pkgs.stdenv.mkDerivation (
+        pkgs.stdenvNoCC.mkDerivation (
           {
             name = "check-${args.name}";
             src = self;

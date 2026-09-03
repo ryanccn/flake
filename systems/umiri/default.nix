@@ -18,7 +18,9 @@
   ];
 
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.tmp.cleanOnBoot = true;
 
   users.users.ryan = {
     isNormalUser = true;
@@ -46,7 +48,10 @@
     ];
   };
 
-  security.sudo.wheelNeedsPassword = false;
+  security.sudo = {
+    wheelNeedsPassword = false;
+    execWheelOnly = true;
+  };
 
   virtualisation.podman = {
     enable = true;
@@ -87,6 +92,14 @@
       ];
     };
   };
+
+  fonts.fontconfig.enable = false;
+  xdg.autostart.enable = false;
+  xdg.icons.enable = false;
+  xdg.menus.enable = false;
+  xdg.mime.enable = false;
+  xdg.sounds.enable = false;
+  time.timeZone = "UTC";
 
   home-manager = {
     useGlobalPkgs = true;
