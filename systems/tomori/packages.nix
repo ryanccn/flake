@@ -20,7 +20,7 @@ in
     nix-output-monitor
     nix-melt
 
-    fnm
+    # fnm
     # deno
     # bun
 
