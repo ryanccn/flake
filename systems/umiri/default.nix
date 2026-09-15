@@ -48,6 +48,10 @@
     ];
   };
 
+  security.run0 = {
+    enable = true;
+    wheelNeedsPassword = false;
+  };
   security.sudo = {
     wheelNeedsPassword = false;
     execWheelOnly = true;
