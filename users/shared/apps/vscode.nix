@@ -126,7 +126,7 @@ in
         "terminal.integrated.defaultProfile.osx" = "fish";
         "terminal.integrated.profiles.osx" = {
           "fish" = {
-            "path" = "/run/current-system/sw/bin/fish";
+            "path" = "${lib.getExe pkgs.fish}";
             "args" = [ "-l" ];
           };
         };

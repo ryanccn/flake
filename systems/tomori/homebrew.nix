@@ -10,7 +10,7 @@
   };
 
   homebrew = {
-    enable = true;
+    enable = false;
 
     enableBashIntegration = true;
     enableZshIntegration = true;
@@ -25,16 +25,5 @@
       upgrade = true;
       extraFlags = [ "--force-cleanup" ];
     };
-
-    brews = [
-      "gnupg"
-      "pinentry-mac"
-      "pandoc"
-    ];
-
-    casks = [
-      "ungoogled-chromium"
-      "blackhole-16ch"
-    ];
   };
 }

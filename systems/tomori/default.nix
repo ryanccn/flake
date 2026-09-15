@@ -16,11 +16,12 @@
     ./homebrew.nix
   ];
 
-  security.pam.services.sudo_local.touchIdAuth = true;
-
-  programs.bash.enable = true;
-  programs.zsh.enable = true;
   programs.fish.enable = true;
+
+  security.pam.services.sudo_local = {
+    enable = true;
+    touchIdAuth = true;
+  };
 
   home-manager = {
     useGlobalPkgs = true;

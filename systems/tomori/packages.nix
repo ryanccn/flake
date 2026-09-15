@@ -47,9 +47,11 @@ in
     curl
     xh
 
+    gnupg
     exiftool
     ffmpeg
     typst
+    pandoc
 
     inputPackage.nrr
     inputPackage.am

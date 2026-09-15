@@ -9,11 +9,11 @@
   installFonts,
 }:
 let
-  version = "2026.05.23";
+  version = "2026.09.13";
 
   hashes = {
-    "ryan-mono" = "sha256-Z2TBc/B45Z5R69WKTLCxbqjrF2WrhLR5ENxd83GP2WU=";
-    "ryan-term" = "sha256-tVK/uK9AMf0VytGHImIBQWKlHHCxRDXqGL0RsltgXCk=";
+    "ryan-mono" = "sha256-5NgrYdofTD5qWABJ5BIhhQfahPnQXLXFpm4w1/TDue4=";
+    "ryan-term" = "sha256-aYUBvcoqbQ2eJJ+D/1AzIGR956Mk/ODUj1GOs3G/Vtc=";
   };
 in
 stdenvNoCC.mkDerivation {

@@ -5,6 +5,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 {
@@ -27,7 +28,7 @@
       adjust-cell-height = "25%";
       adjust-underline-position = 5;
 
-      command = "/run/current-system/sw/bin/fish -l";
+      command = "${lib.getExe pkgs.fish} -l";
 
       background-opacity = 0.9;
       background-blur = "macos-glass-regular";
