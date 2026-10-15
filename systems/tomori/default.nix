@@ -41,6 +41,9 @@
     home = "/Users/ryan";
   };
 
+  # https://github.com/nix-darwin/nix-darwin/pull/1724
+  services.openssh.hostKeys = [ ];
+
   system.primaryUser = "ryan";
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 6;

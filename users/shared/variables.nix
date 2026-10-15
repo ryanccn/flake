@@ -19,7 +19,6 @@
     CSC_IDENTITY_AUTO_DISCOVERY = "false";
 
     COMMA_NIXPKGS_FLAKE = "nixpkgs";
-    COMMA_PICKER = "fzf";
 
     LESSHISTFILE = "${config.xdg.stateHome}/less/history";
     NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
@@ -27,7 +26,5 @@
     NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     DOCKER_CONFIG = "${config.xdg.configHome}/docker";
-    FLY_CONFIG_DIR = "${config.xdg.stateHome}/fly";
-    GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
   };
 }

@@ -54,14 +54,14 @@
     };
   };
 
-  programs.fzf = {
-    enable = true;
-    defaultOptions = [
-      "--height 40%"
-      "--layout reverse"
-      "--border"
-    ];
-  };
+  # programs.fzf = {
+  #   enable = true;
+  #   defaultOptions = [
+  #     "--height 40%"
+  #     "--layout reverse"
+  #     "--border"
+  #   ];
+  # };
 
   programs.zoxide = {
     enable = true;

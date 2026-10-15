@@ -16,23 +16,15 @@ in
     nixfmt
     statix
     deadnix
-
     nix-output-monitor
-    nix-melt
-
-    # fnm
-    # deno
-    # bun
 
     uv
     ruff
     yt-dlp
-    xkcdpass
 
     doggo
     doppler
     dprint
-    dust
     fd
     hyperfine
     jq
@@ -41,8 +33,7 @@ in
     ripgrep
     shellcheck
     tokei
-    vhs
-    # watchexec
+    watchexec
 
     curl
     xh
@@ -50,11 +41,9 @@ in
     gnupg
     exiftool
     ffmpeg
-    typst
     pandoc
 
     inputPackage.nrr
-    inputPackage.am
     inputPackage.morlana
     inputPackage.moldau
   ];

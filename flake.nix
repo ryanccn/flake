@@ -45,12 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    am = {
-      url = "github:ryanccn/am";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.ferrix.follows = "ferrix";
-    };
-
     nrr = {
       url = "github:ryanccn/nrr";
       inputs.nixpkgs.follows = "nixpkgs";
