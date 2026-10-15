@@ -62,6 +62,9 @@
     dockerSocket.enable = true;
     autoPrune.enable = true;
   };
+  systemd.timers.podman-auto-update = {
+    wantedBy = [ "timers.target" ];
+  };
 
   services.openssh = {
     enable = true;
