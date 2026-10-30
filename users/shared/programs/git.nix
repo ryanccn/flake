@@ -6,7 +6,6 @@
 let
   gitWrapped = pkgs.callPackage (
     {
-      lib,
       symlinkJoin,
       makeBinaryWrapper,
       gitMinimal,

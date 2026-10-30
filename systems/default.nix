@@ -9,19 +9,21 @@
   ...
 }:
 let
-  specialArgsModule =
+  commonModule =
     { pkgs, ... }:
     {
       _module.args = {
         inputs' = withSystem pkgs.stdenvNoCC.hostPlatform.system (builtins.getAttr "inputs'");
       };
+
+      system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
     };
 in
 {
   flake.nixosConfigurations = {
     umiri = lib.nixosSystem {
       modules = [
-        specialArgsModule
+        commonModule
         ./umiri
       ];
 
@@ -32,7 +34,7 @@ in
   flake.darwinConfigurations = {
     tomori = inputs.nix-darwin.lib.darwinSystem {
       modules = [
-        specialArgsModule
+        commonModule
         ./tomori
       ];
 
